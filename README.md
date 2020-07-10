@@ -18,8 +18,6 @@
     - [Posts Service Creation](#posts-service-creation)
     - [Implementing a Comments Service](#implementing-a-comments-service)
     - [React Project Setup](#react-project-setup)
-    - [Displaying Comments](#displaying-comments)
-    - [Completed React App](#completed-react-app)
     - [Request Minimization Strategies](#request-minimization-strategies)
     - [An Async Solution](#an-async-solution)
     - [Common Questions Around Async Events](#common-questions-around-async-events)
@@ -224,12 +222,6 @@ Initial App Setup
 
 ![](section-02/react-client.jpg)
 
-**[⬆ back to top](#table-of-contents)**
-
-### Displaying Comments
-**[⬆ back to top](#table-of-contents)**
-
-### Completed React App
 **[⬆ back to top](#table-of-contents)**
 
 ### Request Minimization Strategies
