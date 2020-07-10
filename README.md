@@ -244,12 +244,52 @@ Notes on Sync Communication
 **[⬆ back to top](#table-of-contents)**
 
 ### An Async Solution
+
+![](section-02/async-communication.jpg)
+![](section-02/async-communication-step-1.jpg)
+![](section-02/async-communication-step-2.jpg)
+![](section-02/async-communication-step-3.jpg)
+![](section-02/async-communication-step-4.jpg)
+![](section-02/async-communication-step-5.jpg)
+
+Notes on Async Communication
+
+| Pros                                               | Cons                 |
+| -------------------------------------------------- | -------------------- |
+| Service D has zero dependencies on other services! | Data duplication.    |
+| Service D will be extremely fast!                  | Harder to understand |
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Common Questions Around Async Events
+
+
+Wait, so you're saying we need to create a new service every time we need to join some data?!?!?!?!?!?
+> Absolutely not!  In reality, might not even have posts and comments in separate services in the first place
+
+Who cares that each service is independent?
+> Independent services + the reliability that brings is one of the core reasons of using microservices in the first place
+
+This is so over the top complicated for little benefit
+> Seems that way now!  Adding in some features starts to get really easy when we use this architecture
+
+This system won't correctly in the following scenario....
+> There are some very special things we need to consider with this design.  I've got solutions for most (maybe?) of the concerns you may have
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Event Bus Overview
+
+Event Bus
+
+- Many different implementations. RabbitMQ, Kafka, NATS...
+- Receives events, publishes them to listeners
+- Many different subtle features that make async communication way easier or way harder
+- We are going to build our own event bus using Express. It will not implement the vast majority of features a normal bus has.
+- Yes, for our next app we will use a production grade, open source event bus
+
+![](section-02/event-bus.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### A Basic Event Bus Implementation
