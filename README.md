@@ -23,7 +23,7 @@
     - [Common Questions Around Async Events](#common-questions-around-async-events)
     - [Event Bus Overview](#event-bus-overview)
     - [A Basic Event Bus Implementation](#a-basic-event-bus-implementation)
-    - [Emitting Events](#emitting-events)
+    - [Emitting Post Createion Events](#emitting-post-createion-events)
     - [Emitting Comment Creation Events](#emitting-comment-creation-events)
     - [Receiving Events](#receiving-events)
     - [Creating the Data Query Service](#creating-the-data-query-service)
@@ -295,6 +295,7 @@ Event Bus
 ### A Basic Event Bus Implementation
 
 ```javascript
+// event-bus/index.js
 const express = require('express');
 const bodyParser = require('body-parser');
 const axios = require('axios');
@@ -319,7 +320,31 @@ app.listen(4005, () => {
 
 **[⬆ back to top](#table-of-contents)**
 
-### Emitting Events
+### Emitting Post Createion Events
+
+```javascript
+// posts/index.js
+app.post('/posts', async (req, res) => {
+  const id = randomBytes(4).toString('hex');
+  const { title } = req.body;
+
+  posts[id] = {
+    id,
+    title
+  };
+
+  await axios.post('http://localhost:4005/events', {
+    type: 'PostCreated',
+    data: {
+      id,
+      title
+    }
+  });
+
+  res.status(201).send(posts[id]);
+});
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Emitting Comment Creation Events
