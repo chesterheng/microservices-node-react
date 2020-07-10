@@ -12,7 +12,45 @@
     - [Async: Event-Based Communication](#async-event-based-communication)
     - [Async: A Crazy Way of Storing Data](#async-a-crazy-way-of-storing-data)
     - [Pros and Cons of Async Communication](#pros-and-cons-of-async-communication)
-  - [**A Mini-Microservices App**](#a-mini-microservices-app)
+  - [**Section 02: A Mini-Microservices App**](#section-02-a-mini-microservices-app)
+    - [App Overview](#app-overview)
+    - [Project Setup](#project-setup)
+    - [Posts Service Creation](#posts-service-creation)
+    - [Testing the Posts Service](#testing-the-posts-service)
+    - [Implementing a Comments Service](#implementing-a-comments-service)
+    - [Quick Comments Test](#quick-comments-test)
+    - [Note on the React App](#note-on-the-react-app)
+    - [React Project Setup](#react-project-setup)
+    - [Building Post Submission](#building-post-submission)
+    - [Handling CORS Errors](#handling-cors-errors)
+    - [Fetching and Rendering Posts](#fetching-and-rendering-posts)
+    - [Creating Comments](#creating-comments)
+    - [Displaying Comments](#displaying-comments)
+    - [Completed React App](#completed-react-app)
+    - [Request Minimization Strategies](#request-minimization-strategies)
+    - [An Async Solution](#an-async-solution)
+    - [Common Questions Around Async Events](#common-questions-around-async-events)
+    - [Event Bus Overview](#event-bus-overview)
+    - [A Basic Event Bus Implementation](#a-basic-event-bus-implementation)
+    - [Emitting Events](#emitting-events)
+    - [Emitting Comment Creation Events](#emitting-comment-creation-events)
+    - [Receiving Events](#receiving-events)
+    - [Creating the Data Query Service](#creating-the-data-query-service)
+    - [Parsing Incoming Events](#parsing-incoming-events)
+    - [Using the Query Service](#using-the-query-service)
+    - [Adding a Simple Feature](#adding-a-simple-feature)
+    - [Issues with Comment Filtering](#issues-with-comment-filtering)
+    - [A Second Approach](#a-second-approach)
+    - [How to Handle Resource Updates](#how-to-handle-resource-updates)
+    - [Creating the Moderation Service](#creating-the-moderation-service)
+    - [Adding Comment Moderation](#adding-comment-moderation)
+    - [Handling Moderation](#handling-moderation)
+    - [Updating Comment Content](#updating-comment-content)
+    - [A Quick Test](#a-quick-test)
+    - [Rendering Comments by Status](#rendering-comments-by-status)
+    - [Dealing with Missing Events](#dealing-with-missing-events)
+    - [Implementing Event Sync](#implementing-event-sync)
+    - [Event Syncing in Action](#event-syncing-in-action)
   - [**Running Services with Docker**](#running-services-with-docker)
   - [**Orchestrating Collections of Services with Kubernetes**](#orchestrating-collections-of-services-with-kubernetes)
   - [**Architecture of Multi-Service Apps**](#architecture-of-multi-service-apps)
@@ -143,8 +181,145 @@ Service D: Given the ID of a user, show the title and image for every product th
 
 **[⬆ back to top](#table-of-contents)**
 
-## **A Mini-Microservices App**
+## **Section 02: A Mini-Microservices App**
 
+### App Overview
+
+Goals
+
+- Get a taste of a microservices architecture
+- Build as much as possible from scratch
+
+![](section-02/app-overview-1.jpg)
+![](section-02/app-overview-2.jpg)
+
+What services should we create?
+
+- For now, we will create one separate service for each resource in our app
+
+![](section-02/what-services.jpg)
+![](section-02/service-per-resource.jpg)
+
+**[⬆ back to top](#table-of-contents)**
+
+### Project Setup
+
+![](section-02/project-setup.jpg)
+
+Initial App Setup
+
+- Generate a new React App using Create-React-App
+- Create an Express-based project for the Posts Service
+- Create an Express-based project for the Comments Service
+
+**[⬆ back to top](#table-of-contents)**
+
+### Posts Service Creation
+**[⬆ back to top](#table-of-contents)**
+
+### Testing the Posts Service
+**[⬆ back to top](#table-of-contents)**
+
+### Implementing a Comments Service
+**[⬆ back to top](#table-of-contents)**
+
+### Quick Comments Test
+**[⬆ back to top](#table-of-contents)**
+
+### Note on the React App
+**[⬆ back to top](#table-of-contents)**
+
+### React Project Setup
+**[⬆ back to top](#table-of-contents)**
+
+### Building Post Submission
+**[⬆ back to top](#table-of-contents)**
+
+### Handling CORS Errors
+**[⬆ back to top](#table-of-contents)**
+
+### Fetching and Rendering Posts
+**[⬆ back to top](#table-of-contents)**
+
+### Creating Comments
+**[⬆ back to top](#table-of-contents)**
+
+### Displaying Comments
+**[⬆ back to top](#table-of-contents)**
+
+### Completed React App
+**[⬆ back to top](#table-of-contents)**
+
+### Request Minimization Strategies
+**[⬆ back to top](#table-of-contents)**
+
+### An Async Solution
+**[⬆ back to top](#table-of-contents)**
+
+### Common Questions Around Async Events
+**[⬆ back to top](#table-of-contents)**
+
+### Event Bus Overview
+**[⬆ back to top](#table-of-contents)**
+
+### A Basic Event Bus Implementation
+**[⬆ back to top](#table-of-contents)**
+
+### Emitting Events
+**[⬆ back to top](#table-of-contents)**
+
+### Emitting Comment Creation Events
+**[⬆ back to top](#table-of-contents)**
+
+### Receiving Events
+**[⬆ back to top](#table-of-contents)**
+
+### Creating the Data Query Service
+**[⬆ back to top](#table-of-contents)**
+
+### Parsing Incoming Events
+**[⬆ back to top](#table-of-contents)**
+
+### Using the Query Service
+**[⬆ back to top](#table-of-contents)**
+
+### Adding a Simple Feature
+**[⬆ back to top](#table-of-contents)**
+
+### Issues with Comment Filtering
+**[⬆ back to top](#table-of-contents)**
+
+### A Second Approach
+**[⬆ back to top](#table-of-contents)**
+
+### How to Handle Resource Updates
+**[⬆ back to top](#table-of-contents)**
+
+### Creating the Moderation Service
+**[⬆ back to top](#table-of-contents)**
+
+### Adding Comment Moderation
+**[⬆ back to top](#table-of-contents)**
+
+### Handling Moderation
+**[⬆ back to top](#table-of-contents)**
+
+### Updating Comment Content
+**[⬆ back to top](#table-of-contents)**
+
+### A Quick Test
+**[⬆ back to top](#table-of-contents)**
+
+### Rendering Comments by Status
+**[⬆ back to top](#table-of-contents)**
+
+### Dealing with Missing Events
+**[⬆ back to top](#table-of-contents)**
+
+### Implementing Event Sync
+**[⬆ back to top](#table-of-contents)**
+
+### Event Syncing in Action
 **[⬆ back to top](#table-of-contents)**
 
 ## **Running Services with Docker**
