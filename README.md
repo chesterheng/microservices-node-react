@@ -17,8 +17,6 @@
     - [Project Setup](#project-setup)
     - [Posts Service Creation](#posts-service-creation)
     - [Implementing a Comments Service](#implementing-a-comments-service)
-    - [Quick Comments Test](#quick-comments-test)
-    - [Note on the React App](#note-on-the-react-app)
     - [React Project Setup](#react-project-setup)
     - [Building Post Submission](#building-post-submission)
     - [Handling CORS Errors](#handling-cors-errors)
@@ -226,13 +224,10 @@ Initial App Setup
 
 **[⬆ back to top](#table-of-contents)**
 
-### Quick Comments Test
-**[⬆ back to top](#table-of-contents)**
-
-### Note on the React App
-**[⬆ back to top](#table-of-contents)**
-
 ### React Project Setup
+
+![](section-02/react-client.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Building Post Submission
