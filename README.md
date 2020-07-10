@@ -18,7 +18,6 @@
     - [Posts Service Creation](#posts-service-creation)
     - [Implementing a Comments Service](#implementing-a-comments-service)
     - [React Project Setup](#react-project-setup)
-    - [Handling CORS Errors](#handling-cors-errors)
     - [Fetching and Rendering Posts](#fetching-and-rendering-posts)
     - [Creating Comments](#creating-comments)
     - [Displaying Comments](#displaying-comments)
@@ -227,9 +226,6 @@ Initial App Setup
 
 ![](section-02/react-client.jpg)
 
-**[⬆ back to top](#table-of-contents)**
-
-### Handling CORS Errors
 **[⬆ back to top](#table-of-contents)**
 
 ### Fetching and Rendering Posts
