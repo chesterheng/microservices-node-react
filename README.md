@@ -16,7 +16,6 @@
     - [App Overview](#app-overview)
     - [Project Setup](#project-setup)
     - [Posts Service Creation](#posts-service-creation)
-    - [Testing the Posts Service](#testing-the-posts-service)
     - [Implementing a Comments Service](#implementing-a-comments-service)
     - [Quick Comments Test](#quick-comments-test)
     - [Note on the React App](#note-on-the-react-app)
@@ -220,10 +219,11 @@ Initial App Setup
 
 **[⬆ back to top](#table-of-contents)**
 
-### Testing the Posts Service
-**[⬆ back to top](#table-of-contents)**
-
 ### Implementing a Comments Service
+
+![](section-02/comments-service.jpg)
+![](section-02/comments-by-post-id.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Quick Comments Test
