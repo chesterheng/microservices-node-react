@@ -131,6 +131,7 @@ Communication Strategies Between Services
 - Async: Services communicate with each other using events
 
 Notes on Sync Communication
+
 | Pro                              | Con                                                           |
 | -------------------------------- | ------------------------------------------------------------- |
 | Conceptually easy to understand! | Introduces a dependency between services                      |
@@ -225,6 +226,21 @@ Initial App Setup
 **[⬆ back to top](#table-of-contents)**
 
 ### Request Minimization Strategies
+
+![](section-02/array-of-requests.jpg)
+![](section-02/monoliths-solution.jpg)
+![](section-02/microservices-solution.jpg)
+![](section-02/sync-communication.jpg)
+
+Notes on Sync Communication
+
+| Pro                              | Con                                                           |
+| -------------------------------- | ------------------------------------------------------------- |
+| Conceptually easy to understand! | Introduces a dependency between services                      |
+|                                  | If any inter-service request fails, the overall request fails |
+|                                  | The entire request is only as fast as the slowest request     |
+|                                  | Can easily introduce webs of requests                         |
+
 **[⬆ back to top](#table-of-contents)**
 
 ### An Async Solution
