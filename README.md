@@ -18,8 +18,6 @@
     - [Posts Service Creation](#posts-service-creation)
     - [Implementing a Comments Service](#implementing-a-comments-service)
     - [React Project Setup](#react-project-setup)
-    - [Fetching and Rendering Posts](#fetching-and-rendering-posts)
-    - [Creating Comments](#creating-comments)
     - [Displaying Comments](#displaying-comments)
     - [Completed React App](#completed-react-app)
     - [Request Minimization Strategies](#request-minimization-strategies)
@@ -226,12 +224,6 @@ Initial App Setup
 
 ![](section-02/react-client.jpg)
 
-**[⬆ back to top](#table-of-contents)**
-
-### Fetching and Rendering Posts
-**[⬆ back to top](#table-of-contents)**
-
-### Creating Comments
 **[⬆ back to top](#table-of-contents)**
 
 ### Displaying Comments
