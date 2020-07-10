@@ -215,6 +215,9 @@ Initial App Setup
 **[⬆ back to top](#table-of-contents)**
 
 ### Posts Service Creation
+
+![](section-02/posts-service.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Testing the Posts Service
