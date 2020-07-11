@@ -485,6 +485,10 @@ Feature Clarifications
 **[⬆ back to top](#table-of-contents)**
 
 ### How to Handle Resource Updates
+
+![](section-02/handle-resources-update.jpg)
+![](section-02/moderation-service-3.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Creating the Moderation Service
