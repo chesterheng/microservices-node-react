@@ -447,6 +447,21 @@ app.post('/events', (req, res) => {
 **[⬆ back to top](#table-of-contents)**
 
 ### Adding a Simple Feature
+
+Feature Request
+
+- Add in comment moderation.
+- Flag comments that contain the word 'orange'.
+
+Feature Clarifications
+
+- Super easy to implement in the React app, but not if the filter list changes frequently
+- Super easy to implement in the existing comments service, but let's assume we want to add a new service
+- It might take a long time for the new service to moderate a comment.
+
+![](section-02/add-filter-feature.jpg)
+![](section-02/comment-new-shape.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Issues with Comment Filtering
