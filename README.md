@@ -397,6 +397,15 @@ app.post('/events', (req, res) => {
 **[⬆ back to top](#table-of-contents)**
 
 ### Creating the Data Query Service
+
+![](section-02/query-service.jpg)
+
+```javascript
+// query/index.js
+app.get('/posts', (req, res) => {});
+app.post('/events', (req, res) => {});
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Parsing Incoming Events
