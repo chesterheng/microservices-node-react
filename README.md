@@ -46,6 +46,43 @@
     - [Review Some Basic Commands](#review-some-basic-commands)
     - [Dockering Other Services](#dockering-other-services)
   - [**Orchestrating Collections of Services with Kubernetes**](#orchestrating-collections-of-services-with-kubernetes)
+    - [Installing Kubernetes](#installing-kubernetes)
+    - [A Kubernetes Tour](#a-kubernetes-tour)
+    - [Important Kubernetes Terminology](#important-kubernetes-terminology)
+    - [Notes on Config Files](#notes-on-config-files)
+    - [Creating a Pod](#creating-a-pod)
+    - [Understanding a Pod Spec](#understanding-a-pod-spec)
+    - [Common Kubectl Commands](#common-kubectl-commands)
+    - [A Time-Saving Alias](#a-time-saving-alias)
+    - [Introducing Deployments](#introducing-deployments)
+    - [Creating a Deployment](#creating-a-deployment)
+    - [Common Commands Around Deployments](#common-commands-around-deployments)
+    - [Updating Deployments](#updating-deployments)
+    - [Preferred Method for Updating Deployments](#preferred-method-for-updating-deployments)
+    - [Networking With Services](#networking-with-services)
+    - [Creating a NodePort Service](#creating-a-nodeport-service)
+    - [Accessing NodePort Services](#accessing-nodeport-services)
+    - [Setting Up Cluster IP Services](#setting-up-cluster-ip-services)
+    - [Building a Deployment for the Event Bus](#building-a-deployment-for-the-event-bus)
+    - [Adding ClusterIP Services](#adding-clusterip-services)
+    - [How to Communicate Between Services](#how-to-communicate-between-services)
+    - [Updating Service Addresses](#updating-service-addresses)
+    - [Verifying Communication](#verifying-communication)
+    - [Adding Query, Moderation and Comments](#adding-query-moderation-and-comments)
+    - [Testing Communication](#testing-communication)
+    - [Load Balancer Services](#load-balancer-services)
+    - [Load Balancers and Ingress](#load-balancers-and-ingress)
+    - [Installing Ingress-Nginx](#installing-ingress-nginx)
+    - [Writing Ingress Config Files](#writing-ingress-config-files)
+    - [Hosts File Tweak](#hosts-file-tweak)
+    - [Quick Note](#quick-note)
+    - [Deploying the React App](#deploying-the-react-app)
+    - [Unique Route Paths](#unique-route-paths)
+    - [Final Route Config](#final-route-config)
+    - [Introducing Skaffold](#introducing-skaffold)
+    - [Skaffold Setup](#skaffold-setup)
+    - [First Time Skaffold Startup](#first-time-skaffold-startup)
+    - [A Few Notes on Skaffold](#a-few-notes-on-skaffold)
   - [**Architecture of Multi-Service Apps**](#architecture-of-multi-service-apps)
   - [**Leveraging a Cloud Environment for Development**](#leveraging-a-cloud-environment-for-development)
   - [**Response Normalization Strategies**](#response-normalization-strategies)
@@ -640,6 +677,7 @@ Here is the format of the Dockerfile:
 | docker logs [container id]                   | Print out logs from the given container                                                           |
 
 ```console
+cd section-03/blog/posts
 docker build -t stephengrider/posts .
 docker run stephengrider/posts
 docker run -it stephengrider/posts sh
@@ -650,10 +688,137 @@ docker logs a643fdbf134e
 **[⬆ back to top](#table-of-contents)**
 
 ### Dockering Other Services
+
+```console
+cd section-03/blog/event-bus
+docker build -t stephengrider/event-bus .
+docker run stephengrider/event-bus
+docker run -it stephengrider/posts sh
+docker ps
+docker exec -it a643fdbf134e sh
+docker logs a643fdbf134e
+``` 
+
 **[⬆ back to top](#table-of-contents)**
 
 ## **Orchestrating Collections of Services with Kubernetes**
 
+### Installing Kubernetes
+
+Kubernetes Setup
+
+- Running Docker for Mac/Windows? Yay, so easy
+- Running Docker-Toolbox or Linux? kubernetes.io/docs/tasks/tools/install-minikube/
+
+**[⬆ back to top](#table-of-contents)**
+
+### A Kubernetes Tour
+
+**[⬆ back to top](#table-of-contents)**
+
+### Important Kubernetes Terminology
+**[⬆ back to top](#table-of-contents)**
+
+### Notes on Config Files
+**[⬆ back to top](#table-of-contents)**
+
+### Creating a Pod
+**[⬆ back to top](#table-of-contents)**
+
+### Understanding a Pod Spec
+**[⬆ back to top](#table-of-contents)**
+
+### Common Kubectl Commands
+**[⬆ back to top](#table-of-contents)**
+
+### A Time-Saving Alias
+**[⬆ back to top](#table-of-contents)**
+
+### Introducing Deployments
+**[⬆ back to top](#table-of-contents)**
+
+### Creating a Deployment
+**[⬆ back to top](#table-of-contents)**
+
+### Common Commands Around Deployments
+**[⬆ back to top](#table-of-contents)**
+
+### Updating Deployments
+**[⬆ back to top](#table-of-contents)**
+
+### Preferred Method for Updating Deployments
+**[⬆ back to top](#table-of-contents)**
+
+### Networking With Services
+**[⬆ back to top](#table-of-contents)**
+
+### Creating a NodePort Service
+**[⬆ back to top](#table-of-contents)**
+
+### Accessing NodePort Services
+**[⬆ back to top](#table-of-contents)**
+
+### Setting Up Cluster IP Services
+**[⬆ back to top](#table-of-contents)**
+
+### Building a Deployment for the Event Bus
+**[⬆ back to top](#table-of-contents)**
+
+### Adding ClusterIP Services
+**[⬆ back to top](#table-of-contents)**
+
+### How to Communicate Between Services
+**[⬆ back to top](#table-of-contents)**
+
+### Updating Service Addresses
+**[⬆ back to top](#table-of-contents)**
+
+### Verifying Communication
+**[⬆ back to top](#table-of-contents)**
+
+### Adding Query, Moderation and Comments
+**[⬆ back to top](#table-of-contents)**
+
+### Testing Communication
+**[⬆ back to top](#table-of-contents)**
+
+### Load Balancer Services
+**[⬆ back to top](#table-of-contents)**
+
+### Load Balancers and Ingress
+**[⬆ back to top](#table-of-contents)**
+
+### Installing Ingress-Nginx
+**[⬆ back to top](#table-of-contents)**
+
+### Writing Ingress Config Files
+**[⬆ back to top](#table-of-contents)**
+
+### Hosts File Tweak
+**[⬆ back to top](#table-of-contents)**
+
+### Quick Note
+**[⬆ back to top](#table-of-contents)**
+
+### Deploying the React App
+**[⬆ back to top](#table-of-contents)**
+
+### Unique Route Paths
+**[⬆ back to top](#table-of-contents)**
+
+### Final Route Config
+**[⬆ back to top](#table-of-contents)**
+
+### Introducing Skaffold
+**[⬆ back to top](#table-of-contents)**
+
+### Skaffold Setup
+**[⬆ back to top](#table-of-contents)**
+
+### First Time Skaffold Startup
+**[⬆ back to top](#table-of-contents)**
+
+### A Few Notes on Skaffold
 **[⬆ back to top](#table-of-contents)**
 
 ## **Architecture of Multi-Service Apps**
