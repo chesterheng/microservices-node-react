@@ -605,6 +605,12 @@ Docker solves both these issues
 **[⬆ back to top](#table-of-contents)**
 
 ### Why Kubernetes?
+
+Kubernetes is a tool for running a bunch of different containers
+We give it some configuration to describe how we want our containers to run and interact with each other
+
+![](section-03/06-kubernetes-cluster.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Don't Know Docker? Watch This.
