@@ -616,14 +616,14 @@ We give it some configuration to describe how we want our containers to run and 
 
 Here is the format of the Dockerfile:
 
-| INSTRUCTION | arguments        | Comment                                                                                                           |
-| ----------- | ---------------- | ----------------------------------------------------------------------------------------------------------------- |
-| FROM        | node:alpine      | Specify base image                                                                                                |
-| WORKDIR     | /app             | Set the working directory to '/app' in the container.  All following commands will be issued relative to this dir |
-| COPY        | package.json ./  | Copy over only the package.json file                                                                              |
-| RUN         | npm install      | Install all dependencies                                                                                          |
-| COPY        | ./ ./            | Copy over all of our remaining source code                                                                        |
-| CMD         | ["npm", "start"] | Set the command to run when the container starts up                                                               |
+| INSTRUCTION | arguments        | Comment                                              |
+| ----------- | ---------------- | ---------------------------------------------------- |
+| FROM        | node:alpine      | Specify base image                                   |
+| WORKDIR     | /app             | Set the working directory to '/app' in the container |
+| COPY        | package.json ./  | Copy over only the package.json file                 |
+| RUN         | npm install      | Install all dependencies                             |
+| COPY        | ./ ./            | Copy over all of our remaining source code           |
+| CMD         | ["npm", "start"] | Set the command to run when the container starts up  |
 
 
 **[⬆ back to top](#table-of-contents)**
