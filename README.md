@@ -23,7 +23,7 @@
     - [Common Questions Around Async Events](#common-questions-around-async-events)
     - [Event Bus Overview](#event-bus-overview)
     - [A Basic Event Bus Implementation](#a-basic-event-bus-implementation)
-    - [Emitting Post Createion Events](#emitting-post-createion-events)
+    - [Emitting Post Creation Events](#emitting-post-creation-events)
     - [Emitting Comment Creation Events](#emitting-comment-creation-events)
     - [Receiving Events](#receiving-events)
     - [Creating the Data Query Service](#creating-the-data-query-service)
@@ -254,10 +254,10 @@ Notes on Sync Communication
 
 Notes on Async Communication
 
-| Pros                                               | Cons                 |
-| -------------------------------------------------- | -------------------- |
-| Service D has zero dependencies on other services! | Data duplication.    |
-| Service D will be extremely fast!                  | Harder to understand |
+| Pros                                                   | Cons                 |
+| ------------------------------------------------------ | -------------------- |
+| Query Service has zero dependencies on other services! | Data duplication.    |
+| Query Service will be extremely fast!                  | Harder to understand |
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -288,11 +288,13 @@ Event Bus
 - We are going to build our own event bus using Express. It will not implement the vast majority of features a normal bus has.
 - Yes, for our next app we will use a production grade, open source event bus
 
-![](section-02/event-bus.jpg)
+![](section-02/event-bus-overview-1.jpg)
 
 **[⬆ back to top](#table-of-contents)**
 
 ### A Basic Event Bus Implementation
+
+![](section-02/event-bus-overview-2.jpg)
 
 ```javascript
 // event-bus/index.js
@@ -320,10 +322,13 @@ app.listen(4005, () => {
 
 **[⬆ back to top](#table-of-contents)**
 
-### Emitting Post Createion Events
+### Emitting Post Creation Events
+
+![](section-02/emit-post-creation-events.jpg)
 
 ```javascript
 // posts/index.js
+const posts = {};
 app.post('/posts', async (req, res) => {
   const id = randomBytes(4).toString('hex');
   const { title } = req.body;
@@ -348,6 +353,33 @@ app.post('/posts', async (req, res) => {
 **[⬆ back to top](#table-of-contents)**
 
 ### Emitting Comment Creation Events
+
+![](section-02/emit-comment-creation-events.jpg)
+
+```javascript
+// comments/index.js
+const commentsByPostId = {};
+app.post('/posts/:id/comments', async (req, res) => {
+  const commentId = randomBytes(4).toString('hex');
+  const { content } = req.body;
+
+  const comments = commentsByPostId[req.params.id] || [];
+  comments.push({ id: commentId, content });
+  commentsByPostId[req.params.id] = comments;
+
+  await axios.post('http://localhost:4005/events', {
+    type: 'CommentCreated',
+    data: {
+      id: commentId,
+      content,
+      postId: req.params.id
+    }
+  });
+
+  res.status(201).send(comments);
+});
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Receiving Events
