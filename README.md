@@ -441,6 +441,9 @@ app.post('/events', (req, res) => {
 **[⬆ back to top](#table-of-contents)**
 
 ### Using the Query Service
+
+![](section-02/react-query-service.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Adding a Simple Feature
