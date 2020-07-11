@@ -465,9 +465,23 @@ Feature Clarifications
 **[⬆ back to top](#table-of-contents)**
 
 ### Issues with Comment Filtering
+
+![](section-02/moderation-service-1.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### A Second Approach
+
+![](section-02/moderation-service-2.jpg)
+
+- The query service is about presentation logic
+- It is joining two resources right now (posts and comments), but it might join 10!
+- Does it make sense for a presentation service to understand how to process a very precise update?
+
+![](section-02/process-update.jpg)
+![](section-02/query-service-update.jpg)
+![](section-02/multi-services-update.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### How to Handle Resource Updates
