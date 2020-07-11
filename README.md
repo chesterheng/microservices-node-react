@@ -591,6 +591,17 @@ app.post('/events', (req, res) => {
 **[⬆ back to top](#table-of-contents)**
 
 ### Why Docker?
+
+Issues
+
+- Running our app right now makes big assumptions about our environment
+- Running our app requires precise knowledge of how to start it (npm start)
+
+Docker solves both these issues
+
+- Containers wrap up everything that is needed for a program + how to start and run it
+![](section-03/05-docker-container.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Why Kubernetes?
