@@ -629,6 +629,24 @@ Here is the format of the Dockerfile:
 **[⬆ back to top](#table-of-contents)**
 
 ### Review Some Basic Commands
+
+| Docker Commands                              | Explanantion                                                                                      |
+| -------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| docker build -t stephengrider/posts .        | Build an image based on the dockerfile in the current directory.  Tag it as 'stephengrider/posts' |
+| docker run [image id or image tag]           | Create and start a container based on the provided image id or tag                                |
+| docker run -it [image id or image tag] [cmd] | Create and start container, but also override the default command                                 |
+| docker ps                                    | Print out information about all of the running containers                                         |
+| docker exec -it [container id] [cmd]         | Execute the given command in a running container                                                  |
+| docker logs [container id]                   | Print out logs from the given container                                                           |
+
+```console
+docker build -t stephengrider/posts .
+docker run stephengrider/posts
+docker run -it stephengrider/posts sh
+docker ps
+docker exec -it a643fdbf134e sh
+docker logs a643fdbf134e
+```
 **[⬆ back to top](#table-of-contents)**
 
 ### Dockering Other Services
