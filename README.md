@@ -37,8 +37,6 @@
     - [Adding Comment Moderation](#adding-comment-moderation)
     - [Handling Moderation](#handling-moderation)
     - [Updating Comment Content](#updating-comment-content)
-    - [A Quick Test](#a-quick-test)
-    - [Rendering Comments by Status](#rendering-comments-by-status)
     - [Dealing with Missing Events](#dealing-with-missing-events)
     - [Implementing Event Sync](#implementing-event-sync)
     - [Event Syncing in Action](#event-syncing-in-action)
@@ -529,13 +527,14 @@ app.listen(4003, () => {
 
 **[⬆ back to top](#table-of-contents)**
 
-### A Quick Test
-**[⬆ back to top](#table-of-contents)**
-
-### Rendering Comments by Status
-**[⬆ back to top](#table-of-contents)**
-
 ### Dealing with Missing Events
+
+![](section-02/missing-1.jpg)
+![](section-02/missing-2.jpg)
+![](section-02/solution-1.jpg)
+![](section-02/solution-2.jpg)
+![](section-02/solution-3.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Implementing Event Sync
