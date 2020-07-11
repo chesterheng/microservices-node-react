@@ -42,7 +42,6 @@
     - [Deployment Issues](#deployment-issues)
     - [Why Docker?](#why-docker)
     - [Why Kubernetes?](#why-kubernetes)
-    - [Don't Know Docker? Watch This.](#dont-know-docker-watch-this)
     - [Dockerizing the Posts Service](#dockerizing-the-posts-service)
     - [Review Some Basic Commands](#review-some-basic-commands)
     - [Dockering Other Services](#dockering-other-services)
@@ -613,10 +612,20 @@ We give it some configuration to describe how we want our containers to run and 
 
 **[⬆ back to top](#table-of-contents)**
 
-### Don't Know Docker? Watch This.
-**[⬆ back to top](#table-of-contents)**
-
 ### Dockerizing the Posts Service
+
+Here is the format of the Dockerfile:
+
+| INSTRUCTION | arguments        | Comment                                                                                                           |
+| ----------- | ---------------- | ----------------------------------------------------------------------------------------------------------------- |
+| FROM        | node:alpine      | Specify base image                                                                                                |
+| WORKDIR     | /app             | Set the working directory to '/app' in the container.  All following commands will be issued relative to this dir |
+| COPY        | package.json ./  | Copy over only the package.json file                                                                              |
+| RUN         | npm install      | Install all dependencies                                                                                          |
+| COPY        | ./ ./            | Copy over all of our remaining source code                                                                        |
+| CMD         | ["npm", "start"] | Set the command to run when the container starts up                                                               |
+
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Review Some Basic Commands
