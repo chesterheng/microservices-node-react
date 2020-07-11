@@ -383,6 +383,17 @@ app.post('/posts/:id/comments', async (req, res) => {
 **[⬆ back to top](#table-of-contents)**
 
 ### Receiving Events
+
+```javascript
+// posts/index.js
+// comments/index.js
+app.post('/events', (req, res) => {
+  console.log('Received Event', req.body.type);
+
+  res.send({});
+});
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Creating the Data Query Service
