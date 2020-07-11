@@ -34,6 +34,8 @@
     - [A Second Approach](#a-second-approach)
     - [How to Handle Resource Updates](#how-to-handle-resource-updates)
     - [Creating the Moderation Service](#creating-the-moderation-service)
+    - [Adding Comment Moderation](#adding-comment-moderation)
+    - [Handling Moderation](#handling-moderation)
     - [Updating Comment Content](#updating-comment-content)
     - [A Quick Test](#a-quick-test)
     - [Rendering Comments by Status](#rendering-comments-by-status)
@@ -506,6 +508,18 @@ app.listen(4003, () => {
   console.log('Listening on 4003');
 });
 ```
+
+**[⬆ back to top](#table-of-contents)**
+
+### Adding Comment Moderation
+
+![](section-02/comment-created.jpg)
+
+**[⬆ back to top](#table-of-contents)**
+
+### Handling Moderation
+
+![](section-02/comment-moderated.jpg)
 
 **[⬆ back to top](#table-of-contents)**
 
