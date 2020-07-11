@@ -38,9 +38,14 @@
     - [Handling Moderation](#handling-moderation)
     - [Updating Comment Content](#updating-comment-content)
     - [Dealing with Missing Events](#dealing-with-missing-events)
-    - [Implementing Event Sync](#implementing-event-sync)
-    - [Event Syncing in Action](#event-syncing-in-action)
-  - [**Running Services with Docker**](#running-services-with-docker)
+  - [**Section 03: Running Services with Docker**](#section-03-running-services-with-docker)
+    - [Deployment Issues](#deployment-issues)
+    - [Why Docker?](#why-docker)
+    - [Why Kubernetes?](#why-kubernetes)
+    - [Don't Know Docker? Watch This.](#dont-know-docker-watch-this)
+    - [Dockerizing the Posts Service](#dockerizing-the-posts-service)
+    - [Review Some Basic Commands](#review-some-basic-commands)
+    - [Dockering Other Services](#dockering-other-services)
   - [**Orchestrating Collections of Services with Kubernetes**](#orchestrating-collections-of-services-with-kubernetes)
   - [**Architecture of Multi-Service Apps**](#architecture-of-multi-service-apps)
   - [**Leveraging a Cloud Environment for Development**](#leveraging-a-cloud-environment-for-development)
@@ -537,14 +542,70 @@ app.listen(4003, () => {
 
 **[⬆ back to top](#table-of-contents)**
 
-### Implementing Event Sync
+## **Section 03: Running Services with Docker**
+
+### Deployment Issues
+
+![](section-03/01-your-computer.jpg)
+![](section-03/02-virtual-machine.jpg)
+![](section-03//03-scale-virtual-machine.jpg)
+```javascript
+// event-bus/index.js
+app.post('/events', (req, res) => {
+  const event = req.body;
+  events.push(event);
+
+  axios.post('http://localhost:4000/events', event);
+  axios.post('http://localhost:4001/events', event);
+  axios.post('http://localhost:4002/events', event);
+  axios.post('http://localhost:4003/events', event);
+
+  axios.post('http://localhost:4006/events', event);
+  axios.post('http://localhost:4007/events', event);
+
+  res.send({ status: 'OK' });
+});
+```
+
+![](section-03/04-second-virtual-machine.jpg)
+```javascript
+// event-bus/index.js
+app.post('/events', (req, res) => {
+  const event = req.body;
+  events.push(event);
+
+  axios.post('http://localhost:4000/events', event);
+  axios.post('http://localhost:4001/events', event);
+  axios.post('http://localhost:4002/events', event);
+  axios.post('http://localhost:4003/events', event);
+
+  if(it is not 1 am) {
+    axios.post('http://181.143.203.151/events', event);
+    axios.post('http://181.143.203.152/events', event);
+  }
+
+  res.send({ status: 'OK' });
+});
+```
+
 **[⬆ back to top](#table-of-contents)**
 
-### Event Syncing in Action
+### Why Docker?
 **[⬆ back to top](#table-of-contents)**
 
-## **Running Services with Docker**
+### Why Kubernetes?
+**[⬆ back to top](#table-of-contents)**
 
+### Don't Know Docker? Watch This.
+**[⬆ back to top](#table-of-contents)**
+
+### Dockerizing the Posts Service
+**[⬆ back to top](#table-of-contents)**
+
+### Review Some Basic Commands
+**[⬆ back to top](#table-of-contents)**
+
+### Dockering Other Services
 **[⬆ back to top](#table-of-contents)**
 
 ## **Orchestrating Collections of Services with Kubernetes**
