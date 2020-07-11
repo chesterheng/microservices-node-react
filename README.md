@@ -524,6 +524,9 @@ app.listen(4003, () => {
 **[⬆ back to top](#table-of-contents)**
 
 ### Updating Comment Content
+
+![](section-02/comment-updated.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### A Quick Test
