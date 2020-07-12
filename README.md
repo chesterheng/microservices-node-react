@@ -823,7 +823,6 @@ kubectl describe pod posts
 ### Introducing Deployments
 
 ![](section-04/deployment-1.jpg)
-![](section-04/deployment-2.jpg)
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -881,6 +880,27 @@ kubectl get pods
 **[⬆ back to top](#table-of-contents)**
 
 ### Updating Deployments
+
+![](section-04/deployment-2.jpg)
+
+Updating the Image Used By a Deployment - Method #1
+
+- Step 1 - Make a change to your project code
+- Step 2 - Rebuild the image, specifying a new image version
+```console
+cd section-04/blog/posts/
+docker build -t stephengrider/posts:0.0.5 .
+```
+- Step 3 - In the deployment config file, update the version of the image
+- Step 4 - Run the command: kubectl apply -f [depl file name]
+```console
+cd ../infra/k8s
+kubectl apply -f posts-depl.yaml
+kubectl get deployments
+kubectl get pods
+kubectl logs posts-depl-cf87458cd-lrn6f
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Preferred Method for Updating Deployments
