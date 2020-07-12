@@ -1,8 +1,8 @@
-# Microservices with Node JS and React
+# Microservices with Node JS and React Study Guide
 
 ## Table of Contents
 
-- [Microservices with Node JS and React](#microservices-with-node-js-and-react)
+- [Microservices with Node JS and React Study Guide](#microservices-with-node-js-and-react-study-guide)
   - [Table of Contents](#table-of-contents)
   - [**Section 01: Fundamental Ideas Around Microservices**](#section-01-fundamental-ideas-around-microservices)
     - [What Is a Microservice?](#what-is-a-microservice)
@@ -752,9 +752,41 @@ Kubernetes Cluster
 **[⬆ back to top](#table-of-contents)**
 
 ### Creating a Pod
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: posts
+spec:
+  containers:
+    - name: posts
+      image: stephengrider/posts:0.0.1
+```
+
+```console
+cd section-04/blog/posts/
+docker build -t stephengrider/posts:0.0.1 .
+cd ../infra/k8s/
+kubectl apply -f posts.yaml
+kubectl get pods
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Understanding a Pod Spec
+
+| Configuration Parameters         | Notes                                                                                                               |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| apiVersion: v1                   | K8s is extensible - we can add in our own custom objects.  This specifies the set of objects we want K8s to look at |
+| kind: Pod                        | The type of object we want to create                                                                                |
+| metadata:                        | Config options for the object we are about to create                                                                |
+| name: posts                      | When the pod is created, give it a name of 'posts'                                                                  |
+| spec:                            | The exact attributes we want to apply to the object we are about to create                                          |
+| containers:                      | We can create many containers in a single pod                                                                       |
+| - name: posts                    | Make a container with a name of 'posts'                                                                             |
+| image: stephengrider/posts:0.0.1 | The exact image we want to use                                                                                      |
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Common Kubectl Commands
