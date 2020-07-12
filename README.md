@@ -666,20 +666,20 @@ Here is the format of the Dockerfile:
 
 ### Review Some Basic Commands
 
-| Docker Commands                              | Explanation                                                                                       |
-| -------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| docker build -t stephengrider/posts .        | Build an image based on the dockerfile in the current directory.  Tag it as 'stephengrider/posts' |
-| docker run [image id or image tag]           | Create and start a container based on the provided image id or tag                                |
-| docker run -it [image id or image tag] [cmd] | Create and start container, but also override the default command                                 |
-| docker ps                                    | Print out information about all of the running containers                                         |
-| docker exec -it [container id] [cmd]         | Execute the given command in a running container                                                  |
-| docker logs [container id]                   | Print out logs from the given container                                                           |
+| Docker Commands                              | Explanation                                                                                     |
+| -------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| docker build -t chesterheng/posts .          | Build an image based on the dockerfile in the current directory.  Tag it as 'chesterheng/posts' |
+| docker run [image id or image tag]           | Create and start a container based on the provided image id or tag                              |
+| docker run -it [image id or image tag] [cmd] | Create and start container, but also override the default command                               |
+| docker ps                                    | Print out information about all of the running containers                                       |
+| docker exec -it [container id] [cmd]         | Execute the given command in a running container                                                |
+| docker logs [container id]                   | Print out logs from the given container                                                         |
 
 ```console
 cd section-03/blog/posts
-docker build -t stephengrider/posts .
-docker run stephengrider/posts
-docker run -it stephengrider/posts sh
+docker build -t chesterheng/posts .
+docker run chesterheng/posts
+docker run -it chesterheng/posts sh
 docker ps
 docker exec -it a643fdbf134e sh
 docker logs a643fdbf134e
@@ -690,9 +690,9 @@ docker logs a643fdbf134e
 
 ```console
 cd section-03/blog/event-bus
-docker build -t stephengrider/event-bus .
-docker run stephengrider/event-bus
-docker run -it stephengrider/posts sh
+docker build -t chesterheng/event-bus .
+docker run chesterheng/event-bus
+docker run -it chesterheng/posts sh
 docker ps
 docker exec -it a643fdbf134e sh
 docker logs a643fdbf134e
@@ -760,12 +760,12 @@ metadata:
 spec:
   containers:
     - name: posts
-      image: stephengrider/posts:0.0.1
+      image: chesterheng/posts:0.0.1
 ```
 
 ```console
 cd section-04/blog/posts/
-docker build -t stephengrider/posts:0.0.1 .
+docker build -t chesterheng/posts:0.0.1 .
 cd ../infra/k8s/
 kubectl apply -f posts.yaml
 kubectl get pods
@@ -775,16 +775,16 @@ kubectl get pods
 
 ### Understanding a Pod Spec
 
-| Configuration Parameters         | Notes                                                                                                               |
-| -------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| apiVersion: v1                   | K8s is extensible - we can add in our own custom objects.  This specifies the set of objects we want K8s to look at |
-| kind: Pod                        | The type of object we want to create                                                                                |
-| metadata:                        | Config options for the object we are about to create                                                                |
-| name: posts                      | When the pod is created, give it a name of 'posts'                                                                  |
-| spec:                            | The exact attributes we want to apply to the object we are about to create                                          |
-| containers:                      | We can create many containers in a single pod                                                                       |
-| - name: posts                    | Make a container with a name of 'posts'                                                                             |
-| image: stephengrider/posts:0.0.1 | The exact image we want to use                                                                                      |
+| Configuration Parameters       | Notes                                                                                                               |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------- |
+| apiVersion: v1                 | K8s is extensible - we can add in our own custom objects.  This specifies the set of objects we want K8s to look at |
+| kind: Pod                      | The type of object we want to create                                                                                |
+| metadata:                      | Config options for the object we are about to create                                                                |
+| name: posts                    | When the pod is created, give it a name of 'posts'                                                                  |
+| spec:                          | The exact attributes we want to apply to the object we are about to create                                          |
+| containers:                    | We can create many containers in a single pod                                                                       |
+| - name: posts                  | Make a container with a name of 'posts'                                                                             |
+| image: chesterheng/posts:0.0.1 | The exact image we want to use                                                                                      |
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -845,7 +845,7 @@ spec:
     spec:
       containers:
         - name: posts
-          image: stephengrider/posts:0.0.1
+          image: chesterheng/posts:0.0.1
 ```
 
 ```console
@@ -889,7 +889,7 @@ Updating the Image Used By a Deployment - Method #1
 - Step 2 - Rebuild the image, specifying a new image version
 ```console
 cd section-04/blog/posts/
-docker build -t stephengrider/posts:0.0.5 .
+docker build -t chesterheng/posts:0.0.5 .
 ```
 - Step 3 - In the deployment config file, update the version of the image
 - Step 4 - Run the command: kubectl apply -f [depl file name]
@@ -904,6 +904,39 @@ kubectl logs posts-depl-cf87458cd-lrn6f
 **[⬆ back to top](#table-of-contents)**
 
 ### Preferred Method for Updating Deployments
+
+Updating the Image Used By a Deployment - Method #2
+
+- Step 1 - The deployment must be using the 'latest' tag in the pod spec section
+  - image: chesterheng/posts:latest or 
+  - image: chesterheng/posts
+```console
+cd section-04/blog/infra/k8s
+kubectl apply -f posts-depl.yaml
+kubectl get deployments
+```
+- Step 2 - Make an update to your code
+- Step 3 - Build the image
+```console
+cd section-04/blog/posts
+docker build -t chesterheng/posts .
+```
+- Step 4 - Push the image to docker hub
+```console
+docker login
+docker push chesterheng/posts
+```
+[chesterheng/posts
+](https://hub.docker.com/r/chesterheng/posts)
+- Step 5 - Run the command: kubectl rollout restart deployment [depl_name]
+```console
+kubectl get deployments
+kubectl rollout restart deployment posts-depl
+kubectl get deployments
+kubectl get pods
+kubectl logs posts-depl-6947b4f9c-t5zx5
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Networking With Services
