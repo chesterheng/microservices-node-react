@@ -940,6 +940,30 @@ kubectl logs posts-depl-6947b4f9c-t5zx5
 **[⬆ back to top](#table-of-contents)**
 
 ### Networking With Services
+
+```console
+kubectl get pods
+kubectl logs posts-depl-6947b4f9c-t5zx5
+```
+
+![](section-04/service-1.jpg)
+![](section-04/service-2.jpg)
+
+| Types of Services | Explanation                                                                                                  |
+| ----------------- | ------------------------------------------------------------------------------------------------------------ |
+| Cluster IP        | Sets up an easy-to-remember URL to access a pod. Only exposes pods in the cluster                            |
+| Node Port         | Makes a pod accessible from outside the cluster.  Usually only used for dev purposes                         |
+| Load Balancer     | Makes a pod accessible from outside the cluster.  This is the right way to expose a pod to the outside world |
+| External Name     | Redirects an in-cluster request to a CNAME url.....don't worry about this one....                            |
+
+Cluster IP
+
+![](section-04/cluster-ip-service.jpg)
+
+Makes a pod accessible from outside the cluster
+
+![](section-04/access-pod-from-outside-cluster.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Creating a NodePort Service
