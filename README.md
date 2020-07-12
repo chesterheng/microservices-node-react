@@ -53,7 +53,6 @@
     - [Creating a Pod](#creating-a-pod)
     - [Understanding a Pod Spec](#understanding-a-pod-spec)
     - [Common Kubectl Commands](#common-kubectl-commands)
-    - [A Time-Saving Alias](#a-time-saving-alias)
     - [Introducing Deployments](#introducing-deployments)
     - [Creating a Deployment](#creating-a-deployment)
     - [Common Commands Around Deployments](#common-commands-around-deployments)
@@ -821,10 +820,11 @@ kubectl describe pod posts
 
 **[⬆ back to top](#table-of-contents)**
 
-### A Time-Saving Alias
-**[⬆ back to top](#table-of-contents)**
-
 ### Introducing Deployments
+
+![](section-04/deployment-1.jpg)
+![](section-04/deployment-2.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Creating a Deployment
