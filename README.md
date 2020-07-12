@@ -989,6 +989,74 @@ spec:
 **[⬆ back to top](#table-of-contents)**
 
 ### Accessing NodePort Services
+
+```console
+cd section-04/blog/infra/k8s/
+kubectl apply -f posts-srv.yaml
+kubectl get services
+kubectl describe service posts-srv
+```
+
+![](section-04/nodeport-service-2.jpg)
+![](section-04/ip-address.jpg)
+
+```console
+kubectl get pods
+kubectl get svc -A
+curl localhost:30692/posts
+```
+
+Error 
+- curl: (7) Failed to connect to localhost port 30692: Connection refused
+
+How to troubleshoot?
+
+#1: Test to check if your container expose your app on http://localhost:4000 ?
+
+```console
+kubectl exec -it posts-depl-6947b4f9c-qbn4h sh
+/app # apk add curl
+/app # curl localhost:4000/posts
+/app # curl http://posts-srv:4000/posts
+```
+
+#2: Test to check if your kubernetes service is ok ?
+
+```console
+kubectl exec -it posts-depl-6947b4f9c-qbn4h sh
+/app # apk add curl
+/app # curl http://posts-srv:4000/posts
+```
+
+#3: Check if the problem is coming from [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy)?
+
+```console
+kubectl get pods -n kube-system
+```
+
+```console
+NAME                                     READY   STATUS    RESTARTS   AGE
+coredns-5644d7b6d9-b74mq                 1/1     Running   0          21d
+coredns-5644d7b6d9-vrjfp                 1/1     Running   0          21d
+etcd-docker-desktop                      1/1     Running   0          21d
+kube-apiserver-docker-desktop            1/1     Running   0          21d
+kube-controller-manager-docker-desktop   1/1     Running   0          21d
+kube-proxy-k9wcv                         1/1     Running   0          21d
+kube-scheduler-docker-desktop            1/1     Running   0          21d
+storage-provisioner                      0/1     Evicted   0          21d
+vpnkit-controller                        0/1     Evicted   0          21d
+```
+
+#4: Restart the evicted vpnkit-controller and storage-provisioner and resolve the docker-desktop bug
+
+```console
+<!-- check why vpnkit-controller is evicted? -->
+kubectl describe pod vpnkit-controller -n kube-system
+kubectl delete po storage-provisioner vpnkit-controller -n kube-system
+```
+- Disable and re-enable kubernetes integration (otherwise the pods are not being redeployed)
+- If this doesn’t work, you can still hit the big red button “Reset Kubernetes Cluster” but you’ll have to redeploy your descriptors (deployment and service)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Setting Up Cluster IP Services
