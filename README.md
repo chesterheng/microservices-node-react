@@ -729,6 +729,15 @@ Kubernetes Cluster
 **[⬆ back to top](#table-of-contents)**
 
 ### Important Kubernetes Terminology
+
+| Keyword            | Meaning                                                                                              |
+| ------------------ | ---------------------------------------------------------------------------------------------------- |
+| Kubernetes Cluster | A collections of nodes + a master to manage them                                                     |
+| Node               | A virtual machine that will run our containers                                                       |
+| Pod                | More or less a running container.  Technically, a pod can run multiple containers (we won't do this) |
+| Deployment         | Monitors a set of pods, make sure they are running and restarts them if they crash                   |
+| Service            | Provides an easy-to-remember URL to access a running container                                       |
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Notes on Config Files
