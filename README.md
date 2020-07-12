@@ -967,6 +967,25 @@ Makes a pod accessible from outside the cluster
 **[⬆ back to top](#table-of-contents)**
 
 ### Creating a NodePort Service
+
+![](section-04/nodeport-service.jpg)
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: posts-srv
+spec:
+  type: NodePort
+  selector:
+    app: posts
+  ports:
+    - name: posts
+      protocol: TCP
+      port: 4000
+      targetPort: 4000
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Accessing NodePort Services
