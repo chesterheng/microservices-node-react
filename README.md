@@ -708,11 +708,23 @@ docker logs a643fdbf134e
 Kubernetes Setup
 
 - Running Docker for Mac/Windows? Yay, so easy
+![](section-04/kubernetes-setup.jpg)
 - Running Docker-Toolbox or Linux? kubernetes.io/docs/tasks/tools/install-minikube/
 
 **[⬆ back to top](#table-of-contents)**
 
 ### A Kubernetes Tour
+
+```console
+kubectl version
+```
+Create Docker Image
+
+![](section-04/create-docker-image.jpg)
+
+Kubernetes Cluster
+![](section-04/kubernetes-cluster.jpg)
+
 
 **[⬆ back to top](#table-of-contents)**
 
