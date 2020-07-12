@@ -828,6 +828,32 @@ kubectl describe pod posts
 **[⬆ back to top](#table-of-contents)**
 
 ### Creating a Deployment
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: posts-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: posts
+  template:
+    metadata:
+      labels:
+        app: posts
+    spec:
+      containers:
+        - name: posts
+          image: stephengrider/posts:0.0.1
+```
+
+```console
+cd section-04/blog/infra/k8s/
+kubectl apply -f posts-depl.yaml
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Common Commands Around Deployments
