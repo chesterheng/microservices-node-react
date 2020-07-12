@@ -667,7 +667,7 @@ Here is the format of the Dockerfile:
 
 ### Review Some Basic Commands
 
-| Docker Commands                              | Explanantion                                                                                      |
+| Docker Commands                              | Explanation                                                                                       |
 | -------------------------------------------- | ------------------------------------------------------------------------------------------------- |
 | docker build -t stephengrider/posts .        | Build an image based on the dockerfile in the current directory.  Tag it as 'stephengrider/posts' |
 | docker run [image id or image tag]           | Create and start a container based on the provided image id or tag                                |
@@ -790,6 +790,35 @@ kubectl get pods
 **[⬆ back to top](#table-of-contents)**
 
 ### Common Kubectl Commands
+
+| Docker World                         | K8s World                         |
+| ------------------------------------ | --------------------------------- |
+| docker ps                            | kubectl get pods                  |
+| docker exec -it [container id] [cmd] | kubectl exec -it [pod_name] [cmd] |
+| docker logs [container id]           | kubectl logs [pod_name]           |
+
+| K8s Commands                        | Explanation                                         |
+| ----------------------------------- | --------------------------------------------------- |
+| kubectl get pods                    | Print out information about all of the running pods |
+| kubectl exec -it [pod_name] [cmd]   | Execute the given command in a running pod          |
+| kubectl logs [pod_name]             | Print out logs from the given pod                   |
+| kubectl delete pod [pod_name]       | Deletes the given pod                               |
+| kubectl apply -f [config file name] | Tells kubernetes to process the config              |
+| kubectl describe pod [pod_name]     | Print out some information about the running pod    |
+
+```console
+cd section-04/blog/infra/k8s/
+kubectl apply -f posts.yaml
+kubectl get pods
+kubectl exec -it posts sh
+kubectl logs posts
+kubectl delete pod posts
+kubectl get pods
+kubectl apply -f posts.yaml
+kubectl get pods
+kubectl describe pod posts
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### A Time-Saving Alias
