@@ -857,6 +857,27 @@ kubectl apply -f posts-depl.yaml
 **[⬆ back to top](#table-of-contents)**
 
 ### Common Commands Around Deployments
+
+| Deployment Commands                            | Explanation                                                                                                      |
+| ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| kubectl get deployments                        | List all the running deployments                                                                                 |
+| kubectl describe deployment [depl name]        | Print out details about a specific deployment                                                                    |
+| kubectl apply -f [config file name]            | Create a deployment out of a config file                                                                         |
+| kubectl delete deployment [depl_name]          | Delete a deployment                                                                                              |
+| kubectl rollout restart deployment [depl_name] | Get a deployment to restart all pods.  Will use latest version of an image if the pod spec has a tag of 'latest' |
+
+```console
+cd section-04/blog/infra/k8s/
+kubectl get deployments
+kubectl get pods
+kubectl delete pods posts-depl-75767489d-jrzxw
+kubectl describe deployment posts-depl
+kubectl delete deployment posts-depl
+kubectl apply -f posts-depl.yaml
+kubectl get deployments
+kubectl get pods
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Updating Deployments
