@@ -741,6 +741,14 @@ Kubernetes Cluster
 **[⬆ back to top](#table-of-contents)**
 
 ### Notes on Config Files
+
+- Tells Kubernetes about the different Deployments, Pods, and Services (referred to as 'Objects') that we want to create
+- Written in YAML syntax
+- Always store these files with our project source code - they are documentation!
+- We can create Objects without config files - do not do this.  Config files provide a precise definition of what your cluster is running.
+  - Kubernetes docs will tell you to run direct commands to create objects - only do this for testing purposes
+  - Blog posts will tell you to run direct commands to create objects - close the blog post!
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Creating a Pod
