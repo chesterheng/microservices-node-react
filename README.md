@@ -1256,6 +1256,18 @@ kubectl get services
 **[⬆ back to top](#table-of-contents)**
 
 ### Load Balancers and Ingress
+
+Load Balancer Service
+
+- Tells Kubernetes to reach out to its provider and provision a load balancer.  Gets traffic in to a single pod
+
+Ingress or Ingress Controller
+
+- A pod with a set of routing rules to distribute traffic to other services
+
+![](section-04/lb-1.jpg)
+![](section-04/lb-2.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Installing Ingress-Nginx
