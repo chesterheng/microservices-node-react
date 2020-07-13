@@ -1359,6 +1359,14 @@ kubectl get pod
 **[⬆ back to top](#table-of-contents)**
 
 ### Introducing Skaffold
+
+Skaffold
+
+- Automates many tasks in a Kubernetes dev environment
+- Makes it really easy to update code in a running pod
+- Makes it really easy to create/delete all objects tied to a project at once
+- [skaffold](skaffold.dev)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Skaffold Setup
