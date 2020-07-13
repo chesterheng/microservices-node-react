@@ -1287,6 +1287,14 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/cont
 **[⬆ back to top](#table-of-contents)**
 
 ### Writing Ingress Config Files
+
+![](section-04/lb-2.jpg)
+
+```console
+cd section-04/blog/infra/k8s/
+kubectl apply -f ingress-srv.yaml
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Hosts File Tweak
