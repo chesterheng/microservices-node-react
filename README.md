@@ -82,7 +82,19 @@
     - [Skaffold Setup](#skaffold-setup)
     - [First Time Skaffold Startup](#first-time-skaffold-startup)
     - [A Few Notes on Skaffold](#a-few-notes-on-skaffold)
-  - [**Architecture of Multi-Service Apps**](#architecture-of-multi-service-apps)
+  - [**Section 05: Architecture of Multi-Service Apps**](#section-05-architecture-of-multi-service-apps)
+    - [Big Ticket Items](#big-ticket-items)
+    - [App Overview](#app-overview-1)
+    - [Resource Types](#resource-types)
+    - [Service Types](#service-types)
+    - [Events and Architecture Design](#events-and-architecture-design)
+    - [Note on Typescript](#note-on-typescript)
+    - [Auth Service Setup](#auth-service-setup)
+    - [Auth K8s Setup](#auth-k8s-setup)
+    - [Adding Skaffold](#adding-skaffold)
+    - [Note on Code Reloading](#note-on-code-reloading)
+    - [Ingress-Nginx Setup](#ingress-nginx-setup)
+    - [Hosts File and Security Warning](#hosts-file-and-security-warning)
   - [**Leveraging a Cloud Environment for Development**](#leveraging-a-cloud-environment-for-development)
   - [**Response Normalization Strategies**](#response-normalization-strategies)
   - [**Database Management and Modeling**](#database-management-and-modeling)
@@ -1396,8 +1408,61 @@ kubectl get services
 
 **[⬆ back to top](#table-of-contents)**
 
-## **Architecture of Multi-Service Apps**
+## **Section 05: Architecture of Multi-Service Apps**
 
+### Big Ticket Items
+
+Lessons from App #1
+
+- The big challenge in microservices is data
+- Different ways to share data between services.  We are going to focus on async communication
+- Async communication focuses on communicating changes using events sent to an event bus
+- Async communication encourages each service to be 100% self-sufficient.  Relatively easy to handle temporary downtime or new service creation
+- Docker makes it easier to package up services
+- Kubernetes is a pain to setup, but makes it really easy to deploy + scale services
+
+| Painful Things from App #1                                                                                        | Solutions!                                                                            |
+| ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| Lots of duplicated code!                                                                                          | Build a central library as an NPM module to share code between our different projects |
+| Really hard to picture the flow of events between services                                                        | Precisely define all of our events in this shared library.                            |
+| Really hard to remember what properties an event should have                                                      | Write everything in Typescript.                                                       |
+| Really hard to test some event flows                                                                              | Write tests for as much as possible/reasonable                                        |
+| My machine is getting laggy running kubernetes and everything else...                                             | Run a k8s cluster in the cloud and develop on it almost as quickly as localz          |
+| What if someone created a comment after editing 5 others after editing a post while balancing on a tight rope.... | Introduce a lot of code to handle concurrency issues                                  |
+
+**[⬆ back to top](#table-of-contents)**
+
+### App Overview
+**[⬆ back to top](#table-of-contents)**
+
+### Resource Types
+**[⬆ back to top](#table-of-contents)**
+
+### Service Types
+**[⬆ back to top](#table-of-contents)**
+
+### Events and Architecture Design
+**[⬆ back to top](#table-of-contents)**
+
+### Note on Typescript
+**[⬆ back to top](#table-of-contents)**
+
+### Auth Service Setup
+**[⬆ back to top](#table-of-contents)**
+
+### Auth K8s Setup
+**[⬆ back to top](#table-of-contents)**
+
+### Adding Skaffold
+**[⬆ back to top](#table-of-contents)**
+
+### Note on Code Reloading
+**[⬆ back to top](#table-of-contents)**
+
+### Ingress-Nginx Setup
+**[⬆ back to top](#table-of-contents)**
+
+### Hosts File and Security Warning
 **[⬆ back to top](#table-of-contents)**
 
 ## **Leveraging a Cloud Environment for Development**
