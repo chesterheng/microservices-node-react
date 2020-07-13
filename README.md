@@ -1271,6 +1271,19 @@ Ingress or Ingress Controller
 **[⬆ back to top](#table-of-contents)**
 
 ### Installing Ingress-Nginx
+
+ingress-nginx
+- Project that will create a Load Balancer Service + an Ingress for us
+- We are using [ingress-nginx](https://github.com/kubernetes/ingress-nginx)
+- There is another project that does the same thing with an almost identical name
+  - [kubernetes-ingress](https://github.com/nginxinc/kubernetes-ingress)
+
+[Installation Guide](https://kubernetes.github.io/ingress-nginx/deploy/)
+
+```console
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.34.0/deploy/static/provider/cloud/deploy.yaml
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Writing Ingress Config Files
