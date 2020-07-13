@@ -1349,6 +1349,13 @@ kubectl rollout restart deployment posts-depl
 **[⬆ back to top](#table-of-contents)**
 
 ### Final Route Config
+
+```console
+cd section-04/blog/infra/k8s/
+kubectl apply -f ingress-srv.yaml
+kubectl get pod
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Introducing Skaffold
