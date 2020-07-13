@@ -45,7 +45,7 @@
     - [Dockerizing the Posts Service](#dockerizing-the-posts-service)
     - [Review Some Basic Commands](#review-some-basic-commands)
     - [Dockering Other Services](#dockering-other-services)
-  - [**Orchestrating Collections of Services with Kubernetes**](#orchestrating-collections-of-services-with-kubernetes)
+  - [**Section 04: Orchestrating Collections of Services with Kubernetes**](#section-04-orchestrating-collections-of-services-with-kubernetes)
     - [Installing Kubernetes](#installing-kubernetes)
     - [A Kubernetes Tour](#a-kubernetes-tour)
     - [Important Kubernetes Terminology](#important-kubernetes-terminology)
@@ -700,7 +700,7 @@ docker logs a643fdbf134e
 
 **[⬆ back to top](#table-of-contents)**
 
-## **Orchestrating Collections of Services with Kubernetes**
+## **Section 04: Orchestrating Collections of Services with Kubernetes**
 
 ### Installing Kubernetes
 
@@ -1060,6 +1060,9 @@ kubectl delete po storage-provisioner vpnkit-controller -n kube-system
 **[⬆ back to top](#table-of-contents)**
 
 ### Setting Up Cluster IP Services
+
+![](section-04/cluster-ip-service-2.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Building a Deployment for the Event Bus
