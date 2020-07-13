@@ -1246,6 +1246,13 @@ kubectl get services
 **[⬆ back to top](#table-of-contents)**
 
 ### Load Balancer Services
+
+![](section-04/react.jpg)
+![](section-04/initial.jpg)
+![](section-04/app.jpg)
+![](section-04/option-1.jpg)
+![](section-04/option-2.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Load Balancers and Ingress
