@@ -1183,6 +1183,41 @@ kubectl exec -it posts-depl-6db458fb5c-q7khn -- cat index.js
 **[⬆ back to top](#table-of-contents)**
 
 ### Adding Query, Moderation and Comments
+
+Adding More Services
+
+- For 'comments', 'query', 'moderation'....
+```console
+kubectl get services
+```
+- Update the URL's in each to reach out to the 'event-bus-srv'
+- Build images + push them to docker hub
+```console
+cd section-04/blog/comments/
+docker build -t chesterheng/comments .
+docker push chesterheng/comments
+```
+```console
+cd section-04/blog/moderation/
+docker build -t chesterheng/moderation .
+docker push chesterheng/moderation
+```
+```console
+cd section-04/blog/query/
+docker build -t chesterheng/query .
+docker push chesterheng/query
+```
+- Create a deployment + clusterip service for each
+```
+cd section-04/blog/infra/k8s/
+kubectl apply -f .
+kubectl get pods
+kubectl describe pod comments-depl-5ffc5697c8-j9sq6
+kubectl exec -it comments-depl-5ffc5697c8-j9sq6 -- cat index.js
+kubectl get services
+```
+- Update the event-bus to once again send events to 'comments', 'query', and 'moderation'
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Testing Communication
