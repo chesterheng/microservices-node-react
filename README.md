@@ -1298,6 +1298,17 @@ kubectl apply -f ingress-srv.yaml
 **[⬆ back to top](#table-of-contents)**
 
 ### Hosts File Tweak
+
+![](section-04/hosts.jpg)
+
+| OS          | Host File Location                    |
+| ----------- | ------------------------------------- |
+| Windows     | C:\Windows\System32\Drivers\etc\hosts |
+| MacOS/Linux | /etc/hosts                            |
+
+- Add 127.0.0.1 posts.com to /etc/hosts
+- Try http://posts.com/posts
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Quick Note
