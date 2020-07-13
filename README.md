@@ -1384,6 +1384,16 @@ skaffold dev
 **[⬆ back to top](#table-of-contents)**
 
 ### A Few Notes on Skaffold
+
+- Restart skaffold if encounter error message
+- kubectl will remove all kubernetes objects when exit
+
+```console
+kubectl get pod
+kubectl get deployments
+kubectl get services
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ## **Architecture of Multi-Service Apps**
