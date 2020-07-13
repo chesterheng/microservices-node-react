@@ -956,11 +956,11 @@ kubectl logs posts-depl-6947b4f9c-t5zx5
 | Load Balancer     | Makes a pod accessible from outside the cluster.  This is the right way to expose a pod to the outside world |
 | External Name     | Redirects an in-cluster request to a CNAME url.....don't worry about this one....                            |
 
-Cluster IP
+Cluster IP - node to node communication
 
 ![](section-04/cluster-ip-service.jpg)
 
-Makes a pod accessible from outside the cluster
+Makes a pod accessible from outside the cluster (outside to node communication)
 
 ![](section-04/access-pod-from-outside-cluster.jpg)
 
@@ -1133,14 +1133,14 @@ Updating the Image Used By a Deployment - Method #2
 cd section-04/blog/event-bus
 docker build -t chesterheng/event-bus .
 cd ../posts
-docker build -t chesterheng/post .
+docker build -t chesterheng/posts .
 ```
 - Step 4 - Push the image to docker hub
 ```console
 docker login
 docker push chesterheng/event-bus
 cd ../posts
-docker push chesterheng/post
+docker push chesterheng/posts
 ```
 [chesterheng/posts
 ](https://hub.docker.com/r/chesterheng/posts)
@@ -1159,6 +1159,27 @@ kubectl logs posts-depl-6947b4f9c-t5zx5
 **[⬆ back to top](#table-of-contents)**
 
 ### Verifying Communication
+
+#1: Verifying Communication
+```console
+kubectl get pods
+kubectl logs posts-depl-59f495469f-2zqmf
+```
+
+#2: Check if request can be send from posts pod to event-bus pod?
+```console
+kubectl get pods
+kubectl exec -it posts-depl-59f495469f-2zqmf sh
+/app # apk add curl
+/app # curl http://event-bus-srv:4005/events
+```
+
+#3: Check if posts image is updated?
+```console
+kubectl get pods
+kubectl exec -it posts-depl-6db458fb5c-q7khn -- cat index.js
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Adding Query, Moderation and Comments
