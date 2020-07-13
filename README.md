@@ -1109,6 +1109,17 @@ kubectl get services
 **[⬆ back to top](#table-of-contents)**
 
 ### How to Communicate Between Services
+
+Goals Moving Forward
+
+- Build an image for the Event Bus
+- Push the image to Docker Hub
+- Create a deployment for Event Bus
+- Create a Cluster IP service for Event Bus and Posts
+- Wire it all up!
+![](section-04/communicate-between-services.jpg
+
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Updating Service Addresses
