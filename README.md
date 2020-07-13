@@ -1221,6 +1221,28 @@ kubectl get services
 **[⬆ back to top](#table-of-contents)**
 
 ### Testing Communication
+
+Adding More Services
+
+- For 'comments', 'query', 'moderation'....
+- Update the URL's in each to reach out to the 'event-bus-srv'
+- Build images + push them to docker hub
+- Create a deployment + clusterip service for each
+- Update the event-bus to once again send events to 'comments', 'query', and 'moderation'
+```console
+kubectl get services
+cd section-04/blog/event-bus/
+docker build -t chesterheng/event-bus .
+docker push chesterheng/event-bus
+kubectl rollout restart deployment event-bus-depl
+kubectl get deployments
+kubectl get pods
+kubectl logs event-bus-depl-56f799cb77-f2h9v
+kubectl describe pod event-bus-depl-56f799cb77-f2h9v
+kubectl exec -it event-bus-depl-56f799cb77-f2h9v -- cat index.js
+kubectl get services
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Load Balancer Services
