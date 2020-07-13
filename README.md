@@ -1332,6 +1332,20 @@ kubectl apply -f client-depl.yaml
 **[⬆ back to top](#table-of-contents)**
 
 ### Unique Route Paths
+
+![](section-04/request.jpg)
+
+```console
+cd section-04/blog/client/
+docker build -t chesterheng/client .
+docker push chesterheng/client
+kubectl rollout restart deployment client-depl
+cd ../posts/
+docker build -t chesterheng/posts .
+docker push chesterheng/posts
+kubectl rollout restart deployment posts-depl
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Final Route Config
