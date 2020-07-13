@@ -1071,14 +1071,17 @@ Goals Moving Forward
 
 - Build an image for the Event Bus
 ```console
+cd section-04/blog/event-bus
 docker build -t chesterheng/event-bus .
 ```
 - Push the image to Docker Hub
 ```console
+cd section-04/blog/event-bus
 docker push chesterheng/event-bus
 ```
 - Create a deployment for Event Bus
 ```console
+cd section-04/blog/infra/k8s/
 kubectl apply -f event-bus-depl.yaml
 kubectl get pods
 ```
@@ -1088,6 +1091,21 @@ kubectl get pods
 **[⬆ back to top](#table-of-contents)**
 
 ### Adding ClusterIP Services
+
+Goals Moving Forward
+
+- Build an image for the Event Bus
+- Push the image to Docker Hub
+- Create a deployment for Event Bus
+- Create a Cluster IP service for Event Bus and Posts
+```console
+cd section-04/blog/infra/k8s/
+kubectl apply -f event-bus-depl.yaml
+kubectl apply -f posts-depl.yaml
+kubectl get services
+```
+- Wire it all up!
+
 **[⬆ back to top](#table-of-contents)**
 
 ### How to Communicate Between Services
