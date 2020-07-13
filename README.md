@@ -1371,11 +1371,16 @@ Skaffold
 
 ### Skaffold Setup
 
-
+See blog/skaffold.yaml 
 
 **[⬆ back to top](#table-of-contents)**
 
 ### First Time Skaffold Startup
+
+```console
+cd section-04/blog/
+skaffold dev
+```
 **[⬆ back to top](#table-of-contents)**
 
 ### A Few Notes on Skaffold
