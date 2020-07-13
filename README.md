@@ -1123,6 +1123,39 @@ Goals Moving Forward
 **[⬆ back to top](#table-of-contents)**
 
 ### Updating Service Addresses
+
+Updating the Image Used By a Deployment - Method #2
+
+- Step 1 - The deployment must be using the 'latest' tag in 
+- Step 2 - Make an update to your code
+- Step 3 - Build the image
+```console
+cd section-04/blog/event-bus
+docker build -t chesterheng/event-bus .
+cd ../posts
+docker build -t chesterheng/post .
+```
+- Step 4 - Push the image to docker hub
+```console
+docker login
+docker push chesterheng/event-bus
+cd ../posts
+docker push chesterheng/post
+```
+[chesterheng/posts
+](https://hub.docker.com/r/chesterheng/posts)
+[chesterheng/event-bus
+](https://hub.docker.com/r/chesterheng/event-bus)
+- Step 5 - Run the command: kubectl rollout restart deployment [depl_name]
+```console
+kubectl get deployments
+kubectl rollout restart deployment posts-depl
+kubectl rollout restart deployment event-bus-depl
+kubectl get deployments
+kubectl get pods
+kubectl logs posts-depl-6947b4f9c-t5zx5
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Verifying Communication
