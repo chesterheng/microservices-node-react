@@ -1312,9 +1312,23 @@ kubectl apply -f ingress-srv.yaml
 **[⬆ back to top](#table-of-contents)**
 
 ### Quick Note
+
+[React-Scripts v3.4.1 fails to start in Docker](https://github.com/facebook/create-react-app/issues/8688)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Deploying the React App
+
+```console
+cd section-04/blog/client/
+docker build -t chesterheng/client .
+docker push chesterheng/client
+cd ../infra/k8s/
+kubectl apply -f client-depl.yaml
+```
+
+[Repositories](https://hub.docker.com/repositories)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Unique Route Paths
