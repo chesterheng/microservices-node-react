@@ -1066,6 +1066,25 @@ kubectl delete po storage-provisioner vpnkit-controller -n kube-system
 **[⬆ back to top](#table-of-contents)**
 
 ### Building a Deployment for the Event Bus
+
+Goals Moving Forward
+
+- Build an image for the Event Bus
+```console
+docker build -t chesterheng/event-bus .
+```
+- Push the image to Docker Hub
+```console
+docker push chesterheng/event-bus
+```
+- Create a deployment for Event Bus
+```console
+kubectl apply -f event-bus-depl.yaml
+kubectl get pods
+```
+- Create a Cluster IP service for Event Bus and Posts
+- Wire it all up!
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Adding ClusterIP Services
