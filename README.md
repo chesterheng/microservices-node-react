@@ -1441,13 +1441,16 @@ Lessons from App #1
 - While locked, no other user can purchase the ticket. After 15 minutes, the ticket should 'unlock'
 - Ticket prices can be edited if they are not locked
 
-![](section-04/app-1.jpg)
-![](section-04/app-2.jpg)
-![](section-04/app-3.jpg)
+![](section-05/app-1.jpg)
+![](section-05/app-2.jpg)
+![](section-05/app-3.jpg)
 
 **[⬆ back to top](#table-of-contents)**
 
 ### Resource Types
+
+![](section-05/resource-types.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Service Types
