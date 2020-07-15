@@ -1454,6 +1454,14 @@ Lessons from App #1
 **[⬆ back to top](#table-of-contents)**
 
 ### Service Types
+
+![](section-05/service-types.jpg)
+
+- We are creating a separate service to manage each type of resource
+- Should we do this for every microservices app?
+- Probably not? Depends on your use case, number of resources, business logic tied to each resource, etc
+- Perhaps 'feature-based' design would be better
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Events and Architecture Design
