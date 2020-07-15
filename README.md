@@ -1465,6 +1465,10 @@ Lessons from App #1
 **[⬆ back to top](#table-of-contents)**
 
 ### Events and Architecture Design
+
+![](section-05/events.jpg)
+![](section-05/architecture-design.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Note on Typescript
