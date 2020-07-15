@@ -1507,6 +1507,12 @@ skaffold dev
 **[⬆ back to top](#table-of-contents)**
 
 ### Ingress-Nginx Setup
+
+```console
+kubectl get ingress
+kubectl describe ingress ingress-service
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Hosts File and Security Warning
