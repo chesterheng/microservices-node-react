@@ -91,7 +91,6 @@
     - [Auth Service Setup](#auth-service-setup)
     - [Auth K8s Setup](#auth-k8s-setup)
     - [Adding Skaffold](#adding-skaffold)
-    - [Note on Code Reloading](#note-on-code-reloading)
     - [Ingress-Nginx Setup](#ingress-nginx-setup)
     - [Hosts File and Security Warning](#hosts-file-and-security-warning)
   - [**Leveraging a Cloud Environment for Development**](#leveraging-a-cloud-environment-for-development)
@@ -1493,12 +1492,18 @@ kubectl describe pod auth-depl-7c7879db66-mwz79
 kubectl exec -it auth-depl-7c7879db66-mwz79 -- cat index.js
 kubectl get services
 ```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Adding Skaffold
-**[⬆ back to top](#table-of-contents)**
 
-### Note on Code Reloading
+See ticketing/skaffold.yaml
+
+```console
+cd section-05/ticketing/
+skaffold dev
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Ingress-Nginx Setup
