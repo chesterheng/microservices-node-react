@@ -84,7 +84,7 @@
     - [A Few Notes on Skaffold](#a-few-notes-on-skaffold)
   - [**Section 05: Architecture of Multi-Service Apps**](#section-05-architecture-of-multi-service-apps)
     - [Big Ticket Items](#big-ticket-items)
-    - [App Overview](#app-overview-1)
+    - [Ticketing App Overview](#ticketing-app-overview)
     - [Resource Types](#resource-types)
     - [Service Types](#service-types)
     - [Events and Architecture Design](#events-and-architecture-design)
@@ -1432,7 +1432,19 @@ Lessons from App #1
 
 **[⬆ back to top](#table-of-contents)**
 
-### App Overview
+### Ticketing App Overview
+
+- Users can list a ticket for an event (concert, sports) for sale
+- Other users can purchase this ticket
+- Any user can list tickets for sale and purchase tickets
+- When a user attempts to purchase a ticket, the ticket is 'locked' for 15 minutes.  The user has 15 minutes to enter their payment info.
+- While locked, no other user can purchase the ticket. After 15 minutes, the ticket should 'unlock'
+- Ticket prices can be edited if they are not locked
+
+![](section-04/app-1.jpg)
+![](section-04/app-2.jpg)
+![](section-04/app-3.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Resource Types
