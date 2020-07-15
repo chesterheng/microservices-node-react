@@ -88,7 +88,6 @@
     - [Resource Types](#resource-types)
     - [Service Types](#service-types)
     - [Events and Architecture Design](#events-and-architecture-design)
-    - [Note on Typescript](#note-on-typescript)
     - [Auth Service Setup](#auth-service-setup)
     - [Auth K8s Setup](#auth-k8s-setup)
     - [Adding Skaffold](#adding-skaffold)
@@ -1471,10 +1470,10 @@ Lessons from App #1
 
 **[⬆ back to top](#table-of-contents)**
 
-### Note on Typescript
-**[⬆ back to top](#table-of-contents)**
-
 ### Auth Service Setup
+
+![](section-05/auth.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Auth K8s Setup
