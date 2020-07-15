@@ -1219,7 +1219,7 @@ docker build -t chesterheng/query .
 docker push chesterheng/query
 ```
 - Create a deployment + clusterip service for each
-```
+```console
 cd section-04/blog/infra/k8s/
 kubectl apply -f .
 kubectl get pods
@@ -1477,6 +1477,22 @@ Lessons from App #1
 **[⬆ back to top](#table-of-contents)**
 
 ### Auth K8s Setup
+
+```console
+cd sections-05/ticketing/auth/
+docker build -t chesterheng/auth .
+docker login
+docker push chesterheng/auth
+cd ../infra/k8s/
+kubectl apply -f auth-depl.yaml
+kubectl rollout restart deployment auth-depl
+kubectl get deployment
+kubectl get pod
+kubectl logs auth-depl-7c7879db66-mwz79
+kubectl describe pod auth-depl-7c7879db66-mwz79
+kubectl exec -it auth-depl-7c7879db66-mwz79 -- cat index.js
+kubectl get services
+```
 **[⬆ back to top](#table-of-contents)**
 
 ### Adding Skaffold
