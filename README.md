@@ -1750,6 +1750,14 @@ export { router as signupRouter };
 **[⬆ back to top](#table-of-contents)**
 
 ### Solution for Error Handling
+
+| Difficulty in Error Handling                                                                                                      | Solution                                                                                                             |
+| --------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| We must have a consistently structured response from all servers, no matter what went wrong                                       | Write an error handling middleware to process errors, give them a consistent structure, and send back to the browser |
+| A billion things can go wrong, not just validation of inputs to a request handler.  Each of these need to be handled consistently | Make sure we capture all possible errors using Express's error handling mechanism (call the 'next' function!)        |
+
+[Error Handling](https://expressjs.com/en/guide/error-handling.html)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Building an Error Handling Middleware
