@@ -1783,16 +1783,24 @@ export const errorHandler = (
 **[⬆ back to top](#table-of-contents)**
 
 ### Communicating More Info to the Error Handler
-**[⬆ back to top](#table-of-contents)**
-
-### Encoding More Information In an Error
 
 ![](section-07/error-object.jpg)
 ![](section-07/error-object-2.jpg)
 
 **[⬆ back to top](#table-of-contents)**
 
+### Encoding More Information In an Error
+
+- We want an object like an 'Error', but we want to add in some more custom properties to it
+- Usually a sign you want to subclass something!
+
+![](section-07/subclass.jpg)
+![](section-07/handle-errors-details.jpg)
+
+**[⬆ back to top](#table-of-contents)**
+
 ### Subclassing for Custom Errors
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Determining Error Type
