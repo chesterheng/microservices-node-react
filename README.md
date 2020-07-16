@@ -1868,8 +1868,8 @@ export const errorHandler = (
 
 ### Moving Logic Into Errors
 
-![](section-07/error-handling-issue.jpg.jpg)
-![](section-07/error-handling-solution.jpg.jpg)
+![](section-07/error-handling-issue.jpg)
+![](section-07/error-handling-solution.jpg)
 
 ```typescript
 // database-connection-error.ts
@@ -1941,6 +1941,40 @@ export const errorHandler = (
 **[⬆ back to top](#table-of-contents)**
 
 ### Verifying Our Custom Errors
+
+![](section-07/verify-custom-error-1.jpg)
+![](section-07/verify-custom-error-2.jpg)
+![](section-07/verify-custom-error-option-1.jpg)
+```typescript
+import { ValidationError } from 'express-validator';
+
+interface CustomError {
+  statusCode: number;
+  serializeErrors(): {
+    message: string;
+    field?: string;
+  }[]
+}
+
+export class RequestValidationError extends Error implements CustomError {
+  statusCode = 400;
+
+  constructor(public errors: ValidationError[]) {
+    super();
+
+    // Only because we are extending a built in class
+    Object.setPrototypeOf(this, RequestValidationError.prototype)
+  }
+
+  serializeErrors() {
+    return this.errors.map(error => {
+      return { message: error.msg, field: error.param };
+    });
+  }
+}
+```
+![](section-07/verify-custom-error-option-2.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Final Error Related Code
