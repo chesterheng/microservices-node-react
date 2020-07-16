@@ -1720,7 +1720,7 @@ router.post(
   (req: Request, res: Response) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(422).json({ errors: errors.array() });
+      return res.status(400).send(errors.array());
     }
 
     const { email, password } = req.body;
@@ -1761,6 +1761,25 @@ export { router as signupRouter };
 **[⬆ back to top](#table-of-contents)**
 
 ### Building an Error Handling Middleware
+
+```typescript
+// error-handler.ts
+import { Request, Response, NextFunction } from 'express';
+
+export const errorHandler = (
+  err: Error, 
+  req: Request, 
+  res: Response, 
+  next: NextFunction
+) => {
+  console.log('Something went wrong', err);
+
+  res.status(400).send({
+    message: 'Something went wrong'
+  });
+};
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Communicating More Info to the Error Handler
