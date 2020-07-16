@@ -110,7 +110,7 @@
     - [Scaffolding Routes](#scaffolding-routes)
     - [Adding Validation](#adding-validation)
     - [Handling Validation Errors](#handling-validation-errors)
-    - [Postman HTTPS Issues](#postman-https-issues)
+    - [Surprising Complexity Around Errors](#surprising-complexity-around-errors)
     - [Other Sources of Errors](#other-sources-of-errors)
     - [Solution for Error Handling](#solution-for-error-handling)
     - [Building an Error Handling Middleware](#building-an-error-handling-middleware)
@@ -1732,10 +1732,13 @@ export { router as signupRouter };
 
 **[⬆ back to top](#table-of-contents)**
 
-### Postman HTTPS Issues
-**[⬆ back to top](#table-of-contents)**
+### Surprising Complexity Around Errors
 
-119. Surprising Complexity Around Errors
+![](section-07/express-validator.jpg)
+![](section-07/different-frameworks.jpg)
+![](section-07/react-different-errors.jpg)
+![](section-07/handle-error-structure.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Other Sources of Errors
@@ -1750,7 +1753,7 @@ export { router as signupRouter };
 ### Communicating More Info to the Error Handler
 **[⬆ back to top](#table-of-contents)**
 
-124. Encoding More Information In an Error
+1.   Encoding More Information In an Error
 **[⬆ back to top](#table-of-contents)**
 
 ### Subclassing for Custom Errors
@@ -1762,7 +1765,7 @@ export { router as signupRouter };
 ### Converting Errors to Responses
 **[⬆ back to top](#table-of-contents)**
 
-128. Moving Logic Into Errors
+1.   Moving Logic Into Errors
 **[⬆ back to top](#table-of-contents)**
 
 ### Verifying Our Custom Errors
