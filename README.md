@@ -93,8 +93,35 @@
     - [Adding Skaffold](#adding-skaffold)
     - [Ingress-Nginx Setup](#ingress-nginx-setup)
     - [Hosts File and Security Warning](#hosts-file-and-security-warning)
-  - [**Leveraging a Cloud Environment for Development**](#leveraging-a-cloud-environment-for-development)
-  - [**Response Normalization Strategies**](#response-normalization-strategies)
+  - [**Section 06: Leveraging a Cloud Environment for Development**](#section-06-leveraging-a-cloud-environment-for-development)
+    - [Note on Remote Development](#note-on-remote-development)
+    - [Remote Dev with Skaffold](#remote-dev-with-skaffold)
+    - [Google Cloud Initial Setup](#google-cloud-initial-setup)
+    - [Kubernetes Cluster Creation](#kubernetes-cluster-creation)
+    - [Kubectl Contexts](#kubectl-contexts)
+    - [Initializing the GCloud SDK](#initializing-the-gcloud-sdk)
+    - [Installing the GCloud Context](#installing-the-gcloud-context)
+    - [Updating the Skaffold Config](#updating-the-skaffold-config)
+    - [More Skaffold Updates](#more-skaffold-updates)
+    - [Creating a Load Balancer](#creating-a-load-balancer)
+    - [Final Config and Test](#final-config-and-test)
+  - [**Section 07: Response Normalization Strategies**](#section-07-response-normalization-strategies)
+    - [Creating Route Handlers](#creating-route-handlers)
+    - [Scaffolding Routes](#scaffolding-routes)
+    - [Adding Validation](#adding-validation)
+    - [Handling Validation Errors](#handling-validation-errors)
+    - [Postman HTTPS Issues](#postman-https-issues)
+    - [Other Sources of Errors](#other-sources-of-errors)
+    - [Solution for Error Handling](#solution-for-error-handling)
+    - [Building an Error Handling Middleware](#building-an-error-handling-middleware)
+    - [Communicating More Info to the Error Handler](#communicating-more-info-to-the-error-handler)
+    - [Subclassing for Custom Errors](#subclassing-for-custom-errors)
+    - [Determining Error Type](#determining-error-type)
+    - [Converting Errors to Responses](#converting-errors-to-responses)
+    - [Verifying Our Custom Errors](#verifying-our-custom-errors)
+    - [Final Error Related Code](#final-error-related-code)
+    - [How to Define New Custom Errors](#how-to-define-new-custom-errors)
+    - [Uh Oh... Async Error Handling](#uh-oh-async-error-handling)
   - [**Database Management and Modeling**](#database-management-and-modeling)
   - [**Authentication Strategies and Options**](#authentication-strategies-and-options)
   - [**Testing Isolated Microservices**](#testing-isolated-microservices)
@@ -1537,12 +1564,124 @@ Security Warning
 
 **[⬆ back to top](#table-of-contents)**
 
-## **Leveraging a Cloud Environment for Development**
+## **Section 06: Leveraging a Cloud Environment for Development**
+
+### Note on Remote Development
+**[⬆ back to top](#table-of-contents)**
+
+### Remote Dev with Skaffold
+**[⬆ back to top](#table-of-contents)**
+
+### Google Cloud Initial Setup
+**[⬆ back to top](#table-of-contents)**
+
+### Kubernetes Cluster Creation
+**[⬆ back to top](#table-of-contents)**
+
+### Kubectl Contexts
+**[⬆ back to top](#table-of-contents)**
+
+### Initializing the GCloud SDK
+**[⬆ back to top](#table-of-contents)**
+
+### Installing the GCloud Context
+**[⬆ back to top](#table-of-contents)**
+
+### Updating the Skaffold Config
+**[⬆ back to top](#table-of-contents)**
+
+### More Skaffold Updates
+**[⬆ back to top](#table-of-contents)**
+
+### Creating a Load Balancer
+**[⬆ back to top](#table-of-contents)**
+
+### Final Config and Test
+**[⬆ back to top](#table-of-contents)**
+
+## **Section 07: Response Normalization Strategies**
+
+### Creating Route Handlers
+
+```typescript
+// current-user.ts
+import express from 'express';
+
+const router = express.Router();
+router.get('/api/users/currentuser', () => {});
+
+export { router as currentUserRouter };
+```
+
+```typescript
+// index.ts
+import express from 'express';
+import { json } from 'body-parser';
+import { currentUserRouter } from './routes/current-user';
+
+const app = express();
+app.use(json());
+app.use(currentUserRouter);
+
+app.listen(3000, () => {
+  console.log('Listening on port 3000!!!!!!!!');
+});
+```
 
 **[⬆ back to top](#table-of-contents)**
 
-## **Response Normalization Strategies**
+### Scaffolding Routes
+**[⬆ back to top](#table-of-contents)**
 
+### Adding Validation
+**[⬆ back to top](#table-of-contents)**
+
+### Handling Validation Errors
+**[⬆ back to top](#table-of-contents)**
+
+### Postman HTTPS Issues
+**[⬆ back to top](#table-of-contents)**
+
+119. Surprising Complexity Around Errors
+**[⬆ back to top](#table-of-contents)**
+
+### Other Sources of Errors
+**[⬆ back to top](#table-of-contents)**
+
+### Solution for Error Handling
+**[⬆ back to top](#table-of-contents)**
+
+### Building an Error Handling Middleware
+**[⬆ back to top](#table-of-contents)**
+
+### Communicating More Info to the Error Handler
+**[⬆ back to top](#table-of-contents)**
+
+124. Encoding More Information In an Error
+**[⬆ back to top](#table-of-contents)**
+
+### Subclassing for Custom Errors
+**[⬆ back to top](#table-of-contents)**
+
+### Determining Error Type
+**[⬆ back to top](#table-of-contents)**
+
+### Converting Errors to Responses
+**[⬆ back to top](#table-of-contents)**
+
+128. Moving Logic Into Errors
+**[⬆ back to top](#table-of-contents)**
+
+### Verifying Our Custom Errors
+**[⬆ back to top](#table-of-contents)**
+
+### Final Error Related Code
+**[⬆ back to top](#table-of-contents)**
+
+### How to Define New Custom Errors
+**[⬆ back to top](#table-of-contents)**
+
+### Uh Oh... Async Error Handling
 **[⬆ back to top](#table-of-contents)**
 
 ## **Database Management and Modeling**
