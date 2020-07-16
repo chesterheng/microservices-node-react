@@ -1867,6 +1867,77 @@ export const errorHandler = (
 **[⬆ back to top](#table-of-contents)**
 
 ### Moving Logic Into Errors
+
+![](section-07/error-handling-issue.jpg.jpg)
+![](section-07/error-handling-solution.jpg.jpg)
+
+```typescript
+// database-connection-error.ts
+export class DatabaseConnectionError extends Error {
+  statusCode = 500;
+  reason = 'Error connecting to database'
+
+  constructor() {
+    super();
+
+    // Only because we are extending a built in class
+    Object.setPrototypeOf(this, DatabaseConnectionError.prototype)
+  }
+
+  serializeErrors() {
+    return [{ message: this.reason }];
+  }
+}
+```
+
+```typescript
+// request-validation-error.ts
+import { ValidationError } from 'express-validator';
+
+export class RequestValidationError extends Error {
+  statusCode = 400;
+
+  constructor(public errors: ValidationError[]) {
+    super();
+
+    // Only because we are extending a built in class
+    Object.setPrototypeOf(this, RequestValidationError.prototype)
+  }
+
+  serializeErrors() {
+    return this.errors.map(error => {
+      return { message: error.msg, field: error.param };
+    });
+  }
+}
+```
+
+```typescript
+// error-handler.ts
+import { Request, Response, NextFunction } from 'express';
+import { RequestValidationError } from '../errors/request-validation-error';
+import { DatabaseConnectionError } from '../errors/database-connection-error copy';
+
+export const errorHandler = (
+  err: Error, 
+  req: Request, 
+  res: Response, 
+  next: NextFunction
+) => {
+  if(err instanceof RequestValidationError) {
+    return res.status(err.statusCode).send({ errors: err.serializeErrors() });
+  }
+
+  if(err instanceof DatabaseConnectionError) {
+    return res.status(err.statusCode).send({ errors: err.serializeErrors() });
+  }
+
+  res.status(400).send({
+    errors: [{ message: 'Something went wrong' }]
+  });
+};
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Verifying Our Custom Errors
