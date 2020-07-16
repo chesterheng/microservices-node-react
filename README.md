@@ -1786,6 +1786,10 @@ export const errorHandler = (
 **[⬆ back to top](#table-of-contents)**
 
 ### Encoding More Information In an Error
+
+![](section-07/error-object.jpg)
+![](section-07/error-object-2.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Subclassing for Custom Errors
