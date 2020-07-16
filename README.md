@@ -1978,6 +1978,87 @@ export class RequestValidationError extends Error implements CustomError {
 **[⬆ back to top](#table-of-contents)**
 
 ### Final Error Related Code
+
+```typescript
+// custom-error.ts
+export abstract class CustomError extends Error {
+  abstract statusCode: number;
+
+  constructor(message: string) {
+    super(message);
+
+    Object.setPrototypeOf(this, CustomError.prototype);
+  }
+
+  abstract serializeErrors(): { message: string; field?: string }[];
+}
+```
+
+```typescript
+// database-connection-error.ts
+import { CustomError } from './custom-error';
+
+export class DatabaseConnectionError extends CustomError {
+  statusCode = 500;
+  reason = 'Error connecting to database'
+
+  constructor() {
+    super('Error connecting to db');
+
+    // Only because we are extending a built in class
+    Object.setPrototypeOf(this, DatabaseConnectionError.prototype)
+  }
+
+  serializeErrors() {
+    return [{ message: this.reason }];
+  }
+}
+```
+
+```typescript
+// request-validation-error.ts
+import { ValidationError } from 'express-validator';
+import { CustomError } from './custom-error';
+
+export class RequestValidationError extends CustomError {
+  statusCode = 400;
+
+  constructor(public errors: ValidationError[]) {
+    super('Invalid request parameters');
+
+    // Only because we are extending a built in class
+    Object.setPrototypeOf(this, RequestValidationError.prototype)
+  }
+
+  serializeErrors() {
+    return this.errors.map(error => {
+      return { message: error.msg, field: error.param };
+    });
+  }
+}
+```
+
+```typescript
+// error-handler.ts
+import { Request, Response, NextFunction } from 'express';
+import { CustomError } from '../errors/custom-error';
+
+export const errorHandler = (
+  err: Error, 
+  req: Request, 
+  res: Response, 
+  next: NextFunction
+) => {
+  if(err instanceof CustomError) {
+    return res.status(err.statusCode).send({ errors: err.serializeErrors() });
+  }
+
+  res.status(400).send({
+    errors: [{ message: 'Something went wrong' }]
+  });
+};
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### How to Define New Custom Errors
