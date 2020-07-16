@@ -115,9 +115,11 @@
     - [Solution for Error Handling](#solution-for-error-handling)
     - [Building an Error Handling Middleware](#building-an-error-handling-middleware)
     - [Communicating More Info to the Error Handler](#communicating-more-info-to-the-error-handler)
+    - [Encoding More Information In an Error](#encoding-more-information-in-an-error)
     - [Subclassing for Custom Errors](#subclassing-for-custom-errors)
     - [Determining Error Type](#determining-error-type)
     - [Converting Errors to Responses](#converting-errors-to-responses)
+    - [Moving Logic Into Errors](#moving-logic-into-errors)
     - [Verifying Our Custom Errors](#verifying-our-custom-errors)
     - [Final Error Related Code](#final-error-related-code)
     - [How to Define New Custom Errors](#how-to-define-new-custom-errors)
@@ -1742,6 +1744,9 @@ export { router as signupRouter };
 **[⬆ back to top](#table-of-contents)**
 
 ### Other Sources of Errors
+
+![](section-07/scenarios.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Solution for Error Handling
@@ -1753,7 +1758,7 @@ export { router as signupRouter };
 ### Communicating More Info to the Error Handler
 **[⬆ back to top](#table-of-contents)**
 
-1.   Encoding More Information In an Error
+### Encoding More Information In an Error
 **[⬆ back to top](#table-of-contents)**
 
 ### Subclassing for Custom Errors
@@ -1765,7 +1770,7 @@ export { router as signupRouter };
 ### Converting Errors to Responses
 **[⬆ back to top](#table-of-contents)**
 
-1.   Moving Logic Into Errors
+### Moving Logic Into Errors
 **[⬆ back to top](#table-of-contents)**
 
 ### Verifying Our Custom Errors
