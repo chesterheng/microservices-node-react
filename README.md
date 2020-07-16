@@ -1316,6 +1316,10 @@ kubectl apply -f ingress-srv.yaml
 | Windows     | C:\Windows\System32\Drivers\etc\hosts |
 | MacOS/Linux | /etc/hosts                            |
 
+```console
+code /etc/hosts
+```
+
 - Add 127.0.0.1 posts.com to /etc/hosts
 - Try http://posts.com/posts
 
@@ -1516,6 +1520,21 @@ kubectl describe ingress ingress-service
 **[⬆ back to top](#table-of-contents)**
 
 ### Hosts File and Security Warning
+
+Hosts File
+
+- Open hosts file
+```console
+code /etc/hosts
+```
+- Add 127.0.0.1 ticketing.dev to hosts file
+
+Security Warning
+
+- Goto Chrome - https://ticketing.dev/api/users/currentuser
+- Unskippable HTTPS warning in Chrome? 
+  - type thisisunsafe
+
 **[⬆ back to top](#table-of-contents)**
 
 ## **Leveraging a Cloud Environment for Development**
