@@ -1861,6 +1861,9 @@ export const errorHandler = (
 **[⬆ back to top](#table-of-contents)**
 
 ### Converting Errors to Responses
+
+![](section-07/common-response-structure.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Moving Logic Into Errors
