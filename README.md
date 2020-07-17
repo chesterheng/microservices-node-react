@@ -124,7 +124,23 @@
     - [Final Error Related Code](#final-error-related-code)
     - [How to Define New Custom Errors](#how-to-define-new-custom-errors)
     - [Uh Oh... Async Error Handling](#uh-oh-async-error-handling)
-  - [**Database Management and Modeling**](#database-management-and-modeling)
+  - [**Section 08: Database Management and Modeling**](#section-08-database-management-and-modeling)
+    - [Creating Databases in Kubernetes](#creating-databases-in-kubernetes)
+    - [Connecting to MongoDB](#connecting-to-mongodb)
+    - [Understanding the Signup Flow](#understanding-the-signup-flow)
+    - [Getting TypeScript and Mongoose to Cooperate](#getting-typescript-and-mongoose-to-cooperate)
+    - [Creating the User Model](#creating-the-user-model)
+    - [Type Checking User Properties](#type-checking-user-properties)
+    - [Adding Static Properties to a Model](#adding-static-properties-to-a-model)
+    - [Defining Extra Document Properties](#defining-extra-document-properties)
+    - [What's That Angle Bracket For?](#whats-that-angle-bracket-for)
+    - [User Creation](#user-creation)
+    - [Proper Error Handling](#proper-error-handling)
+    - [Note on Password Hashing](#note-on-password-hashing)
+    - [Reminder on Password Hashing](#reminder-on-password-hashing)
+    - [Adding Password Hashing](#adding-password-hashing)
+    - [Comparing Hashed Password](#comparing-hashed-password)
+    - [Mongoose Pre-Save Hooks](#mongoose-pre-save-hooks)
   - [**Authentication Strategies and Options**](#authentication-strategies-and-options)
   - [**Testing Isolated Microservices**](#testing-isolated-microservices)
   - [**Integrating a Server-Side-Rendered React App**](#integrating-a-server-side-rendered-react-app)
@@ -2130,8 +2146,58 @@ app.all('*', async (req, res) => {
 
 **[⬆ back to top](#table-of-contents)**
 
-## **Database Management and Modeling**
+## **Section 08: Database Management and Modeling**
 
+### Creating Databases in Kubernetes
+
+![](section-08/auth-1.jpg)
+![](section-08/auth-2.jpg)
+
+**[⬆ back to top](#table-of-contents)**
+
+### Connecting to MongoDB
+**[⬆ back to top](#table-of-contents)**
+
+### Understanding the Signup Flow
+**[⬆ back to top](#table-of-contents)**
+
+### Getting TypeScript and Mongoose to Cooperate
+**[⬆ back to top](#table-of-contents)**
+
+### Creating the User Model
+**[⬆ back to top](#table-of-contents)**
+
+### Type Checking User Properties
+**[⬆ back to top](#table-of-contents)**
+
+### Adding Static Properties to a Model
+**[⬆ back to top](#table-of-contents)**
+
+### Defining Extra Document Properties
+**[⬆ back to top](#table-of-contents)**
+
+### What's That Angle Bracket For?
+**[⬆ back to top](#table-of-contents)**
+
+### User Creation
+**[⬆ back to top](#table-of-contents)**
+
+### Proper Error Handling
+**[⬆ back to top](#table-of-contents)**
+
+### Note on Password Hashing
+**[⬆ back to top](#table-of-contents)**
+
+### Reminder on Password Hashing
+**[⬆ back to top](#table-of-contents)**
+
+### Adding Password Hashing
+**[⬆ back to top](#table-of-contents)**
+
+### Comparing Hashed Password
+**[⬆ back to top](#table-of-contents)**
+
+### Mongoose Pre-Save Hooks
 **[⬆ back to top](#table-of-contents)**
 
 ## **Authentication Strategies and Options**
