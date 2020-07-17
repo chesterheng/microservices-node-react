@@ -2252,6 +2252,25 @@ start();
 **[⬆ back to top](#table-of-contents)**
 
 ### Getting TypeScript and Mongoose to Cooperate
+
+![](section-08/mongoose.jpg)
+
+Issue #1 with TS + Mongoose
+
+Creating a new User Document
+```typescript
+new User({ email: 'test@test.com', password: 'lk325kj2' })
+// Typescript wants to make sure we are providing the correct properties - Mongoose does not make this easy!
+```
+
+Issue #2 with TS + Mongoose
+
+```typescript
+const user = new User({ email: 'test@test.com', password: 'lk325kj2' })
+console.log(user); // { email: '..', password: '..', createdAt: '..', updatedAt: '..' }
+// The properties that we pass to the User constructor don't necessarily match up with the properties available on a user
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Creating the User Model
