@@ -2276,6 +2276,7 @@ console.log(user); // { email: '..', password: '..', createdAt: '..', updatedAt:
 ### Creating the User Model
 
 ```typescript
+// user.ts
 import mongoose from 'mongoose';
 
 const userSchema = new mongoose.Schema({
@@ -2301,6 +2302,7 @@ export { User };
 Solution for Issue #1 with TS + Mongoose
 
 ```typescript
+// user.ts
 import mongoose from 'mongoose';
 
 // An interface that describes the properties
@@ -2333,6 +2335,43 @@ export { User, buildUser };
 **[⬆ back to top](#table-of-contents)**
 
 ### Adding Static Properties to a Model
+
+```typescript
+// user.ts
+import mongoose from 'mongoose';
+
+// An interface that describes the properties
+// that are requried to create a new User
+interface UserAttrs {
+  email: string;
+  password: string;
+}
+
+// An interface that describes the properties
+// that a User Model has
+interface UserModel extends mongoose.Model<any> {
+  build(attrs: UserAttrs): any;
+}
+
+const userSchema = new mongoose.Schema({
+  email: {
+    type: String,
+    required: true
+  },
+  password: {
+    type: String,
+    required: true
+  }
+});
+userSchema.statics.build = (attrs: UserAttrs) => {
+  return new User(attrs);
+};
+
+const User = mongoose.model<any, UserModel>('User', userSchema);
+
+export { User };
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Defining Extra Document Properties
