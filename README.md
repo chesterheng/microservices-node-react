@@ -136,7 +136,6 @@
     - [What's That Angle Bracket For?](#whats-that-angle-bracket-for)
     - [User Creation](#user-creation)
     - [Proper Error Handling](#proper-error-handling)
-    - [Note on Password Hashing](#note-on-password-hashing)
     - [Reminder on Password Hashing](#reminder-on-password-hashing)
     - [Adding Password Hashing](#adding-password-hashing)
     - [Comparing Hashed Password](#comparing-hashed-password)
@@ -2516,10 +2515,12 @@ if (existingUser) {
 
 **[⬆ back to top](#table-of-contents)**
 
-### Note on Password Hashing
-**[⬆ back to top](#table-of-contents)**
-
 ### Reminder on Password Hashing
+
+![](section-08/signup-hashing-1.jpg)
+![](section-08/signup-hashing-2.jpg)
+![](section-08/signin-hashing.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Adding Password Hashing
