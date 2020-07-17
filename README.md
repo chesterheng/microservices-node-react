@@ -2154,10 +2154,6 @@ app.all('*', async (req, res) => {
 ![](section-08/auth-1.jpg)
 ![](section-08/auth-2.jpg)
 
-**[⬆ back to top](#table-of-contents)**
-
-### Connecting to MongoDB
-
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -2195,6 +2191,57 @@ spec:
 cd section-08/ticketing/infra/k8s/
 skaffold dev
 kubectl get pods
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+### Connecting to MongoDB
+
+```typescript
+import express from 'express';
+import 'express-async-errors';
+import { json } from 'body-parser';
+import mongoose from 'mongoose';
+
+import { currentUserRouter } from './routes/current-user';
+import { signinRouter } from './routes/signin';
+import { signoutRouter } from './routes/signout';
+import { signupRouter } from './routes/signup';
+import { errorHandler } from './middleware/error-handler';
+import { NotFoundError } from './errors/not-found-error';
+
+const app = express();
+app.use(json());
+
+app.use(currentUserRouter);
+app.use(signinRouter);
+app.use(signoutRouter);
+app.use(signupRouter);
+
+app.all('*', async (req, res) => {
+  throw new NotFoundError();
+});
+
+app.use(errorHandler);
+
+const start = async () => {
+  try {
+    await mongoose.connect('mongodb://auth-mongo-srv:27017/auth', {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true
+    });
+    console.log('Connected to MongoDb');
+  } catch (err) {
+    console.log(err);
+  }
+
+  app.listen(3000, () => {
+    console.log('Listening on port 3000!');
+  });
+};
+
+start();
 ```
 
 **[⬆ back to top](#table-of-contents)**
