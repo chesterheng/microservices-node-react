@@ -2487,6 +2487,33 @@ export { router as signupRouter };
 **[⬆ back to top](#table-of-contents)**
 
 ### Proper Error Handling
+
+```typescript
+// bad-request-error.ts
+import { CustomError } from './custom-error';
+
+export class BadRequestError extends CustomError {
+  statusCode = 400;
+
+  constructor(public message: string) {
+    super(message);
+
+    Object.setPrototypeOf(this, BadRequestError.prototype);
+  }
+
+  serializeErrors() {
+    return [{ message: this.message }];
+  }
+}
+```
+
+```typescript
+// signup.ts
+if (existingUser) {
+  throw new BadRequestError('Email in use');
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Note on Password Hashing
