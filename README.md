@@ -2274,6 +2274,26 @@ console.log(user); // { email: '..', password: '..', createdAt: '..', updatedAt:
 **[⬆ back to top](#table-of-contents)**
 
 ### Creating the User Model
+
+```typescript
+import mongoose from 'mongoose';
+
+const userSchema = new mongoose.Schema({
+  email: {
+    type: String,
+    required: true
+  },
+  password: {
+    type: String,
+    required: true
+  }
+});
+
+const User = mongoose.model('User', userSchema);
+
+export { User };
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Type Checking User Properties
