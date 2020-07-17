@@ -2568,6 +2568,18 @@ export class Password {
 **[⬆ back to top](#table-of-contents)**
 
 ### Mongoose Pre-Save Hooks
+
+```typescript
+// user.ts
+userSchema.pre('save', async function(done) {
+  if (this.isModified('password')) {
+    const hashed = await Password.toHash(this.get('password'));
+    this.set('password', hashed);
+  }
+  done(); // complete async work
+});
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ## **Authentication Strategies and Options**
