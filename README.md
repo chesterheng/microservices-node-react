@@ -2109,12 +2109,25 @@ app.use(errorHandler);
 app.listen(3000, () => {
   console.log('Listening on port 3000!');
 });
-
 ```
 
 **[⬆ back to top](#table-of-contents)**
 
 ### Uh Oh... Async Error Handling
+
+```typescript
+app.all('*', async (req, res, next) => {
+  next(new NotFoundError());
+});
+```
+
+[ExpressJS Async Errors](https://github.com/davidbanham/express-async-errors)
+```typescript
+app.all('*', async (req, res) => {
+  throw new NotFoundError();
+});
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ## **Database Management and Modeling**
