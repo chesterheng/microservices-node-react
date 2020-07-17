@@ -2152,7 +2152,6 @@ app.all('*', async (req, res) => {
 ### Creating Databases in Kubernetes
 
 ![](section-08/auth-1.jpg)
-![](section-08/auth-2.jpg)
 
 ```yaml
 apiVersion: apps/v1
@@ -2247,6 +2246,9 @@ start();
 **[⬆ back to top](#table-of-contents)**
 
 ### Understanding the Signup Flow
+
+![](section-08/auth-2.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Getting TypeScript and Mongoose to Cooperate
