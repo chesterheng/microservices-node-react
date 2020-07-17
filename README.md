@@ -1809,6 +1809,7 @@ export const errorHandler = (
 
 - We want an object like an 'Error', but we want to add in some more custom properties to it
 - Usually a sign you want to subclass something!
+- [Custom errors, extending Error](https://javascript.info/custom-errors)
 
 ![](section-07/subclass.jpg)
 ![](section-07/handle-errors-details.jpg)
@@ -2156,6 +2157,46 @@ app.all('*', async (req, res) => {
 **[⬆ back to top](#table-of-contents)**
 
 ### Connecting to MongoDB
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-mongo-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: auth-mongo
+  template:
+    metadata:
+      labels:
+        app: auth-mongo
+    spec:
+      containers:
+        - name: auth-mongo
+          image: mongo
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: auth-mongo-srv
+spec:
+  selector:
+    app: auth-mongo
+  ports:
+    - name: db
+      protocol: TCP
+      port: 27017
+      targetPort: 27017
+```
+
+```console
+cd section-08/ticketing/infra/k8s/
+skaffold dev
+kubectl get pods
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Understanding the Signup Flow
