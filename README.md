@@ -2423,6 +2423,16 @@ export { User };
 **[⬆ back to top](#table-of-contents)**
 
 ### What's That Angle Bracket For?
+
+```typescript
+export function model<T extends Document, U extends Model<T>>(
+  name: string,
+  schema?: Schema,
+  collection?: string,
+  skipInit?: boolean
+): U;
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### User Creation
