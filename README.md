@@ -2677,6 +2677,22 @@ We are going with Option #2 to stick with the idea of independent services
 **[⬆ back to top](#table-of-contents)**
 
 ### Microservices Auth Requirements
+
+![](section-09/login-user-details.jpg)
+![](section-09/admin-ban-user.jpg)
+![](section-09/login-expire.jpg)
+![](section-09/auth-mechanism.jpg)
+
+Requirements for Our Auth Mechanism -> JWT
+
+- Must be able to tell us details about a user
+- Must be able to handle authorization info
+- Must have a built-in, tamper-resistant way to expire or - invalidate itself
+- Must be easily understood between different languages
+- Must not require some kind of backing data store on the server
+
+![](section-09/client-jwt-server.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Issues with JWT's and Server Side Rendering
