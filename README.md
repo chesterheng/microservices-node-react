@@ -2654,6 +2654,12 @@ We are going with Option #2 to stick with the idea of independent services
 **[⬆ back to top](#table-of-contents)**
 
 ### Solving Issues with Option #2
+
+![](section-09/user-signin-time-constraint.jpg)
+![](section-09/refresh-token-1.jpg)
+![](section-09/refresh-token-2.jpg)
+![](section-09/cache-banned-users.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Reminder on Cookies vs JWT's
