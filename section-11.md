@@ -59,6 +59,11 @@ Server Side Rendering
 **[⬆ back to top](#table-of-contents)**
 
 ### Basics of Next JS
+
+- install react, react-dom, next
+- create pages folder and add page components
+- npm run dev
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Building a Next Image
