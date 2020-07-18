@@ -167,7 +167,24 @@
     - [Creating a Current User Middleware](#creating-a-current-user-middleware)
     - [Augmenting Type Definitions](#augmenting-type-definitions)
     - [Requiring Auth for Route Access](#requiring-auth-for-route-access)
-  - [**Testing Isolated Microservices**](#testing-isolated-microservices)
+  - [**Section 10: Testing Isolated Microservices**](#section-10-testing-isolated-microservices)
+    - [Scope of Testing](#scope-of-testing)
+    - [Testing Goals](#testing-goals)
+    - [Testing Architecture](#testing-architecture)
+    - [Index to App Refactor](#index-to-app-refactor)
+    - [A Few Dependencies](#a-few-dependencies)
+    - [Test Environment Setup](#test-environment-setup)
+    - [Our First Test](#our-first-test)
+    - [An Important Note](#an-important-note)
+    - [Testing Invalid Input](#testing-invalid-input)
+    - [Requiring Unique Emails](#requiring-unique-emails)
+    - [Changing Node Env During Tests](#changing-node-env-during-tests)
+    - [Tests Around Sign In Functionality](#tests-around-sign-in-functionality)
+    - [Testing Sign Out](#testing-sign-out)
+    - [Issues with Cookies During Testing](#issues-with-cookies-during-testing)
+    - [Easy Auth Solution](#easy-auth-solution)
+    - [Auth Helper Function](#auth-helper-function)
+    - [Testing Non-Authed Requests](#testing-non-authed-requests)
   - [**Integrating a Server-Side-Rendered React App**](#integrating-a-server-side-rendered-react-app)
   - [**Code Sharing and Reuse Between Services**](#code-sharing-and-reuse-between-services)
   - [**Create-Read-Update-Destroy Server Setup**](#create-read-update-destroy-server-setup)
@@ -3215,8 +3232,67 @@ export { router as currentUserRouter };
 
 **[⬆ back to top](#table-of-contents)**
 
-## **Testing Isolated Microservices**
+## **Section 10: Testing Isolated Microservices**
 
+### Scope of Testing
+
+| Whats the scope of our tests?                   | Example                                                                           |
+| ----------------------------------------------- | --------------------------------------------------------------------------------- |
+| Test a single piece of code in isolation        | Single middleware                                                                 |
+| Test how different pieces of code work together | Request flowing through multiple middlewares to a request handler                 |
+| Test how different components work together     | Make request to service, ensure write to database was completed                   |
+| Test how different services work together       | Creating a 'payment' at the 'payments' service should affect the 'orders' service |
+
+![](section-10/current-app.jpg)
+
+**[⬆ back to top](#table-of-contents)**
+
+### Testing Goals
+**[⬆ back to top](#table-of-contents)**
+
+### Testing Architecture
+**[⬆ back to top](#table-of-contents)**
+
+### Index to App Refactor
+**[⬆ back to top](#table-of-contents)**
+
+### A Few Dependencies
+**[⬆ back to top](#table-of-contents)**
+
+### Test Environment Setup
+**[⬆ back to top](#table-of-contents)**
+
+### Our First Test
+**[⬆ back to top](#table-of-contents)**
+
+### An Important Note
+**[⬆ back to top](#table-of-contents)**
+
+### Testing Invalid Input
+**[⬆ back to top](#table-of-contents)**
+
+### Requiring Unique Emails
+**[⬆ back to top](#table-of-contents)**
+
+### Changing Node Env During Tests
+**[⬆ back to top](#table-of-contents)**
+
+### Tests Around Sign In Functionality
+**[⬆ back to top](#table-of-contents)**
+
+### Testing Sign Out
+**[⬆ back to top](#table-of-contents)**
+
+### Issues with Cookies During Testing
+**[⬆ back to top](#table-of-contents)**
+
+### Easy Auth Solution
+**[⬆ back to top](#table-of-contents)**
+
+### Auth Helper Function
+**[⬆ back to top](#table-of-contents)**
+
+### Testing Non-Authed Requests
 **[⬆ back to top](#table-of-contents)**
 
 ## **Integrating a Server-Side-Rendered React App**
