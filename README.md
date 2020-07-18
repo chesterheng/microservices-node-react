@@ -2790,6 +2790,10 @@ req.session = {
 **[⬆ back to top](#table-of-contents)**
 
 ### Securely Storing Secrets with Kubernetes
+
+![](section-09/secret-object-1.jpg)
+![](section-09/secret-object-2.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Creating and Accessing Secrets
