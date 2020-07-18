@@ -67,6 +67,23 @@ Server Side Rendering
 **[⬆ back to top](#table-of-contents)**
 
 ### Building a Next Image
+
+```docker
+FROM node:alpine
+
+WORKDIR /app
+COPY package.json .
+RUN npm install
+COPY . .
+
+CMD ["npm", "run", "dev"]
+```
+
+```console
+docker build -t chesterheng/client .
+docker push chesterheng/client
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Running Next in Kubernetes
