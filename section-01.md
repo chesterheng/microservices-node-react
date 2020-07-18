@@ -10,6 +10,7 @@
   - [Async: Event-Based Communication](#async-event-based-communication)
   - [Async: A Crazy Way of Storing Data](#async-a-crazy-way-of-storing-data)
   - [Pros and Cons of Async Communication](#pros-and-cons-of-async-communication)
+
 ### What Is a Microservice?
 
 A monolith contains

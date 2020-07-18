@@ -28,6 +28,7 @@
   - [Handling Moderation](#handling-moderation)
   - [Updating Comment Content](#updating-comment-content)
   - [Dealing with Missing Events](#dealing-with-missing-events)
+
 ### App Overview
 
 Goals
