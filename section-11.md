@@ -206,6 +206,18 @@ kubectl get pods
 **[⬆ back to top](#table-of-contents)**
 
 ### Adding Global CSS
+
+[Global CSS Must Be in Your Custom <App>](https://github.com/vercel/next.js/blob/canary/errors/css-global.md)
+
+```javascript
+// _app.js
+import 'bootstrap/dist/css/bootstrap.css';
+
+export default ({ Component, pageProps }) => {
+  return <Component {...pageProps} />;
+};
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Adding a Sign Up Form
