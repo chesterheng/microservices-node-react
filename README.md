@@ -3664,6 +3664,18 @@ global.signin = async () => {
 **[⬆ back to top](#table-of-contents)**
 
 ### Testing Non-Authed Requests
+
+```typescript
+it('responds with null if not authenticated', async () => {
+  const response = await request(app)
+    .get('/api/users/currentuser')
+    .send()
+    .expect(200);
+
+  expect(response.body.currentUser).toEqual(null);
+});
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ## **Integrating a Server-Side-Rendered React App**
