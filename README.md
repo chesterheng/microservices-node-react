@@ -2826,6 +2826,40 @@ if(!process.env.JWT_KEY) {
 **[⬆ back to top](#table-of-contents)**
 
 ### Formatting JSON Properties
+
+```typescript
+const person = { name: 'alex' };
+JSON.stringify(person)
+
+const personTwo = { 
+  name: 'alex', 
+  toJSON() { return 1; } 
+};
+JSON.stringify(personTwo)
+```
+
+```typescript
+const userSchema = new mongoose.Schema({
+  email: {
+    type: String,
+    required: true
+  },
+  password: {
+    type: String,
+    required: true
+  }
+}, {
+  toJSON: {
+    transform(doc, ret) {
+      ret.id = ret._id;
+      delete ret._id;
+      delete ret.password;
+      delete ret.__v;
+    }
+  }
+});
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### The Signin Flow
