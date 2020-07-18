@@ -3343,6 +3343,11 @@ start();
 **[⬆ back to top](#table-of-contents)**
 
 ### A Few Dependencies
+
+[jest](https://jestjs.io/en/)
+[supertest](https://github.com/visionmedia/supertest)
+[mongodb-memory-server](https://github.com/nodkz/mongodb-memory-server)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Test Environment Setup
