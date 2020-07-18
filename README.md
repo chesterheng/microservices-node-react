@@ -3262,6 +3262,12 @@ How will we run these tests?
 **[⬆ back to top](#table-of-contents)**
 
 ### Testing Architecture
+
+![](section-10/test-process.jpg)
+![](section-10/supertest.jpg)
+![](section-10/setup-1.jpg)
+![](section-10/setup-2.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Index to App Refactor
