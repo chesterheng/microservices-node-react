@@ -2819,6 +2819,10 @@ if(!process.env.JWT_KEY) {
 **[⬆ back to top](#table-of-contents)**
 
 ### Common Response Properties
+
+![](section-09/different-db-issue.jpg)
+![](section-09/different-db-solution.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Formatting JSON Properties
