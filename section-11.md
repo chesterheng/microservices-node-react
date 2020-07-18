@@ -47,6 +47,15 @@
 **[⬆ back to top](#table-of-contents)**
 
 ### Reminder on Server Side Rendering
+
+Client Side Rendering
+
+![](section-11/csr.jpg)
+
+Server Side Rendering
+
+![](section-11/ssr.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Basics of Next JS
