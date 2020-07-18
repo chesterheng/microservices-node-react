@@ -2663,6 +2663,17 @@ We are going with Option #2 to stick with the idea of independent services
 **[⬆ back to top](#table-of-contents)**
 
 ### Reminder on Cookies vs JWT's
+
+![](section-09/option-2.jpg)
+![](section-09/cookie.jpg)
+![](section-09/jwt.jpg)
+
+| Cookies                                           | JWT's                                  |
+| ------------------------------------------------- | -------------------------------------- |
+| Transport mechanism                               | Authentication/Authorization mechanism |
+| Moves any kind of data between browser and server | Stores any data we want                |
+| Automatically managed by the browser              | We have to manage it manually          |
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Microservices Auth Requirements
