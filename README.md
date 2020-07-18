@@ -175,7 +175,6 @@
     - [A Few Dependencies](#a-few-dependencies)
     - [Test Environment Setup](#test-environment-setup)
     - [Our First Test](#our-first-test)
-    - [An Important Note](#an-important-note)
     - [Testing Invalid Input](#testing-invalid-input)
     - [Requiring Unique Emails](#requiring-unique-emails)
     - [Changing Node Env During Tests](#changing-node-env-during-tests)
@@ -3405,10 +3404,50 @@ it('returns a 201 on successful signup', async () => {
 
 **[⬆ back to top](#table-of-contents)**
 
-### An Important Note
-**[⬆ back to top](#table-of-contents)**
-
 ### Testing Invalid Input
+
+```typescript
+// signup.test.ts
+import request from 'supertest';
+import { app } from '../../app';
+
+it('returns a 400 with an invalid email', async () => {
+  return request(app)
+    .post('/api/users/signup')
+    .send({
+      email: 'alskdflaskjfd',
+      password: 'password'
+    })
+    .expect(400);
+});
+
+it('returns a 400 with an invalid password', async () => {
+  return request(app)
+    .post('/api/users/signup')
+    .send({
+      email: 'alskdflaskjfd',
+      password: 'p'
+    })
+    .expect(400);
+});
+
+it('returns a 400 with missing email and password', async () => {
+  await request(app)
+    .post('/api/users/signup')
+    .send({
+      email: 'test@test.com'
+    })
+    .expect(400);
+
+  await request(app)
+    .post('/api/users/signup')
+    .send({
+      password: 'alskjdf'
+    })
+    .expect(400);
+});
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Requiring Unique Emails
