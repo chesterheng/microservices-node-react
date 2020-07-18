@@ -2863,6 +2863,40 @@ const userSchema = new mongoose.Schema({
 **[⬆ back to top](#table-of-contents)**
 
 ### The Signin Flow
+
+![](section-09/signin-flow.jpg)
+
+```typescript
+import express, { Request, Response } from 'express';
+import { body, validationResult } from 'express-validator';
+
+import { RequestValidationError } from '../errors/request-validation-error';
+
+const router = express.Router();
+
+router.post(
+  '/api/users/signin',
+  [
+    body('email')
+      .isEmail()
+      .withMessage('Email must be valid'),
+    body('password')
+      .trim()
+      .notEmpty()
+      .withMessage('You must supply a password')
+  ],
+  (req: Request, res: Response) => {
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+      throw new RequestValidationError(errors.array());
+    }
+  }
+);
+
+export { router as signinRouter };
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Common Request Validation Middleware
