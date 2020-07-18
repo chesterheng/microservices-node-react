@@ -3248,6 +3248,17 @@ export { router as currentUserRouter };
 **[⬆ back to top](#table-of-contents)**
 
 ### Testing Goals
+
+![](section-10/goal-1.jpg)
+![](section-10/goal-2.jpg)
+![](section-10/goal-3.jpg)
+
+How will we run these tests?
+
+- We are going to run these tests directly from our terminal without using docker
+- This implies that our local environment is capable of running each service!
+- Simple enough now, but more complex projects might make this hard!
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Testing Architecture
