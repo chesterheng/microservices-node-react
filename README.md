@@ -2724,6 +2724,21 @@ Requirements for Our Auth Mechanism
 **[⬆ back to top](#table-of-contents)**
 
 ### Adding Session Support
+
+[cookie-session](https://github.com/expressjs/cookie-session)
+
+```typescript
+// index.ts
+app.set('trust proxy', true);
+app.use(json());
+app.use(
+  cookieSession({
+    signed: false,
+    secure: true
+  })
+);
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Note on Cookie-Session - Do Not Skip
