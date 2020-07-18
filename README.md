@@ -2696,6 +2696,13 @@ Requirements for Our Auth Mechanism -> JWT
 **[⬆ back to top](#table-of-contents)**
 
 ### Issues with JWT's and Server Side Rendering
+
+![](section-09/requests-responses.jpg)
+![](section-09/ssr-1.jpg)
+![](section-09/ssr-2.jpg)
+![](section-09/ssr-3.jpg)
+![](section-09/jwt-in-cookie.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Cookies and Encryption
