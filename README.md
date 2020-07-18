@@ -2706,6 +2706,21 @@ Requirements for Our Auth Mechanism -> JWT
 **[⬆ back to top](#table-of-contents)**
 
 ### Cookies and Encryption
+
+![](section-09/signup.jpg)
+
+Requirements for Our Auth Mechanism
+
+- Must be able to tell us details about a user
+- Must be able to handle authorization info
+- Must have a built-in, tamper-resistant way to expire or - invalidate itself
+- Must be easily understood between different languages
+  - Cookie handling across languages is usually an issue when we encrypt the data in the cookie
+  - We will not encrypt the cookie contents.
+  - Remember, JWT's are tamper resistant
+  - You can encrypt the cookie contents if this is a big deal to you
+- Must not require some kind of backing data store on the server
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Adding Session Support
