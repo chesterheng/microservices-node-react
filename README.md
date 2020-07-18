@@ -140,7 +140,34 @@
     - [Adding Password Hashing](#adding-password-hashing)
     - [Comparing Hashed Password](#comparing-hashed-password)
     - [Mongoose Pre-Save Hooks](#mongoose-pre-save-hooks)
-  - [**Authentication Strategies and Options**](#authentication-strategies-and-options)
+  - [**Section 09: Authentication Strategies and Options**](#section-09-authentication-strategies-and-options)
+    - [Fundamental Authentication Strategies](#fundamental-authentication-strategies)
+    - [Huge Issues with Authentication Strategies](#huge-issues-with-authentication-strategies)
+    - [So Which Option?](#so-which-option)
+    - [Solving Issues with Option #2](#solving-issues-with-option-2)
+    - [Reminder on Cookies vs JWT's](#reminder-on-cookies-vs-jwts)
+    - [Microservices Auth Requirements](#microservices-auth-requirements)
+    - [Issues with JWT's and Server Side Rendering](#issues-with-jwts-and-server-side-rendering)
+    - [Cookies and Encryption](#cookies-and-encryption)
+    - [Adding Session Support](#adding-session-support)
+    - [Note on Cookie-Session - Do Not Skip](#note-on-cookie-session---do-not-skip)
+    - [Generating a JWT](#generating-a-jwt)
+    - [JWT Signing Keys](#jwt-signing-keys)
+    - [Securely Storing Secrets with Kubernetes](#securely-storing-secrets-with-kubernetes)
+    - [Creating and Accessing Secrets](#creating-and-accessing-secrets)
+    - [Accessing Env Variables in a Pod](#accessing-env-variables-in-a-pod)
+    - [Common Response Properties](#common-response-properties)
+    - [Formatting JSON Properties](#formatting-json-properties)
+    - [The Signin Flow](#the-signin-flow)
+    - [Common Request Validation Middleware](#common-request-validation-middleware)
+    - [Sign In Logic](#sign-in-logic)
+    - [Quick Sign In Test](#quick-sign-in-test)
+    - [Current User Handler](#current-user-handler)
+    - [Returning the Current User](#returning-the-current-user)
+    - [Signing Out](#signing-out)
+    - [Creating a Current User Middleware](#creating-a-current-user-middleware)
+    - [Augmenting Type Definitions](#augmenting-type-definitions)
+    - [Requiring Auth for Route Access](#requiring-auth-for-route-access)
   - [**Testing Isolated Microservices**](#testing-isolated-microservices)
   - [**Integrating a Server-Side-Rendered React App**](#integrating-a-server-side-rendered-react-app)
   - [**Code Sharing and Reuse Between Services**](#code-sharing-and-reuse-between-services)
@@ -2582,8 +2609,99 @@ userSchema.pre('save', async function(done) {
 
 **[⬆ back to top](#table-of-contents)**
 
-## **Authentication Strategies and Options**
+## **Section 09: Authentication Strategies and Options**
 
+### Fundamental Authentication Strategies
+
+![](section-09/auth-2.jpg)
+
+- User auth with microservices is an unsolved problem
+- There are many ways to do it, and no one way is "right"
+- I am going to outline a couple solutions then propose a solution that works, but still has downsides
+
+![](section-09/order-service.jpg)
+![](section-09/option-1.jpg)
+![](section-09/option-1-1.jpg)
+![](section-09/option-2.jpg)
+
+**[⬆ back to top](#table-of-contents)**
+
+### Huge Issues with Authentication Strategies
+**[⬆ back to top](#table-of-contents)**
+
+### So Which Option?
+**[⬆ back to top](#table-of-contents)**
+
+### Solving Issues with Option #2
+**[⬆ back to top](#table-of-contents)**
+
+### Reminder on Cookies vs JWT's
+**[⬆ back to top](#table-of-contents)**
+
+### Microservices Auth Requirements
+**[⬆ back to top](#table-of-contents)**
+
+### Issues with JWT's and Server Side Rendering
+**[⬆ back to top](#table-of-contents)**
+
+### Cookies and Encryption
+**[⬆ back to top](#table-of-contents)**
+
+### Adding Session Support
+**[⬆ back to top](#table-of-contents)**
+
+### Note on Cookie-Session - Do Not Skip
+**[⬆ back to top](#table-of-contents)**
+
+### Generating a JWT
+**[⬆ back to top](#table-of-contents)**
+
+### JWT Signing Keys
+**[⬆ back to top](#table-of-contents)**
+
+### Securely Storing Secrets with Kubernetes
+**[⬆ back to top](#table-of-contents)**
+
+### Creating and Accessing Secrets
+**[⬆ back to top](#table-of-contents)**
+
+### Accessing Env Variables in a Pod
+**[⬆ back to top](#table-of-contents)**
+
+### Common Response Properties
+**[⬆ back to top](#table-of-contents)**
+
+### Formatting JSON Properties
+**[⬆ back to top](#table-of-contents)**
+
+### The Signin Flow
+**[⬆ back to top](#table-of-contents)**
+
+### Common Request Validation Middleware
+**[⬆ back to top](#table-of-contents)**
+
+### Sign In Logic
+**[⬆ back to top](#table-of-contents)**
+
+### Quick Sign In Test
+**[⬆ back to top](#table-of-contents)**
+
+### Current User Handler
+**[⬆ back to top](#table-of-contents)**
+
+### Returning the Current User
+**[⬆ back to top](#table-of-contents)**
+
+### Signing Out
+**[⬆ back to top](#table-of-contents)**
+
+### Creating a Current User Middleware
+**[⬆ back to top](#table-of-contents)**
+
+### Augmenting Type Definitions
+**[⬆ back to top](#table-of-contents)**
+
+### Requiring Auth for Route Access
 **[⬆ back to top](#table-of-contents)**
 
 ## **Testing Isolated Microservices**
