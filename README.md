@@ -2757,6 +2757,26 @@ npm install --save-exact @types/cookie-session@2.0.39
 **[⬆ back to top](#table-of-contents)**
 
 ### Generating a JWT
+
+[jsonwebtoken](https://github.com/auth0/node-jsonwebtoken)
+
+```typescript
+// signup.ts
+// Generate JWT
+const userJwt = jwt.sign(
+  {
+    id: user.id,
+    email: user.email
+  },
+  'asdf'
+);
+
+// Store it on session object
+req.session = {
+  jwt: userJwt
+};
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### JWT Signing Keys
