@@ -3453,6 +3453,7 @@ it('returns a 400 with missing email and password', async () => {
 ### Requiring Unique Emails
 
 ```typescript
+// signup.test.ts
 it('disallows duplicate emails', async () => {
   await request(app)
     .post('/api/users/signup')
@@ -3475,6 +3476,26 @@ it('disallows duplicate emails', async () => {
 **[⬆ back to top](#table-of-contents)**
 
 ### Changing Node Env During Tests
+
+- cookie is set for https
+- supertest is using http not https
+- switch to http during test
+
+```typescript
+// signup.test.ts
+it('sets a cookie after successful signup', async () => {
+  const response = await request(app)
+    .post('/api/users/signup')
+    .send({
+      email: 'test@test.com',
+      password: 'password'
+    })
+    .expect(201);
+
+  expect(response.get('Set-Cookie')).toBeDefined();
+});
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Tests Around Sign In Functionality
