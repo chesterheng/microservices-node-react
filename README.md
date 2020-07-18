@@ -2780,6 +2780,13 @@ req.session = {
 **[⬆ back to top](#table-of-contents)**
 
 ### JWT Signing Keys
+
+[BASE64 Decode](https://www.base64decode.org/)
+[JWT](https://jwt.io/)
+
+![](section-09/sign-jwt.jpg)
+![](section-09/jwt-signing-key.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Securely Storing Secrets with Kubernetes
