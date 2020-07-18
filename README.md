@@ -2742,6 +2742,18 @@ app.use(
 **[⬆ back to top](#table-of-contents)**
 
 ### Note on Cookie-Session - Do Not Skip
+
+The latest version of the @types/cookie-session package has a bug in it! Yes, a real bug - the type defs written out incorrectly describes the session object.
+
+To fix this, we'll use a slightly earlier version of the package until this bug gets fixed.
+
+Run the following inside the auth project:
+
+```console
+npm uninstall @types/cookie-session
+npm install --save-exact @types/cookie-session@2.0.39
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Generating a JWT
