@@ -2627,6 +2627,12 @@ userSchema.pre('save', async function(done) {
 **[⬆ back to top](#table-of-contents)**
 
 ### Huge Issues with Authentication Strategies
+
+![](section-09/user-signin.jpg)
+![](section-09/option-2.jpg)
+![](section-09/admin-ban-user.jpg)
+![](section-09/ban-user-can-buy-ticket.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### So Which Option?
