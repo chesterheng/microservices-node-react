@@ -2809,6 +2809,13 @@ kubectl describe secret jwt-secret
 **[⬆ back to top](#table-of-contents)**
 
 ### Accessing Env Variables in a Pod
+
+```typescript
+if(!process.env.JWT_KEY) {
+  throw new Error('JWT_KEY must be defined');
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Common Response Properties
