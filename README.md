@@ -2636,6 +2636,21 @@ userSchema.pre('save', async function(done) {
 **[⬆ back to top](#table-of-contents)**
 
 ### So Which Option?
+
+Fundamental Option #1
+
+- Individual services rely on the auth service
+- Changes to auth state are immediately reflected
+- Auth service goes down?  Entire app is broken
+
+Fundamental Option #2
+
+- Individual services know how to authenticate a user
+- Auth service is down? Who cares!
+- Some user got banned? Darn, I just gave them the keys to my car 5 minutes ago...
+
+We are going with Option #2 to stick with the idea of independent services
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Solving Issues with Option #2
