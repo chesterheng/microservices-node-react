@@ -186,6 +186,23 @@ skaffold dev
 **[⬆ back to top](#table-of-contents)**
 
 ### Note on File Change Detection
+
+```javascript
+// next.config.js
+module.exports = {
+  webpackDevMiddleware: config => {
+    config.watchOptons.poll = 300;
+    return config;
+  }
+};
+```
+
+```console
+kubectl get pods
+kubectl delete pod client-depl-b955695bf-8ws8j
+kubectl get pods
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Adding Global CSS
