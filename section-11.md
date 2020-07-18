@@ -289,6 +289,23 @@ export default () => {
 **[⬆ back to top](#table-of-contents)**
 
 ### Successful Account Signup
+
+![](section-11/signup-request.jpg)
+
+```javascript
+// signup.js
+const onSubmit = async event => {
+  event.preventDefault();
+
+  const response = await axios.post('/api/users/signup', {
+    email,
+    password
+  });
+
+  console.log(response.data);
+};
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Handling Validation Errors
