@@ -3586,6 +3586,30 @@ it('clears the cookie after signing out', async () => {
 **[⬆ back to top](#table-of-contents)**
 
 ### Issues with Cookies During Testing
+
+```typescript
+// current-user.test.ts
+import request from 'supertest';
+import { app } from '../../app';
+
+it('responds with details about the current user', async () => {
+  await request(app)
+    .post('/api/users/signup')
+    .send({
+      email: 'test@test.com',
+      password: 'password'
+    })
+    .expect(201);
+
+  const response = await request(app)
+    .get('/api/users/currentuser')
+    .send()
+    .expect(200);
+
+  console.log(response.body);
+});
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Easy Auth Solution
