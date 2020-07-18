@@ -2797,6 +2797,15 @@ req.session = {
 **[⬆ back to top](#table-of-contents)**
 
 ### Creating and Accessing Secrets
+
+Creating a Secret
+
+```console
+kubectl create secret generic jwt-secret --from-literal=JWT_KEY=asdf
+kubectl get secrets
+kubectl describe secret jwt-secret
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Accessing Env Variables in a Pod
