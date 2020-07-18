@@ -161,7 +161,6 @@
     - [The Signin Flow](#the-signin-flow)
     - [Common Request Validation Middleware](#common-request-validation-middleware)
     - [Sign In Logic](#sign-in-logic)
-    - [Quick Sign In Test](#quick-sign-in-test)
     - [Current User Handler](#current-user-handler)
     - [Returning the Current User](#returning-the-current-user)
     - [Signing Out](#signing-out)
@@ -3020,10 +3019,10 @@ export { router as signinRouter };
 
 **[⬆ back to top](#table-of-contents)**
 
-### Quick Sign In Test
-**[⬆ back to top](#table-of-contents)**
-
 ### Current User Handler
+
+![](section-09/current-user.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Returning the Current User
