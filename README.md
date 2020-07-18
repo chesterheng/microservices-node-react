@@ -20,7 +20,7 @@
 
 ## [**Section 10: Testing Isolated Microservices**](https://github.com/chesterheng/microservices-node-react/blob/master/section-10.md)
 
-## **Integrating a Server-Side-Rendered React App**
+## [**Section 11: Integrating a Server-Side-Rendered React App**](https://github.com/chesterheng/microservices-node-react/blob/master/section-11.md)
 
 ## **Code Sharing and Reuse Between Services**
 
