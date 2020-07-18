@@ -3157,6 +3157,62 @@ export { router as currentUserRouter };
 **[⬆ back to top](#table-of-contents)**
 
 ### Requiring Auth for Route Access
+
+```typescript
+import { CustomError } from './custom-error';
+
+export class NotAuthorizedError extends CustomError {
+  statusCode = 401;
+
+  constructor() {
+    super('Not Authorized');
+
+    Object.setPrototypeOf(this, NotAuthorizedError.prototype);
+  }
+
+  serializeErrors() {
+    return [{ message: 'Not authorized' }];
+  }
+}
+```
+
+```typescript
+import { Request, Response, NextFunction } from 'express';
+import { NotAuthorizedError } from '../errors/not-authorized-error';
+
+export const requireAuth = (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  if (!req.currentUser) {
+    throw new NotAuthorizedError();
+  }
+
+  next();
+};
+```
+
+```typescript
+import express from 'express';
+import jwt from 'jsonwebtoken';
+
+import { currentUser } from '../middlewares/current-user';
+import { requireAuth } from '../middlewares/require-auth';
+
+const router = express.Router();
+
+router.get(
+  '/api/users/currentuser', 
+  currentUser, 
+  requireAuth, 
+  (req, res) => {
+    res.send({ currentUser: req.currentUser || null });
+  });
+
+export { router as currentUserRouter };
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ## **Testing Isolated Microservices**
