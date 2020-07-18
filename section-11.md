@@ -309,6 +309,27 @@ const onSubmit = async event => {
 **[⬆ back to top](#table-of-contents)**
 
 ### Handling Validation Errors
+
+```javascript
+// signup.js
+const [errors, setErrors] = useState([]);
+
+const onSubmit = async event => {
+  event.preventDefault();
+
+  try {
+    const response = await axios.post('/api/users/signup', {
+      email,
+      password
+    });
+
+    console.log(response.data);
+  } catch (err) {
+    setErrors(err.response.data.errors);
+  }
+};
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### The useRequest Hook
