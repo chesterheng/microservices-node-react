@@ -3055,6 +3055,21 @@ export { router as currentUserRouter };
 **[⬆ back to top](#table-of-contents)**
 
 ### Signing Out
+
+```typescript
+import express from 'express';
+
+const router = express.Router();
+
+router.post('/api/users/signout', (req, res) => {
+  req.session = null;
+
+  res.send({});
+});
+
+export { router as signoutRouter };
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Creating a Current User Middleware
