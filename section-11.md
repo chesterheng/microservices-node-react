@@ -669,6 +669,17 @@ LandingPage.getInitialProps = async (context) => {
 **[⬆ back to top](#table-of-contents)**
 
 ### Content on the Landing Page
+
+```javascript
+const LandingPage = ({ currentUser }) => {
+  return currentUser ? (
+    <h1>You are signed in</h1>
+  ) : (
+    <h1>You are NOT signed in</h1>
+  );
+};
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### The Sign In Form
