@@ -559,6 +559,50 @@ export const errorHandler = (
 **[⬆ back to top](#table-of-contents)**
 
 ### Complete Index Route Implementation
+
+![](section-13/tickets-service.jpg)
+
+```typescript
+import request from 'supertest';
+import { app } from '../../app';
+
+const createTicket = () => {
+  return request(app).post('/api/tickets').set('Cookie', global.signin()).send({
+    title: 'asldkf',
+    price: 20,
+  });
+};
+
+it('can fetch a list of tickets', async () => {
+  await createTicket();
+  await createTicket();
+  await createTicket();
+
+  const response = await request(app).get('/api/tickets').send().expect(200);
+
+  expect(response.body.length).toEqual(3);
+});
+```
+
+```typescript
+import express, { Request, Response } from 'express';
+import { Ticket } from '../models/ticket';
+
+const router = express.Router();
+
+router.get('/api/tickets', async (req: Request, res: Response) => {
+  const tickets = await Ticket.find({});
+
+  res.send(tickets);
+});
+
+export { router as indexTicketRouter };
+```
+
+```typescript
+app.use(indexTicketRouter);
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Ticket Updating
