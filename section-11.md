@@ -762,6 +762,26 @@ export default ({ Component, pageProps }) => {
 **[⬆ back to top](#table-of-contents)**
 
 ### Moving GetInitialProps
+
+```javascript
+// _app.js
+import 'bootstrap/dist/css/bootstrap.css';
+import buildClient from '../api/build-client';
+
+const AppComponent = ({ Component, pageProps }) => {
+  return (
+    <div>
+      <h1>Header!</h1>
+      <Component {...pageProps} />
+    </div>
+  );
+};
+
+AppComponent.getInitialProps = () => {};
+
+export default AppComponent;
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Issues with Custom App GetInitialProps
