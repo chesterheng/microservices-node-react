@@ -101,9 +101,28 @@ spec:
       targetPort: 8222
 ```
 
+```console
+cd section-14/ticketing
+skaffold dev
+kubectl get pods
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Big Notes on NATS Streaming
+
+[Stan.js - Node.js client for NATS Streaming](https://github.com/nats-io/stan.js)
+
+![](section-14/custom-1.jpg)
+![](section-14/nats-1.jpg)
+
+![](section-14/custom-2.jpg)
+![](section-14/nats-2.jpg)
+
+![](section-14/custom-3.jpg)
+![](section-14/nats-3.jpg)
+![](section-14/nats-3-1.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Building a NATS Test Project
