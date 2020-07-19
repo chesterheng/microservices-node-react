@@ -221,6 +221,43 @@ https://www.base64decode.org/
 **[⬆ back to top](#table-of-contents)**
 
 ### Building a Session
+
+```typescript
+it('returns a status other than 401 if the user is signed in', async () => {
+  const response = await request(app)
+    .post('/api/tickets')
+    .set('Cookie', global.signin())
+    .send({});
+
+  expect(response.status).not.toEqual(401);
+});
+```
+
+```typescript
+global.signin = () => {
+  // Build a JWT payload. { id, email }
+  const payload = {
+    id: "5f140372856dd30019e94a0e",
+    email: "test@test.com"
+  }
+
+  // Create the JWT!
+  const token = jwt.sign(payload, process.env.JWT_KEY!);
+
+  // Build Session object. { jwt: MY_JWT }
+  const session = { jwt: token }
+
+  // Turn that session into JSON
+  const sessionJSON = JSON.stringify(session);
+
+  // Take JSON and encode it as base64
+  const base64 = Buffer.from(sessionJSON).toString('base64');
+
+  // return a string thats the cookie with encoded data
+  return [`express:sess=${base64}`];
+};
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Testing Request Validation
