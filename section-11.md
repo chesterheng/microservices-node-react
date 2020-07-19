@@ -569,6 +569,41 @@ LandingPage.getInitialProps = async () => {
 **[⬆ back to top](#table-of-contents)**
 
 ### Specifying the Host
+
+```console
+kubectl get services -n ingress-nginx
+kubectl get namespace
+```
+
+- service.namespace.svc.cluster.local
+- http://ingress-nginx-controller.ingress-nginx.svc.cluster.local
+
+```javascript
+LandingPage.getInitialProps = async () => {
+  if(typeof window === 'undefined') {
+    // we are on the server!
+    // requests should be made to http://ingress-nginx-controller.ingress-nginx.svc.cluster.local
+    const { data } = await axios.get(
+      'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local/api/users/currentuser',
+      {
+        headers: {
+          Host: 'ticketing.dev'
+        }
+      }
+    );
+
+    return data;
+  } else {
+    // we are on the browser!
+    // requests should be made with a base url of ''
+    const { data } = await axios.get('/api/users/currentuser');
+    
+    return data;
+  }
+  return {};
+};
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Passing Through the Cookies
