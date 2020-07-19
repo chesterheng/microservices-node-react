@@ -631,6 +631,41 @@ LandingPage.getInitialProps = async ({ req }) => {
 **[⬆ back to top](#table-of-contents)**
 
 ### A Reusable API Client
+
+![](section-11/build-client.jpg)
+
+```javascript
+// build-client.js
+import axios from 'axios';
+
+export default ({ req }) => {
+  if(typeof window === 'undefined') {
+    // we are on the server
+
+    return axios.create({
+      baseURL: 'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local',
+      headers: req.headers
+    });
+  } else {
+    // we are on the browser
+
+    return axios.create({
+      baseURL: ''
+    });
+  }
+};
+```
+
+```javascript
+// index.js
+LandingPage.getInitialProps = async (context) => {
+  const client = buildClient(context);
+  const { data } = await client.get('/api/users/currentuser');
+
+  return data;
+};
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Content on the Landing Page
