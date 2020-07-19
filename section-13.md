@@ -518,9 +518,44 @@ app.use(showTicketRouter);
 **[⬆ back to top](#table-of-contents)**
 
 ### What's that Error?!
+
+```typescript
+it('returns a 404 if the ticket is not found', async () => {
+  const id = new mongoose.Types.ObjectId().toHexString();
+
+  await request(app)
+    .get(`/api/tickets/${id}`)
+    .send();
+
+  console.log(response.body);
+});
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Better Error Logging
+
+```typescript
+import { Request, Response, NextFunction } from 'express';
+import { CustomError } from '../errors/custom-error';
+
+export const errorHandler = (
+  err: Error, 
+  req: Request, 
+  res: Response, 
+  next: NextFunction
+) => {
+  if(err instanceof CustomError) {
+    return res.status(err.statusCode).send({ errors: err.serializeErrors() });
+  }
+
+  console.error(err);
+  res.status(400).send({
+    errors: [{ message: 'Something went wrong' }]
+  });
+};
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Complete Index Route Implementation
