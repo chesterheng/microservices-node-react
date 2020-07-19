@@ -785,6 +785,18 @@ export default AppComponent;
 **[⬆ back to top](#table-of-contents)**
 
 ### Issues with Custom App GetInitialProps
+
+- LandingPage.getInitialProps is not invoked the moment we add AppComponent.getInitialProps
+
+```javascript
+AppComponent.getInitialProps = async appContext => {
+  const client = buildClient(appContext.ctx);
+  const { data } = await client.get('/api/users/currentuser');
+
+  return data;
+};
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Handling Multiple GetInitialProps
