@@ -53,6 +53,13 @@ Copy from auth service to save time!
 **[⬆ back to top](#table-of-contents)**
 
 ### Project Setup
+
+- Build image, push to docker hub
+```console
+docker build -t chesterheng/tickets .
+docker push chesterheng/tickets
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Running the Ticket Service

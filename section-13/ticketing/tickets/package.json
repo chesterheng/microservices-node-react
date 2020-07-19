@@ -1,5 +1,5 @@
 {
-  "name": "auth",
+  "name": "tickets",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -36,7 +36,6 @@
     "@types/jest": "^26.0.4",
     "@types/supertest": "^2.0.10",
     "jest": "^26.1.0",
-    "jest-cli": "^26.1.0",
     "mongodb-memory-server": "^6.6.1",
     "supertest": "^4.0.2",
     "ts-jest": "^26.1.3"
