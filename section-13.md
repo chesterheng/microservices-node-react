@@ -737,6 +737,112 @@ const payload = {
 **[⬆ back to top](#table-of-contents)**
 
 ### Final Update Changes
+
+```typescript
+it('returns a 400 if the user provides an invalid title or price', async () => {
+  const cookie = global.signin();
+
+  const response = await request(app)
+    .post('/api/tickets')
+    .set('Cookie', cookie)
+    .send({
+      title: 'asldkfj',
+      price: 20,
+    });
+
+  await request(app)
+    .put(`/api/tickets/${response.body.id}`)
+    .set('Cookie', cookie)
+    .send({
+      title: '',
+      price: 20,
+    })
+    .expect(400);
+
+  await request(app)
+    .put(`/api/tickets/${response.body.id}`)
+    .set('Cookie', cookie)
+    .send({
+      title: 'alskdfjj',
+      price: -10,
+    })
+    .expect(400);
+});
+
+it('updates the ticket provided valid inputs', async () => {
+  const cookie = global.signin();
+
+  const response = await request(app)
+    .post('/api/tickets')
+    .set('Cookie', cookie)
+    .send({
+      title: 'asldkfj',
+      price: 20,
+    });
+
+  await request(app)
+    .put(`/api/tickets/${response.body.id}`)
+    .set('Cookie', cookie)
+    .send({
+      title: 'new title',
+      price: 100,
+    })
+    .expect(200);
+
+  const ticketResponse = await request(app)
+    .get(`/api/tickets/${response.body.id}`)
+    .send();
+
+  expect(ticketResponse.body.title).toEqual('new title');
+  expect(ticketResponse.body.price).toEqual(100);
+});
+```
+
+```typescript
+import express, { Request, Response } from 'express';
+import { body } from 'express-validator';
+import {
+  validateRequest,
+  NotFoundError,
+  requireAuth,
+  NotAuthorizedError,
+} from '@chticketing/common';
+import { Ticket } from '../models/ticket';
+
+const router = express.Router();
+
+router.put(
+  '/api/tickets/:id',
+  requireAuth,
+  [
+    body('title').not().isEmpty().withMessage('Title is required'),
+    body('price').isFloat({ gt: 0 }).withMessage('Price must be provided and must be greater than 0'),
+  ],
+  validateRequest,
+  async (req: Request, res: Response) => {
+    const ticket = await Ticket.findById(req.params.id);
+
+    if (!ticket) {
+      throw new NotFoundError();
+    }
+
+    if (ticket.userId !== req.currentUser!.id) {
+      throw new NotAuthorizedError();
+    }
+
+    ticket.set({
+      title: req.body.title,
+      price: req.body.price
+    })
+    await ticket.save();
+
+    res.send(ticket);
+  }
+);
+
+export { router as updateTicketRouter };
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Manual Testing
