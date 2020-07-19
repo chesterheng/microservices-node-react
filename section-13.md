@@ -637,6 +637,37 @@ it('returns a 401 if the user is not authenticated', async () => {
 **[⬆ back to top](#table-of-contents)**
 
 ### Handling Updates
+
+```typescript
+import express, { Request, Response } from 'express';
+import { body } from 'express-validator';
+import {
+  validateRequest,
+  NotFoundError,
+  requireAuth,
+  NotAuthorizedError,
+} from '@chticketing/common';
+import { Ticket } from '../models/ticket';
+
+const router = express.Router();
+
+router.put(
+  '/api/tickets/:id',
+  requireAuth,
+  async (req: Request, res: Response) => {
+    const ticket = await Ticket.findById(req.params.id);
+
+    if (!ticket) {
+      throw new NotFoundError();
+    }
+
+    res.send(ticket);
+  }
+);
+
+export { router as updateTicketRouter };
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Permission Checking
