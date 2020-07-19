@@ -8,7 +8,6 @@
   - [Creating a NATS Streaming Deployment](#creating-a-nats-streaming-deployment)
   - [Big Notes on NATS Streaming](#big-notes-on-nats-streaming)
   - [Building a NATS Test Project](#building-a-nats-test-project)
-  - [Small Command Change](#small-command-change)
   - [Port-Forwarding with Kubectl](#port-forwarding-with-kubectl)
   - [Publishing Events](#publishing-events)
   - [Listening For Data](#listening-for-data)
@@ -126,9 +125,27 @@ kubectl get pods
 **[⬆ back to top](#table-of-contents)**
 
 ### Building a NATS Test Project
-**[⬆ back to top](#table-of-contents)**
 
-### Small Command Change
+Short Term Goal
+
+- Create a new sub-project with typescript support
+- Install node-nats-streaming library and connect to nats streaming server
+- We should have two npm scripts, one to run code to emit events, and one to run code to listen for events
+- This program will be ran outside of kubernetes!
+
+```typescript
+// publisher.ts
+import nats from 'node-nats-streaming';
+
+const stan = nats.connect('ticketing', 'abc', {
+  url: 'http://localhost:4222',
+});
+
+stan.on('connect', () => {
+  console.log('Publisher connected to NATS');
+});
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Port-Forwarding with Kubectl
