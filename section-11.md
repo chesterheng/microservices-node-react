@@ -37,7 +37,6 @@
   - [Building the Header](#building-the-header)
   - [Conditionally Showing Links](#conditionally-showing-links)
   - [Signing Out](#signing-out)
-  - [React App Catchup](#react-app-catchup)
 
 ### Starting the React App
 
@@ -921,7 +920,26 @@ export default ({ currentUser }) => {
 **[⬆ back to top](#table-of-contents)**
 
 ### Signing Out
-**[⬆ back to top](#table-of-contents)**
 
-### React App Catchup
+```javascript
+import { useEffect } from 'react';
+import Router from 'next/router';
+import useRequest from '../../hooks/use-request';
+
+export default () => {
+  const { doRequest } = useRequest({
+    url: '/api/users/signout',
+    method: 'post',
+    body: {},
+    onSuccess: () => Router.push('/')
+  });
+
+  useEffect(() => {
+    doRequest();
+  }, []);
+
+  return <div>Signing you out...</div>;
+};
+```
+
 **[⬆ back to top](#table-of-contents)**
