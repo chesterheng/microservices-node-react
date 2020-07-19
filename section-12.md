@@ -39,6 +39,13 @@ Option #3 is selected
 **[⬆ back to top](#table-of-contents)**
 
 ### NPM Organizations
+
+![](section-12/package-security.jpg)
+
+- public organisation is selected
+- Goto https://www.npmjs.com/
+- create chticketing public organisation
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Publishing NPM Modules
