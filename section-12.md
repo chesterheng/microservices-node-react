@@ -75,6 +75,17 @@ tsc --init
 **[⬆ back to top](#table-of-contents)**
 
 ### An Easy Publish Command
+
+```console
+git status
+git add .
+git commit -m "additional config"
+npm version patch
+npm run build
+npm login
+npm publish --access public
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Relocating Shared Code
