@@ -62,6 +62,16 @@ npm publish --access public
 **[⬆ back to top](#table-of-contents)**
 
 ### Project Setup
+
+- There might be differences in our TS settings between the common lib and our services - don't want to deal with that
+- Services might not be written with TS at all!
+- Our common library will be written as Typescript and published as Javascript
+
+```console
+cd section-12/ticketing/common
+tsc --init
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### An Easy Publish Command
