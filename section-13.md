@@ -55,6 +55,7 @@ Copy from auth service to save time!
 ### Project Setup
 
 - Build image, push to docker hub
+
 ```console
 docker build -t chesterheng/tickets .
 docker push chesterheng/tickets
@@ -63,6 +64,17 @@ docker push chesterheng/tickets
 **[⬆ back to top](#table-of-contents)**
 
 ### Running the Ticket Service
+
+- Write k8s file for deployment, service
+- Update skaffold.yaml to do file sync for tickets
+- Write k8s file for Mongodb deployment, service
+
+```console
+kubectl get pods
+cd section-13/ticketing
+skaffold dev
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Mongo Connection URI
