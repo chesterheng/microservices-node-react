@@ -81,7 +81,7 @@ skaffold dev
 
 ```yaml
 - name: MONGO_URI
-    value: 'mongodb://tickets-mongo-srv:27017/tickets'
+  value: 'mongodb://tickets-mongo-srv:27017/tickets'
 ```
 
 ```typescript
@@ -100,6 +100,25 @@ try {
 **[⬆ back to top](#table-of-contents)**
 
 ### Quick Auth Update
+
+```yaml
+- name: MONGO_URI
+  value: 'mongodb://auth-mongo-srv:27017/auth'
+```
+
+```typescript
+try {
+  await mongoose.connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true
+  });
+  console.log('Connected to MongoDb');
+} catch (err) {
+  console.log(err);
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Test-First Approach
