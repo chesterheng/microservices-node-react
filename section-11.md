@@ -607,6 +607,27 @@ LandingPage.getInitialProps = async () => {
 **[⬆ back to top](#table-of-contents)**
 
 ### Passing Through the Cookies
+
+![](section-11/pass-cookie.jpg)
+
+```javascript
+LandingPage.getInitialProps = async ({ req }) => {
+  if(typeof window === 'undefined') {
+    // we are on the server!
+    // requests should be made to http://ingress-nginx-controller.ingress-nginx.svc.cluster.local
+    const { data } = await axios.get(
+      'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local/api/users/currentuser',
+      {
+        headers: req.headers
+      }
+    );
+
+    return data;
+  } else { ... }
+  return {};
+};
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### A Reusable API Client
