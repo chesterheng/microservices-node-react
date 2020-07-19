@@ -739,6 +739,26 @@ export default () => {
 **[⬆ back to top](#table-of-contents)**
 
 ### A Reusable Header
+
+```javascript
+// _app.js
+import 'bootstrap/dist/css/bootstrap.css';
+
+export default ({ Component, pageProps }) => {
+  return (
+    <div>
+      <h1>Header!</h1>
+      <Component {...pageProps} />
+    </div>
+  );
+};
+```
+
+![](section-11/header-1.jpg)
+![](section-11/header-2.jpg)
+![](section-11/header-3.jpg)
+![](section-11/header-4.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Moving GetInitialProps
