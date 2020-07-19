@@ -472,6 +472,15 @@ export default LandingPage;
 **[⬆ back to top](#table-of-contents)**
 
 ### Fetching Data During SSR
+
+```javascript
+LandingPage.getInitialProps = async () => {
+  const response = await axios.get('/api/users/currentuser');
+
+  return response.data;
+};
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Why the Error?
