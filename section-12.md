@@ -89,6 +89,14 @@ npm publish --access public
 **[⬆ back to top](#table-of-contents)**
 
 ### Relocating Shared Code
+
+- move errors and middlewares from auth services to common npm module
+- install necessary libraries
+```
+npm i express express-validator cookie-session jsonwebtoken @types/cookie-session @types/express @types/jsonwebtoken
+npm run pub
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Updating Import Statements
