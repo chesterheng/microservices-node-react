@@ -510,7 +510,7 @@ LandingPage.getInitialProps = async () => {
 
 ### Two Possible Solutions
 
-Option #1 is selected
+Request Option #1 is selected
 
 ![](section-11/solutions-1.jpg)
 ![](section-11/solutions-2.jpg)
@@ -519,6 +519,24 @@ Option #1 is selected
 **[⬆ back to top](#table-of-contents)**
 
 ### Cross Namespace Service Communication
+
+Request Option #1 is selected
+
+```console
+kubectl get services -n ingress-nginx
+kubectl get namespace
+```
+
+- service.namespace.svc.cluster.local
+- http://ingress-nginx-controller.ingress-nginx.svc.cluster.local
+
+![](section-11/cross-namespace.jpg)
+![](section-11/cross-namespace-2.jpg)
+
+Optional
+
+![](section-11/external-name.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### When is GetInitialProps Called?
