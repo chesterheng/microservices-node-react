@@ -671,6 +671,69 @@ export { router as updateTicketRouter };
 **[⬆ back to top](#table-of-contents)**
 
 ### Permission Checking
+
+```typescript
+it('returns a 401 if the user does not own the ticket', async () => {
+  const response = await request(app)
+    .post('/api/tickets')
+    .set('Cookie', global.signin())
+    .send({
+      title: 'asldkfj',
+      price: 20,
+    });
+
+  await request(app)
+    .put(`/api/tickets/${response.body.id}`)
+    .set('Cookie', global.signin())
+    .send({
+      title: 'alskdjflskjdf',
+      price: 1000,
+    })
+    .expect(401);
+});
+```
+
+```typescript
+import express, { Request, Response } from 'express';
+import { body } from 'express-validator';
+import {
+  validateRequest,
+  NotFoundError,
+  requireAuth,
+  NotAuthorizedError,
+} from '@chticketing/common';
+import { Ticket } from '../models/ticket';
+
+const router = express.Router();
+
+router.put(
+  '/api/tickets/:id',
+  requireAuth,
+  async (req: Request, res: Response) => {
+    const ticket = await Ticket.findById(req.params.id);
+
+    if (!ticket) {
+      throw new NotFoundError();
+    }
+
+    if (ticket.userId !== req.currentUser!.id) {
+      throw new NotAuthorizedError();
+    }
+
+    res.send(ticket);
+  }
+);
+
+export { router as updateTicketRouter };
+```
+
+```typescript
+const payload = {
+  id: new mongoose.Types.ObjectId().toHexString(),
+  email: "test@test.com"
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Final Update Changes
