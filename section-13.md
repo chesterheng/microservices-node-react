@@ -396,6 +396,65 @@ export { Ticket };
 **[⬆ back to top](#table-of-contents)**
 
 ### Creation via Route Handler
+
+```typescript
+it('creates a ticket with valid inputs', async () => {
+  let tickets = await Ticket.find({});
+  expect(tickets.length).toEqual(0);
+
+  const title = 'asldkfj';
+
+  await request(app)
+    .post('/api/tickets')
+    .set('Cookie', global.signin())
+    .send({
+      title,
+      price: 20,
+    })
+    .expect(201);
+
+  tickets = await Ticket.find({});
+  expect(tickets.length).toEqual(1);
+  expect(tickets[0].price).toEqual(20);
+  expect(tickets[0].title).toEqual(title);
+});
+```
+
+```typescript
+import express, { Request, Response } from 'express';
+import { body } from 'express-validator';
+import { requireAuth, validateRequest } from '@chticketing/common';
+import { Ticket } from '../models/ticket';
+
+const router = express.Router();
+
+router.post(
+  '/api/tickets',
+  requireAuth,
+  [
+    body('title').not().isEmpty().withMessage('Title is required'),
+    body('price')
+      .isFloat({ gt: 0 })
+      .withMessage('Price must be greater than 0'),
+  ],
+  validateRequest,
+  async (req: Request, res: Response) => {
+    const { title, price } = req.body;
+
+    const ticket = Ticket.build({
+      title,
+      price,
+      userId: req.currentUser!.id
+    });
+    await ticket.save();
+
+    res.sendStatus(201).send(ticket);
+  }
+);
+
+export { router as createTicketRouter };
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Testing Show Routes
