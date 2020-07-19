@@ -34,6 +34,16 @@
 **[⬆ back to top](#table-of-contents)**
 
 ### Three Important Items
+
+NATS Streaming Server
+
+- Docs at: docs.nats.io
+- NATS and NATS Streaming Server are two different things
+  - [NATS Streaming Concepts](https://docs.nats.io/nats-streaming-concepts/intro)
+- NATS Streaming implements some extraordinarily important design decisions that will affect our app
+- We are going to run the official '[nats-streaming](https://hub.docker.com/_/nats-streaming)' docker image in kubernetes.  
+  - Need to read the image's docs: Commandline Options
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Creating a NATS Streaming Deployment
