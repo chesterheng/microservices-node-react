@@ -26,7 +26,7 @@
 
 ## [**Section 13: Create-Read-Update-Destroy Server Setup**](https://github.com/chesterheng/microservices-node-react/blob/master/section-13.md)
 
-## **NATS Streaming Server - An Event Bus Implementation**
+## [**Section 14: NATS Streaming Server - An Event Bus Implementation**](https://github.com/chesterheng/microservices-node-react/blob/master/section-14.md)
 
 ## **Connecting to NATS in a Node JS World**
 
