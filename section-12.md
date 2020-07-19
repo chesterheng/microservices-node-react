@@ -49,6 +49,16 @@ Option #3 is selected
 **[⬆ back to top](#table-of-contents)**
 
 ### Publishing NPM Modules
+
+```console
+npm init -y
+git init
+git add .
+git commit -m "initial commit"
+npm login
+npm publish --access public
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Project Setup
