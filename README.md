@@ -24,7 +24,7 @@
 
 ## [**Section 12: Code Sharing and Reuse Between Services**](https://github.com/chesterheng/microservices-node-react/blob/master/section-12.md)
 
-## **Create-Read-Update-Destroy Server Setup**
+## [**Section 13: Create-Read-Update-Destroy Server Setup**](https://github.com/chesterheng/microservices-node-react/blob/master/section-13.md)
 
 ## **NATS Streaming Server - An Event Bus Implementation**
 

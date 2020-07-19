@@ -86,6 +86,8 @@ npm login
 npm publish --access public
 ```
 
+- https://www.npmjs.com/package/@chticketing/common
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Relocating Shared Code
