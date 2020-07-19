@@ -28,6 +28,14 @@
 **[⬆ back to top](#table-of-contents)**
 
 ### Options for Code Sharing
+
+![](section-12/shared-lib.jpg)
+![](section-12/option-1.jpg)
+![](section-12/option-2.jpg)
+![](section-12/option-3.jpg)
+
+Option #3 is selected
+
 **[⬆ back to top](#table-of-contents)**
 
 ### NPM Organizations
