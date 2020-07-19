@@ -606,6 +606,34 @@ app.use(indexTicketRouter);
 **[⬆ back to top](#table-of-contents)**
 
 ### Ticket Updating
+
+![](section-13/tickets-service.jpg)
+
+```typescript
+it('returns a 404 if the provided id does not exist', async () => {
+  const id = new mongoose.Types.ObjectId().toHexString();
+  await request(app)
+    .put(`/api/tickets/${id}`)
+    .set('Cookie', global.signin())
+    .send({
+      title: 'aslkdfj',
+      price: 20,
+    })
+    .expect(404);
+});
+
+it('returns a 401 if the user is not authenticated', async () => {
+  const id = new mongoose.Types.ObjectId().toHexString();
+  await request(app)
+    .put(`/api/tickets/${id}`)
+    .send({
+      title: 'aslkdfj',
+      price: 20,
+    })
+    .expect(401);
+});
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Handling Updates
