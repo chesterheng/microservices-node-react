@@ -509,6 +509,13 @@ LandingPage.getInitialProps = async () => {
 **[⬆ back to top](#table-of-contents)**
 
 ### Two Possible Solutions
+
+Option #1 is selected
+
+![](section-11/solutions-1.jpg)
+![](section-11/solutions-2.jpg)
+![](section-11/solutions-3.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Cross Namespace Service Communication
