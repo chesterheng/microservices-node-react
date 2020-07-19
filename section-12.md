@@ -100,6 +100,15 @@ npm run pub
 **[⬆ back to top](#table-of-contents)**
 
 ### Updating Import Statements
+
+```console
+npm i @chticketing/common
+```
+
+```typescript
+import { errorHandler, NotFoundError } from '@chticketing/common';
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Updating the Common Module
