@@ -484,6 +484,28 @@ LandingPage.getInitialProps = async () => {
 **[⬆ back to top](#table-of-contents)**
 
 ### Why the Error?
+
+```javascript
+const LandingPage = ({ currentUser }) => {
+  console.log(currentUser);
+  axios.get('/api/users/currentuser');
+
+  return <h1>Landing Page</h1>;
+};
+```
+
+![](section-11/ssr-request-from-browser.jpg)
+
+```javascript
+LandingPage.getInitialProps = async () => {
+  const response = await axios.get('/api/users/currentuser');
+
+  return response.data;
+};
+```
+
+![](section-11/ssr-request-from-server.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Two Possible Solutions
