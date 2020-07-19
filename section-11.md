@@ -800,6 +800,26 @@ AppComponent.getInitialProps = async appContext => {
 **[⬆ back to top](#table-of-contents)**
 
 ### Handling Multiple GetInitialProps
+
+![](section-11/header-4.jpg)
+![](section-11/multiple-get-initial-props.jpg)
+
+```javascript
+AppComponent.getInitialProps = async appContext => {
+  const client = buildClient(appContext.ctx);
+  const { data } = await client.get('/api/users/currentuser');
+
+  let pageProps = {};
+  if(appContext.Component.getInitialProps) {
+    pageProps = await appContext.Component.getInitialProps(appContext.ctx);
+  }
+
+  console.log(pageProps);
+
+  return data;
+};
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Passing Props Through
