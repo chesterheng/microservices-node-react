@@ -141,6 +141,33 @@ it('creates a ticket with valid inputs', async () => {});
 **[⬆ back to top](#table-of-contents)**
 
 ### Creating the Router
+
+```typescript
+it('has a route handler listening to /api/tickets for post requests', async () => {
+  const response = await request(app)
+    .post('/api/tickets')
+    .send({});
+
+  expect(response.status).not.toEqual(404);
+});
+```
+
+```typescript
+import express, { Request, Response } from 'express';
+
+const router = express.Router();
+
+router.post('/api/tickets', (req: Request, res: Response) => {
+  res.sendStatus(200);
+});
+
+export { router as createTicketRouter };
+```
+
+```typescript
+app.use(createTicketRouter);
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Adding Auth Protection
