@@ -449,6 +449,26 @@ const onSubmit = async event => {
 **[⬆ back to top](#table-of-contents)**
 
 ### Overview on Server Side Rendering
+
+![](section-11/ssr-current-user.jpg)
+![](section-11/ssr-client.jpg)
+
+```javascript
+// index.js
+const LandingPage = ({ color }) => {
+  console.log('I am in the component', color);
+  return <h1>Landing Page</h1>;
+};
+
+LandingPage.getInitialProps = () => {
+  console.log('I am on the server!');
+
+  return { color: 'red' };
+};
+
+export default LandingPage;
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Fetching Data During SSR
