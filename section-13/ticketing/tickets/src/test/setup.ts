@@ -39,18 +39,15 @@ afterAll(async () => {
 });
 
 global.signin = async () => {
-  const email = 'test@test.com';
-  const password = 'password';
+  // Build a JWT payload. { id, email }
 
-  const response = await request(app)
-    .post('/api/users/signup')
-    .send({
-      email,
-      password
-    })
-    .expect(201);
+  // Create the JWT!
 
-  const cookie = response.get('Set-Cookie');
+  // Build Session object. { jwt: MY_JWT }
 
-  return cookie;
+  // Turn that session into JSON
+
+  // Take JSON and encode it as base64
+
+  // return a string thats the cookie with encoded data
 };

@@ -198,6 +198,26 @@ export { router as createTicketRouter };
 **[⬆ back to top](#table-of-contents)**
 
 ### Faking Authentication During Tests
+
+```typescript
+it('returns a status other than 401 if the user is signed in', async () => {
+  const response = await request(app).post('/api/tickets').send({});
+
+  expect(response.status).not.toEqual(401);
+});
+```
+
+cookie: express:sess=eyJqd3QiOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKcFpDSTZJalZtTVRRd016Y3lPRFUyWkdRek1EQXhPV1U1TkdFd1pTSXNJbVZ0WVdsc0lqb2lkR1Z6ZEVCMFpYTjBMbU52YlNJc0ltbGhkQ0k2TVRVNU5URTBOekV5TW4wLkVicVlVVmY5SjIyUjlOa3k5dVhKdHl3WEh2MVI4ZURuQUlSWFl3RWw4UkEifQ==
+
+https://www.base64decode.org/
+
+- Build a JWT payload. { id, email }
+- Create the JWT!
+- Build Session object. { jwt: MY_JWT }
+- Turn that session into JSON
+- Take JSON and encode it as base64
+- return a string thats the cookie with encoded data
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Building a Session
