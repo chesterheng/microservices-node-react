@@ -346,6 +346,7 @@ export default ({ url, method, body }) => {
 
   const doRequest = async () => {
     try {
+      setErrors(null);
       const response = await axios[method](url, body);
       return response.data;
     } catch (err) {
@@ -369,6 +370,24 @@ export default ({ url, method, body }) => {
 **[⬆ back to top](#table-of-contents)**
 
 ### Using the useRequest Hook
+
+```javascript
+// signup.js
+const { doRequest, errors } = useRequest({
+  url: '/api/users/signup',
+  method: 'post',
+  body: {
+    email, password
+  }
+})
+
+const onSubmit = async event => {
+  event.preventDefault();
+
+  doRequest();
+};
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### An onSuccess Callback
