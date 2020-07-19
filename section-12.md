@@ -112,4 +112,19 @@ import { errorHandler, NotFoundError } from '@chticketing/common';
 **[⬆ back to top](#table-of-contents)**
 
 ### Updating the Common Module
+
+```console
+cd section-12/ticketing/common
+npm run pub
+cd ../auth
+npm update @chticketing/common
+```
+
+```console
+kubectl get pods
+kubectl exec -it auth-depl-86c85d4895-n4bp4 sh
+/app # cd node_modules/@chticketing/common
+/app # cat package.json
+```
+
 **[⬆ back to top](#table-of-contents)**
