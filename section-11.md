@@ -540,6 +540,15 @@ Optional
 **[⬆ back to top](#table-of-contents)**
 
 ### When is GetInitialProps Called?
+
+![](section-11/solutions-1.jpg)
+
+| Request from a component                              | Request from getInitialProps                                                                                          |
+| ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| Always issued from the browser, so use a domain of '' | Might be executed from the client or the server!  Need to figure out what our env is so we can use the correct domain |
+
+![](section-11/request-source.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### On the Server or the Browser
