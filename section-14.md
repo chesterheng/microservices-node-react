@@ -169,7 +169,8 @@ npm run publish
 
 ![](section-14/publisher.jpg)
 
-```javascript
+```typescript
+// publisher.ts
 import nats from 'node-nats-streaming';
 
 const stan = nats.connect('ticketing', 'abc', {
@@ -194,6 +195,28 @@ stan.on('connect', () => {
 **[⬆ back to top](#table-of-contents)**
 
 ### Listening For Data
+
+```typescript
+// listener.ts
+import nats from 'node-nats-streaming';
+
+console.clear();
+
+const stan = nats.connect('ticketing', '123', {
+  url: 'http://localhost:4222',
+});
+
+stan.on('connect', () => {
+  console.log('Listener connected to NATS');
+
+  const subscription = stan.subscribe('ticket:created');
+
+  subscription.on('message', (msg) => {
+    console.log('Message recieved');
+  });
+});
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Accessing Event Data
