@@ -4,6 +4,7 @@
 - [**Section 04: Orchestrating Collections of Services with Kubernetes**](#section-04-orchestrating-collections-of-services-with-kubernetes)
 - [Table of Contents](#table-of-contents)
   - [Installing Kubernetes](#installing-kubernetes)
+  - [Explain Kubernetes to me like I'm Five](#explain-kubernetes-to-me-like-im-five)
   - [A Kubernetes Tour](#a-kubernetes-tour)
   - [Important Kubernetes Terminology](#important-kubernetes-terminology)
   - [Notes on Config Files](#notes-on-config-files)
@@ -50,6 +51,26 @@ Kubernetes Setup
 
 **[⬆ back to top](#table-of-contents)**
 
+### [Explain Kubernetes to me like I'm Five](https://dev.to/inidaname/explain-kubernetes-to-me-like-i-m-five-5a3f)
+
+[Kubernetes - Explained Like You're Five](https://dev.to/marceliwac/kubernetes-explained-like-you-re-five-gal)
+
+Docker images: think of them as blueprints, for example a blueprint for creating a cow.
+
+Docker daemon: think of it as corral for letting the cows run wild.
+
+Docker swarm (and Kubernetes): think of it as a rancher that manages the cows.
+
+Let's say you create many cows (docker containers) with the same blueprint (docker image) and let the cows do their thing in the corral (docker daemon).
+
+You have all the dairy cows in one place but it's getting pretty crowded and they're eating all the stuff around them (resources) and you need to redistribute them to other areas or they will die.
+
+You hire the rancher named Kubernetes and tell him of all the other corrals (nodes). The rancher checks each corrals capacities (resources) that they can handle. The rancher will take care of moving the cows around when the corrals are low on food to more abundant areas and the rancher will also take care of creating new cows for you if cows die for any reason.
+
+The rancher is responsible optimizing your cattle ranch as efficient as possible and making it scale as long as you tell him of all the locations that he's allowed to move the cows to. You can also tell him to only grow the ranch to a certain size or to dynamically scale larger to produce more milk based on the dairy consumption demand by the population (auto-scaling).
+
+**[⬆ back to top](#table-of-contents)**
+
 ### A Kubernetes Tour
 
 ```console
@@ -61,7 +82,6 @@ Create Docker Image
 
 Kubernetes Cluster
 ![](section-04/kubernetes-cluster.jpg)
-
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -165,6 +185,14 @@ kubectl describe pod posts
 **[⬆ back to top](#table-of-contents)**
 
 ### Creating a Deployment
+
+Whenever I create a kubernetes deployment,  it will auto download image from docker hub?
+
+- It depends on the ImagePullPolicy of the Pod
+- The default pull policy is IfNotPresent
+- It will try to download the image if it’s not already present on the node
+- If your image is qualified with a custom registry it will try to download it from this custom registry and may use an imagePullSecret to do so
+- Refer to [Images](https://kubernetes.io/docs/concepts/containers/images/) for more info.
 
 ```yaml
 apiVersion: apps/v1
@@ -524,7 +552,7 @@ kubectl exec -it posts-depl-6db458fb5c-q7khn -- cat index.js
 #4: Docker Troubleshoot
 ![](section-04/troubleshoot.jpg)
 
-#4: Docker Troubleshoot
+#5: Docker Troubleshoot
 
 [netshoot](https://github.com/nicolaka/netshoot) 
 
@@ -747,5 +775,19 @@ kubectl get pod
 kubectl get deployments
 kubectl get services
 ```
+
+I keep running Skaffold over the last 2 days. There is a point in time when both my vpnkit-controller and storage-provisioner are both evicted.
+
+Describe vpnkit-controller pod give me "The node was low on resource: ephemeral-storage. Container vpnkit-controller was using 84Ki, which exceeds its request of 0."
+
+It is not use even I deleted them and re-started kubernetes.
+
+Today, I reset kubernetes cluster. Also cannot. Finally I clean / purge data and reset to factory defaults. Now, I can run Skaffold successfully.
+Just wonder if you know what is the reason?
+
+- No, I think it's a bug concerning kubernetes integration in docker desktop
+- It's more easily triggered with skaffold as skaffold builds a lot of images when changes happen
+- But I would guess the problem is with garbage collection of the kubelet not being correctly configured in docker desktop.
+- Refer to [Configuring kubelet Garbage Collection](https://kubernetes.io/docs/concepts/cluster-administration/kubelet-garbage-collection/) for more info.
 
 **[⬆ back to top](#table-of-contents)**
