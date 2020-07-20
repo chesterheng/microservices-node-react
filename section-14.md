@@ -149,6 +149,20 @@ stan.on('connect', () => {
 **[⬆ back to top](#table-of-contents)**
 
 ### Port-Forwarding with Kubectl
+
+![](section-14/connect-1.jpg)
+![](section-14/connect-2.jpg)
+![](section-14/connect-3.jpg)
+
+- Option #3 is selected for small test program
+
+```console
+kubectl get pods
+kubectl port-forward nats-depl-795f667564-9wscw 4222:4222
+cd section-14/ticketing/nats-test
+npm run publish
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Publishing Events
