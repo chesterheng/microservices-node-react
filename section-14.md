@@ -19,6 +19,7 @@
   - [Graceful Client Shutdown](#graceful-client-shutdown)
   - [Core Concurrency Issues](#core-concurrency-issues)
   - [Common Questions](#common-questions)
+  - [[Optional] More Possible Concurrency Solutions](#optional-more-possible-concurrency-solutions)
   - [Solving Concurrency Issues](#solving-concurrency-issues)
   - [Concurrency Control with the Tickets App](#concurrency-control-with-the-tickets-app)
   - [Event Redelivery](#event-redelivery)
@@ -382,12 +383,45 @@ process.on('SIGTERM', () => stan.close());
 **[⬆ back to top](#table-of-contents)**
 
 ### Core Concurrency Issues
+
+- Success
+
+![](section-14/account-1.jpg)
+![](section-14/account-2.jpg)
+![](section-14/account-3.jpg)
+![](section-14/account-4.jpg)
+
+- Fail to update +$70 at file storage
+
+![](section-14/fail-1.jpg)
+![](section-14/fail-2.jpg)
+![](section-14/fail-3.jpg)
+
+
+- One listener might run more quicker than another
+- -$100 is done faster than +$70 and +$40
+
+![](section-14/fail-4.jpg)
+
+- NATS might think a client is still alive when it is dead
+
+![](section-14/fail-5.jpg)
+
+- We might receive the same event twice
+
+![](section-14/fail-6.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Common Questions
+
+- Async (event-based) communication sounds terrible, right?!?!
+- Oh, turns out this happens with sync communications
+- Oh, and it happens with classic monolith style apps too.
+
 **[⬆ back to top](#table-of-contents)**
 
-279. [Optional] More Possible Concurrency Solutions
+### [Optional] More Possible Concurrency Solutions
 **[⬆ back to top](#table-of-contents)**
 
 ### Solving Concurrency Issues
