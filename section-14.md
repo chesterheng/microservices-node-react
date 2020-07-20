@@ -419,6 +419,25 @@ process.on('SIGTERM', () => stan.close());
 - Oh, turns out this happens with sync communications
 - Oh, and it happens with classic monolith style apps too.
 
+![](section-14/monolith.jpg)
+
+- Instance A and B are busy
+- Instance C do -$100 before +$70 and +$40 complete
+
+![](section-14/solution-1)
+
+- receive +$70, +$40 and -$100 events, any event can fail too
+- bottleneck for listener
+- hard to scale
+  - vertically: increase specification per service
+  - horizontally: add more instance of the service
+
+Solution that won't work #2 - Figure out every possible error case and write code to handle it
+
+- An infinite number of things can fail
+- Engineering time = $$$$$
+- Does it matter if two tweets are out of order?
+
 **[⬆ back to top](#table-of-contents)**
 
 ### [Optional] More Possible Concurrency Solutions
