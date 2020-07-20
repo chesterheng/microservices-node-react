@@ -217,9 +217,39 @@ stan.on('connect', () => {
 });
 ```
 
+- split screen to watch both publisher and listener
+![](section-14/split-screen.jpgsplit-screen.jps)
+- type rs and enter to re-start publisher
+![](section-14/split-screen.jpgsplit-screen-rs.jps)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Accessing Event Data
+
+```typescript
+import nats, { Message } from 'node-nats-streaming';
+
+console.clear();
+
+const stan = nats.connect('ticketing', '123', {
+  url: 'http://localhost:4222',
+});
+
+stan.on('connect', () => {
+  console.log('Listener connected to NATS');
+
+  const subscription = stan.subscribe('ticket:created');
+
+  subscription.on('message', (msg: Message) => {
+    const data = msg.getData();
+
+    if (typeof data === 'string') {
+      console.log(`Received event #${msg.getSequence()}, with data: ${data}`);
+    }
+  });
+});
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Client ID Generation
