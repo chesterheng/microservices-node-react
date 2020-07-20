@@ -321,6 +321,23 @@ stan.on('connect', () => {
 **[⬆ back to top](#table-of-contents)**
 
 ### Client Health Checks
+
+- monitoring port 8222 for debugging
+
+```console
+kubectl get pods
+kubectl port-forward nats-depl-7cf98f65b8-p8nk6 8222:8222
+```
+
+- open chrome
+- goto localhost:8222/streaming
+
+goto http://localhost:8222/streaming/channelsz?subs=1
+
+- 2 listeners are available
+- if re-start one listener, within 30s there are 3 listeners
+- after 30s, drops back to 2 listeners
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Graceful Client Shutdown
