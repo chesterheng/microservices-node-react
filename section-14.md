@@ -218,9 +218,9 @@ stan.on('connect', () => {
 ```
 
 - split screen to watch both publisher and listener
-![](section-14/split-screen.jpgsplit-screen.jps)
+![](section-14/split-screen.jpg)
 - type rs and enter to re-start publisher
-![](section-14/split-screen.jpgsplit-screen-rs.jps)
+![](section-14/split-screen-rs.jps)
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -253,6 +253,17 @@ stan.on('connect', () => {
 **[⬆ back to top](#table-of-contents)**
 
 ### Client ID Generation
+
+![](section-14/client-id.jpg)
+
+```typescript
+import { randomBytes } from 'crypto';
+
+const stan = nats.connect('ticketing', randomBytes(4).toString('hex'), {
+  url: 'http://localhost:4222',
+});
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Queue Groups
