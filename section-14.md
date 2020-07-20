@@ -158,7 +158,7 @@ stan.on('connect', () => {
 
 ```console
 kubectl get pods
-kubectl port-forward nats-depl-77998c944-fjzkq 4222:4222
+kubectl port-forward nats-depl-7cf98f65b8-p8nk6 4222:4222
 cd section-14/ticketing/nats-test
 npm run publish
 ```
@@ -267,6 +267,22 @@ const stan = nats.connect('ticketing', randomBytes(4).toString('hex'), {
 **[⬆ back to top](#table-of-contents)**
 
 ### Queue Groups
+
+![](section-14/queue-groups-1.jpg)
+![](section-14/queue-groups-2.jpg)
+
+```typescript
+  const subscription = stan.subscribe(
+    'ticket:created', 
+    'orders-service-queue-group'
+  );
+```
+- listener join 'orders-service-queue-group'
+- publisher send a event
+- only one listener in 'orders-service-queue-group' receive the event at a time
+
+![](section-14/split-screen-3.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Manual Ack Mode
