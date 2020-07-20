@@ -370,7 +370,10 @@ kubectl exec -it posts-depl-6947b4f9c-qbn4h sh
 
 ```console
 kubectl get pods -n kube-system
+kubectl describe pod vpnkit-controller -n kube-system
 ```
+
+The node was low on resource: ephemeral-storage. Container vpnkit-controller was using 84Ki, which exceeds its request of 0.
 
 ```console
 NAME                                     READY   STATUS    RESTARTS   AGE
@@ -517,6 +520,15 @@ kubectl exec -it posts-depl-59f495469f-2zqmf sh
 kubectl get pods
 kubectl exec -it posts-depl-6db458fb5c-q7khn -- cat index.js
 ```
+
+#4: Docker Troubleshoot
+![](section-04/troubleshoot.jpg)
+
+#4: Docker Troubleshoot
+
+[netshoot](https://github.com/nicolaka/netshoot) 
+
+- a Docker + Kubernetes network trouble-shooting swiss-army container
 
 **[⬆ back to top](#table-of-contents)**
 

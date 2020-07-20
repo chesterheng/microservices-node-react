@@ -158,7 +158,7 @@ stan.on('connect', () => {
 
 ```console
 kubectl get pods
-kubectl port-forward nats-depl-795f667564-9wscw 4222:4222
+kubectl port-forward nats-depl-77998c944-fjzkq 4222:4222
 cd section-14/ticketing/nats-test
 npm run publish
 ```
@@ -166,6 +166,31 @@ npm run publish
 **[⬆ back to top](#table-of-contents)**
 
 ### Publishing Events
+
+![](section-14/publisher.jpg)
+
+```javascript
+import nats from 'node-nats-streaming';
+
+const stan = nats.connect('ticketing', 'abc', {
+  url: 'http://localhost:4222',
+});
+
+stan.on('connect', () => {
+  console.log('Publisher connected to NATS');
+
+  const data = JSON.stringify({
+    id: '123',
+    title: 'concert',
+    price: 20
+  });
+
+  stan.publish('ticket:created', data, () => {
+    console.log('Event published');
+  })
+});
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Listening For Data
