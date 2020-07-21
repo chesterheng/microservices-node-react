@@ -84,6 +84,22 @@ abstract class Listener {
 **[⬆ back to top](#table-of-contents)**
 
 ### Extending the Listener
+
+![](section-15/class-listener-2.jpg)
+
+```typescript
+class TicketCreatedListener extends Listener {
+  subject = 'ticket:created';
+  queueGroupName = 'payments-service';
+
+  onMessage(data: any, msg: Message) {
+    console.log('Event data!', data);
+
+    msg.ack();
+  }
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Quick Refactor
