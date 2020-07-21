@@ -22,6 +22,14 @@
   - [Restarting NATS](#restarting-nats)
 
 ### Reusable NATS Listeners
+
+- Wow, this is a lot of boilerplate to publish/receive a message!
+- Let's try to refactor this to make it much easier to publish/receive
+- We'll write out an initial implementation in this test project, then move it to our common module
+
+![](section-15/class-listener-1.jpg)
+![](section-15/class-listener-2.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### The Listener Abstract Class
