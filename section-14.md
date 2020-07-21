@@ -472,6 +472,20 @@ Solution that won't work #2 - Figure out every possible error case and write cod
 **[⬆ back to top](#table-of-contents)**
 
 ### Solving Concurrency Issues
+
+- We are working with a poorly designed system and relying on NATS to somehow save us
+- We should revisit the service design.
+- If we redesign the system, a better solution to this concurrency stuff will present itself
+
+![](section-14/concurrency-1.jpg)
+![](section-14/concurrency-2.jpg)
+![](section-14/concurrency-3.jpg)
+![](section-14/concurrency-4.jpg)
+![](section-14/concurrency-5.jpg)
+![](section-14/concurrency-6.jpg)
+![](section-14/concurrency-7.jpg)
+![](section-14/concurrency-8.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Concurrency Control with the Tickets App
