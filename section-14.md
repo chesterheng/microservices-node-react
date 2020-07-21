@@ -508,4 +508,21 @@ const options = stan
 **[⬆ back to top](#table-of-contents)**
 
 ### Durable Subscriptions
+
+![](section-14/durable-subscription.jpg)
+
+```typescript
+const options = stan
+  .subscriptionOptions()
+  .setManualAckMode(true)
+  .setDeliverAllAvailable()
+  .setDurableName('accounting-service');
+
+const subscription = stan.subscribe(
+  'ticket:created',
+  'queue-group-name',
+  options
+);
+```
+
 **[⬆ back to top](#table-of-contents)**
