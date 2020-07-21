@@ -489,6 +489,9 @@ Solution that won't work #2 - Figure out every possible error case and write cod
 **[⬆ back to top](#table-of-contents)**
 
 ### Concurrency Control with the Tickets App
+
+![](section-14/concurrency-9.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Event Redelivery
