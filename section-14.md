@@ -495,6 +495,16 @@ Solution that won't work #2 - Figure out every possible error case and write cod
 **[⬆ back to top](#table-of-contents)**
 
 ### Event Redelivery
+
+![](section-14/event-redelivery.jpg)
+
+```typescript
+const options = stan
+  .subscriptionOptions()
+  .setManualAckMode(true)
+  .setDeliverAllAvailable();
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Durable Subscriptions
