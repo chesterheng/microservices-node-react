@@ -441,6 +441,34 @@ Solution that won't work #2 - Figure out every possible error case and write cod
 **[⬆ back to top](#table-of-contents)**
 
 ### [Optional] More Possible Concurrency Solutions
+
+- Share state between services of last event processed
+
+![](section-14/share-1.jpg)
+![](section-14/share-2.jpg)
+![](section-14/share-3.jpg)
+![](section-14/share-4.jpg)
+
+- Event #1 fail. Cannot +$70 to User A account
+- Event #2: +$40 to User B account will be delay
+
+![](section-14/share-5.jpg)
+
+- Last event processed tracked by resource ID
+
+![](section-14/resource-id-1.jpg)
+![](section-14/resource-id-2.jpg)
+
+- Last Sequence ID
+
+![](section-14/last-seq-1.jpg)
+![](section-14/last-seq-2.jpg)
+![](section-14/last-seq-3.jpg)
+![](section-14/last-seq-4.jpg)
+![](section-14/last-seq-5.jpg)
+![](section-14/last-seq-6.jpg)
+![](section-14/last-seq-7.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Solving Concurrency Issues
