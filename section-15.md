@@ -286,6 +286,21 @@ export class TicketCreatedPublisher extends Publisher<TicketCreatedEvent> {
 **[⬆ back to top](#table-of-contents)**
 
 ### Using the Custom Publisher
+
+```typescript
+// publisher.ts
+stan.on('connect', () => {
+  console.log('Publisher connected to NATS');
+
+  const publisher = new TicketCreatedPublisher(stan);
+  publisher.publish({
+    id: '123',
+    title: 'concert',
+    price: 20
+  });
+});
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Awaiting Event Publication
