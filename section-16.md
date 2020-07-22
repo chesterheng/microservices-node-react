@@ -254,6 +254,18 @@ export class TicketUpdatedPublisher extends Publisher<TicketUpdatedEvent> {
 **[⬆ back to top](#table-of-contents)**
 
 ### Redirecting Imports
+
+Mocking (Faking) Imports with Jest
+
+- Find the file that we want to 'fake'
+- In the same directory, create a folder called '__mocks__'
+- In that folder, create a file with an identical name to the file we want to fake
+- Write a fake implementation
+- Tell jest to use that fake file in our test file
+```typescript
+jest.mock('../../nats-wrapper');
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Providing a Mock Implementation
