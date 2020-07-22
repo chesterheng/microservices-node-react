@@ -162,6 +162,22 @@ import { natsWrapper } from'../nats-wrapper';
 **[⬆ back to top](#table-of-contents)**
 
 ### Graceful Shutdown
+
+```typescript
+// index.ts
+  natsWrapper.client.on('close', () => {
+    console.log('NATS connection closed!');
+    process.exit();
+  });
+  process.on('SIGINT', () => natsWrapper.client.close());
+  process.on('SIGTERM', () => natsWrapper.client.close());
+```
+
+```console
+kubectl get pods
+kubectl delete pod nats-depl-8658cfccf-r9bt8
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Successful Listen!
