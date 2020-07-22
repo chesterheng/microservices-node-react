@@ -239,6 +239,9 @@ export class TicketCreatedListener extends Listener<TicketCreatedEvent> {
 **[⬆ back to top](#table-of-contents)**
 
 ### Where Does this Get Used?
+
+![](section-15/common-module.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Custom Publisher
