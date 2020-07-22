@@ -342,6 +342,12 @@ stan.on('connect', async () => {
 **[⬆ back to top](#table-of-contents)**
 
 ### Common Event Definitions Summary
+
+![](section-15/common-event.jpg)
+![](section-15/common-module-2.jpg)
+![](section-15/common-module-3.jpg)
+![](section-15/cross-language-support.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Updating the Common Module
