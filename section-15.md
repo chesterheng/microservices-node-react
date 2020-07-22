@@ -245,6 +245,44 @@ export class TicketCreatedListener extends Listener<TicketCreatedEvent> {
 **[⬆ back to top](#table-of-contents)**
 
 ### Custom Publisher
+
+```typescript
+// base-publisher.ts
+import { Stan } from 'node-nats-streaming';
+import { Subjects } from './subjects';
+
+interface Event {
+  subject: Subjects;
+  data: any;
+}
+
+export abstract class Publisher<T extends Event> {
+  abstract subject: T['subject'];
+  private client: Stan;
+
+  constructor(client: Stan) {
+    this.client = client;
+  }
+
+  publish(data: T['data']) {
+    this.client.publish(this.subject, JSON.stringify(data), () => {
+      console.log('Event published.')
+    })
+  }
+}
+```
+
+```typescript
+// ticket-created-publisher.ts
+import { Publisher } from './base-publisher';
+import { TicketCreatedEvent } from './ticket-created-event'
+import { Subjects } from './subjects';
+
+export class TicketCreatedPublisher extends Publisher<TicketCreatedEvent> {
+  readonly subject = Subjects.TicketCreated;
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Using the Custom Publisher
