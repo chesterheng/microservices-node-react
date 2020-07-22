@@ -62,6 +62,7 @@ Cyclic Dependency Issue
 ![](section-16/import-nats-client.jpg)
 
 ```typescript
+// nats-wrapper.ts
 import nats, { Stan } from 'node-nats-streaming';
 
 class NatsWrapper {}
@@ -74,6 +75,7 @@ export const natsWrapper = new NatsWrapper();
 ### Singleton Implementation
 
 ```typescript
+// nats-wrapper.ts
 import nats, { Stan } from 'node-nats-streaming';
 
 class NatsWrapper {
@@ -111,6 +113,52 @@ export const natsWrapper = new NatsWrapper();
 **[⬆ back to top](#table-of-contents)**
 
 ### Accessing the NATS Client
+
+```typescript
+// nats-wrapper.ts
+import nats, { Stan } from 'node-nats-streaming';
+
+class NatsWrapper {
+  private _client?: Stan;
+
+  get client() {
+    if (!this._client) {
+      throw new Error('Cannot access NAT client before connecting')
+    }
+
+    return this._client;
+  }
+
+  connect(clusterId: string, clientId: string, url: string) {
+    this._client = nats.connect(clusterId, clientId, { url });
+
+    return new Promise((resolve, reject) => {
+      this.client.on('connect', () => {
+        console.log('Connected to NATS');
+        resolve();
+      });
+      this.client.on('error', (err) => {
+        reject(err);
+      });
+    });
+  }
+}
+
+export const natsWrapper = new NatsWrapper();
+```
+
+```typescript
+// new.ts
+import { natsWrapper } from'../nats-wrapper';
+
+  await new TicketCreatedPublisher(natsWrapper.client).publish({
+    id: ticket.id,
+    title: ticket.title,
+    price: ticket.price,
+    userId: ticket.userId,
+  });
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Graceful Shutdown
