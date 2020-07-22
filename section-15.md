@@ -219,6 +219,23 @@ export class TicketCreatedListener extends Listener<TicketCreatedEvent> {
 **[⬆ back to top](#table-of-contents)**
 
 ### Enforcing Data Types
+
+```typescript
+// ticket-created-listener.ts
+export class TicketCreatedListener extends Listener<TicketCreatedEvent> {
+
+  onMessage(data: TicketCreatedEvent['data'], msg: Message) {
+    console.log('Event data!', data);
+
+    console.log(data.id);
+    console.log(data.title);
+    console.log(data.price);
+
+    msg.ack();
+  }
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Where Does this Get Used?
