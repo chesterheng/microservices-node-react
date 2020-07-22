@@ -161,6 +161,7 @@ export enum Subjects {
 ![](section-15/ticket-created-listener.jpg)
 
 ```typescript
+// ticket-created-event.ts
 import { Subjects } from "./subjects";
 
 export interface TicketCreatedEvent {
@@ -176,6 +177,33 @@ export interface TicketCreatedEvent {
 **[⬆ back to top](#table-of-contents)**
 
 ### Enforcing Listener Subjects
+
+```typescript
+// base-listener.ts
+import { Subjects } from './subjects';
+
+interface Event {
+  subject: Subjects;
+  data: any;
+}
+
+export abstract class Listener<T extends Event> {
+  abstract subject: T['subject'];
+  abstract onMessage(data: T['data'], msg: Message): void;
+}
+```
+
+```typescript
+// ticket-created-listener.ts
+import { TicketCreatedEvent } from './ticket-created-event'
+import { Subjects } from './subjects';
+
+export class TicketCreatedListener extends Listener<TicketCreatedEvent> {
+  subject: Subjects.TicketCreated = Subjects.TicketCreated;
+  ...
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Quick Note: 'readonly' in Typescript
