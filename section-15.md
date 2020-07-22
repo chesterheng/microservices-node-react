@@ -361,4 +361,10 @@ stan.on('connect', async () => {
 **[⬆ back to top](#table-of-contents)**
 
 ### Restarting NATS
+
+```console
+kubectl get pods
+kubectl delete pod nats-depl-786b8cff8d-xd4tn
+```
+
 **[⬆ back to top](#table-of-contents)**
