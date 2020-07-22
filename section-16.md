@@ -35,6 +35,16 @@ export class TicketCreatedPublisher extends Publisher<TicketCreatedEvent> {
 **[⬆ back to top](#table-of-contents)**
 
 ### More on Publishing
+
+```typescript
+// new.ts
+await new TicketCreatedPublisher(client).publish({
+  id: ticket.id,
+  title: ticket.title,
+  price: ticket.price,
+  userId: ticket.userId,
+});
+```
 **[⬆ back to top](#table-of-contents)**
 
 ### NATS Client Singleton
