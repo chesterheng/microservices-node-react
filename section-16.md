@@ -246,6 +246,11 @@ export class TicketUpdatedPublisher extends Publisher<TicketUpdatedEvent> {
 **[⬆ back to top](#table-of-contents)**
 
 ### Fixing a Few Tests
+
+![](section-16/fix-test-1.jpg)
+![](section-16/fix-test-2.jpg)
+![](section-16/fix-test-3.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Redirecting Imports
