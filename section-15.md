@@ -136,6 +136,11 @@ process.on('SIGTERM', () => stan.close());
 **[⬆ back to top](#table-of-contents)**
 
 ### Leveraging TypeScript for Listener Validation
+
+![](section-15/subject-name-event-data.jpg)
+![](section-15/ticket-created-listener.jpg)
+![](section-15/mismatch.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Subjects Enum
