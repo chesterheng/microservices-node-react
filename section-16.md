@@ -57,6 +57,18 @@ Cyclic Dependency Issue
 **[⬆ back to top](#table-of-contents)**
 
 ### Remember Mongoose?
+
+![](section-16/import-mongoose.jpg)
+![](section-16/import-nats-client.jpg)
+
+```typescript
+import nats, { Stan } from 'node-nats-streaming';
+
+class NatsWrapper {}
+
+export const natsWrapper = new NatsWrapper();
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Singleton Implementation
