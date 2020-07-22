@@ -181,6 +181,25 @@ kubectl delete pod nats-depl-8658cfccf-r9bt8
 **[⬆ back to top](#table-of-contents)**
 
 ### Successful Listen!
+
+- Connected to NATS
+
+```console
+skaffold dev
+kubectl get pods
+kubectl port-forward nats-depl-8658cfccf-jnb7b 4222:4222
+```
+
+- Listener connected to NATS
+
+```console
+cd section-16/ticketing/nats-test
+npm run listen
+```
+
+- Create Ticket with Postman
+- Check listener receive the ticket created
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Ticket Update Publishing
