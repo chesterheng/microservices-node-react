@@ -304,6 +304,41 @@ stan.on('connect', () => {
 **[⬆ back to top](#table-of-contents)**
 
 ### Awaiting Event Publication
+
+```typescript
+// base-publisher.ts
+  publish(data: T['data']): Promise<void> {
+    return new Promise((resolve, reject) => {
+      this.client.publish(this.subject, JSON.stringify(data), (err) => {
+        if (err) {
+          return reject(err);
+        }
+        console.log('Event published to subject', this.subject);
+        resolve();
+      });
+    });
+  }
+```
+
+```typescript
+// publisher.ts
+stan.on('connect', async () => {
+  console.log('Publisher connected to NATS');
+
+  const publisher = new TicketCreatedPublisher(stan);
+  try {
+    await publisher.publish({
+      id: '123',
+      title: 'concert',
+      price: 20
+    });
+  }
+  catch (err) {
+    console.error(err);
+  }
+});
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Common Event Definitions Summary
