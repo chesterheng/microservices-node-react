@@ -207,6 +207,15 @@ export class TicketCreatedListener extends Listener<TicketCreatedEvent> {
 **[⬆ back to top](#table-of-contents)**
 
 ### Quick Note: 'readonly' in Typescript
+
+```typescript
+export class TicketCreatedListener extends Listener<TicketCreatedEvent> {
+  readonly subject = Subjects.TicketCreated;
+ 
+  // ...everything else
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Enforcing Data Types
