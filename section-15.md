@@ -144,6 +144,16 @@ process.on('SIGTERM', () => stan.close());
 **[⬆ back to top](#table-of-contents)**
 
 ### Subjects Enum
+
+![](section-15/ticket-created-listener.jpg)
+
+```typescript
+export enum Subjects {
+  TicketCreated = 'ticket:created',
+  OrderUpdated = 'order:updated',
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Custom Event Interface
