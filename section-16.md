@@ -269,6 +269,21 @@ jest.mock('../../nats-wrapper');
 **[⬆ back to top](#table-of-contents)**
 
 ### Providing a Mock Implementation
+
+![](section-16/mock-implementation-1.jpg)
+![](section-16/mock-implementation-2.jpg)
+![](section-16/mock-implementation-3.jpg)
+
+```typescript
+export const natsWrapper = {
+  client: {
+    publish: (subject: string, data: string, callback: () => void) => {
+      callback();
+    },
+  },
+};
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Test-Suite Wide Mocks
