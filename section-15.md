@@ -351,6 +351,13 @@ stan.on('connect', async () => {
 **[⬆ back to top](#table-of-contents)**
 
 ### Updating the Common Module
+
+- base-listener.ts
+- base-publisher.ts
+- subjects.ts
+- ticket-created-event.ts
+- ticket-updated-event.ts
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Restarting NATS
