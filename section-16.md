@@ -22,6 +22,16 @@
   - [NATS Env Variables](#nats-env-variables)
 
 ### Publishing Ticket Creation
+
+```typescript
+// ticket-created-publisher.ts
+import { Publisher, Subjects, TicketCreatedEvent } from '@chticketing/common';
+
+export class TicketCreatedPublisher extends Publisher<TicketCreatedEvent> {
+  subject: Subjects.TicketCreated = Subjects.TicketCreated;
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### More on Publishing
