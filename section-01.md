@@ -75,6 +75,11 @@ Communication Strategies Between Services
 - Sync: Services communicate with each other using direct requests
 - Async: Services communicate with each other using events
 
+These two serve different purpose.
+- direct HTTP calls create a dependancy between your services, and if so you have to ask yourself if in the end it's not the same service that you artificially split.
+- using event or queues you have to be aware that it may takes some time before the second service has the information available to use.
+- In the end the means of communication describe how close the two service are. In my experience, two services with databases may be used asynchronously because they have their data state. If you have no local database, then you need someone to provide them synchronously. (this is just an simple example, it always depends xD)
+
 Notes on Sync Communication
 
 | Pro                              | Con                                                           |

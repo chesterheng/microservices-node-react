@@ -224,9 +224,25 @@ export class TicketUpdatedPublisher extends Publisher<TicketUpdatedEvent> {
 **[⬆ back to top](#table-of-contents)**
 
 ### Failed Event Publishing
+
+![](section-16/ticket-create-handler-1.jpg)
+![](section-16/ticket-create-handler-2.jpg)
+![](section-16/ticket-update-handler.jpg)
+
+![](section-16/failed-event-publishing-1.jpg)
+![](section-16/failed-event-publishing-2.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Handling Publish Failures
+
+![](section-16/handle-publish-failure-1.jpg)
+![](section-16/handle-publish-failure-2.jpg)
+![](section-16/handle-publish-failure-3.jpg)
+![](section-16/handle-publish-failure-4.jpg)
+![](section-16/handle-publish-failure-5.jpg)
+![](section-16/handle-publish-failure-6.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Fixing a Few Tests

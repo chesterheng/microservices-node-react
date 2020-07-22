@@ -28,9 +28,9 @@
 
 ## [**Section 14: NATS Streaming Server - An Event Bus Implementation**](https://github.com/chesterheng/microservices-node-react/blob/master/section-14.md)
 
-## [**Section 15: Connecting to NATS in a Node JS World**](https://github.com/chesterheng/microservices-node-react/blob/master/section-14.md)
+## [**Section 15: Connecting to NATS in a Node JS World**](https://github.com/chesterheng/microservices-node-react/blob/master/section-15.md)
 
-## **Managing a NATS Client**
+## [**Section 16: Managing a NATS Client**](https://github.com/chesterheng/microservices-node-react/blob/master/section-16.md)
 
 ## **Cross-Service Data Replication In Action**
 
