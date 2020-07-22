@@ -157,6 +157,22 @@ export enum Subjects {
 **[⬆ back to top](#table-of-contents)**
 
 ### Custom Event Interface
+
+![](section-15/ticket-created-listener.jpg)
+
+```typescript
+import { Subjects } from "./subjects";
+
+export interface TicketCreatedEvent {
+  subject: Subjects.TicketCreated;
+  data: {
+    id: string;
+    title: string;
+    price: number;
+  };
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Enforcing Listener Subjects
