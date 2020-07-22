@@ -48,6 +48,12 @@ await new TicketCreatedPublisher(client).publish({
 **[⬆ back to top](#table-of-contents)**
 
 ### NATS Client Singleton
+
+Cyclic Dependency Issue
+
+![](section-16/cyclic-dependency.jpg)
+![](section-16/nats-client-singleton.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Remember Mongoose?
