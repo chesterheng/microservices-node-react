@@ -203,6 +203,24 @@ npm run listen
 **[⬆ back to top](#table-of-contents)**
 
 ### Ticket Update Publishing
+
+```typescript
+import { Publisher, Subjects, TicketUpdatedEvent } from '@chticketing/common';
+
+export class TicketUpdatedPublisher extends Publisher<TicketUpdatedEvent> {
+  subject: Subjects.TicketUpdated = Subjects.TicketUpdated;
+}
+```
+
+```typescript
+  new TicketUpdatedPublisher(natsWrapper.client).publish({
+    id: ticket.id,
+    title: ticket.title,
+    price: ticket.price,
+    userId: ticket.userId
+  });
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Failed Event Publishing
