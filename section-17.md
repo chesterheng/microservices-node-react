@@ -516,6 +516,19 @@ Reuse the following files from tickets service
 **[⬆ back to top](#table-of-contents)**
 
 ### Asserting Tickets Exist
+
+```typescript
+it('returns an error if the ticket does not exist', async () => {
+  const ticketId = mongoose.Types.ObjectId();
+
+  await request(app)
+    .post('/api/orders')
+    .set('Cookie', global.signin())
+    .send({ ticketId })
+    .expect(404);
+});
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Asserting Reserved Tickets
