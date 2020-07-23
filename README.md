@@ -36,7 +36,7 @@
 
 ## [**Section 18: Understanding Event Flow**](https://github.com/chesterheng/microservices-node-react/blob/master/section-18.md)
 
-## **Listening for Events and Handling Concurrency Issues**
+## [**Section 19: Listening for Events and Handling Concurrency Issues**](https://github.com/chesterheng/microservices-node-react/blob/master/section-19.md)
 
 ## **Worker Services**
 
