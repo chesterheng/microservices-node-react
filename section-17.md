@@ -507,6 +507,12 @@ await order.save()
 **[⬆ back to top](#table-of-contents)**
 
 ### Test Suite Setup
+
+Reuse the following files from tickets service
+
+- setup.ts
+- nats-wrapper.ts
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Asserting Tickets Exist
