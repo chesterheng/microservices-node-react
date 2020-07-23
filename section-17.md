@@ -158,8 +158,6 @@ spec:
 
 ### Ingress Routing Rules
 
-![](section-17/order-service-3.jpg)
-
 ```yaml
   - path: /api/orders/?(.*)
     backend:
@@ -170,6 +168,21 @@ spec:
 **[⬆ back to top](#table-of-contents)**
 
 ### Scaffolding a Few Route Handlers
+
+![](section-17/order-service-3.jpg)
+
+```typescript
+import express, { Request, Response } from 'express';
+
+const router = express.Router();
+
+router.get('/api/orders', async (req: Request, res: Response) => {
+  res.send({});
+});
+
+export { router as indexOrderRouter };
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Subtle Service Coupling
