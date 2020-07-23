@@ -41,7 +41,8 @@
 | payments   | Handles credit card payments.  Cancels orders if payments fails, completes if payment succeeds |
 
 ![](section-17/app-2.jpg)
-![](section-17/order-service.jpg)
+![](section-17/order-service-1.jpg)
+![](section-17/order-service-2.jpg)
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -156,6 +157,16 @@ spec:
 **[⬆ back to top](#table-of-contents)**
 
 ### Ingress Routing Rules
+
+![](section-17/order-service-3.jpg)
+
+```yaml
+  - path: /api/orders/?(.*)
+    backend:
+      serviceName: orders-srv
+      servicePort: 3000
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Scaffolding a Few Route Handlers
