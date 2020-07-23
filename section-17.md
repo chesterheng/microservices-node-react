@@ -316,6 +316,35 @@ export enum OrderStatus {
 **[⬆ back to top](#table-of-contents)**
 
 ### More on Mongoose Refs
+
+```typescript
+// To associate an existing Order and Ticket together
+const ticket = await Ticket.findOne({});
+const order = await Order.findOne({});
+
+order.ticket = ticket;
+await order.save();
+```
+
+```typescript
+// To associate an existing Ticket with a *new* Order
+const ticket = await Ticket.findOne({});
+const order = Order.build({
+  ticket: ticket,
+  userId: '...',
+  status: OrderStatus.Created,
+  expiresAt: tomorrow
+})
+```
+
+```typescript
+// To fetch an existing Order from the database
+// with its associated Ticket
+const order = await Order.findbyId('...').populate('ticket');
+order.ticket.title
+order.ticket.price
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Defining the Ticket Model
