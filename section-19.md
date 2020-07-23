@@ -50,6 +50,13 @@
   - [Rejecting Edits of Reserved Tickets](#rejecting-edits-of-reserved-tickets)
 
 ### Time for Listeners!
+
+![](section-19/events.jpg)
+![](section-19/ticket-created.jpg)
+![](section-19/ticket-updated.jpg)
+![](section-19/order-created.jpg)
+![](section-19/order-cancelled.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Reminder on Listeners
