@@ -56,6 +56,23 @@ export interface OrderCancelledEvent {
 **[⬆ back to top](#table-of-contents)**
 
 ### Implementing the Publishers
+
+```typescript
+import { Publisher, OrderCreatedEvent, Subjects } from '@chticketing/common';
+
+export class OrderCreatedPublisher extends Publisher<OrderCreatedEvent> {
+  subject: Subjects.OrderCreated = Subjects.OrderCreated;
+}
+```
+
+```typescript
+import { Subjects, Publisher, OrderCancelledEvent } from '@chticketing/common';
+
+export class OrderCancelledPublisher extends Publisher<OrderCancelledEvent> {
+  subject: Subjects.OrderCancelled = Subjects.OrderCancelled;
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Publishing the Order Creation
