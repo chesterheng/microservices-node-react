@@ -11,6 +11,11 @@
   - [Testing Event Publishing](#testing-event-publishing)
 
 ### Orders Service Events
+
+![](section-18/events.jpg)
+![](section-18/order-created.jpg)
+![](section-18/order-cancelled.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Creating the Events
