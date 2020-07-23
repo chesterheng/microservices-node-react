@@ -284,9 +284,20 @@ export const natsWrapper = {
 };
 ```
 
+```typescript
+// new.test.ts
+jest.mock('../../nats-wrapper');
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Test-Suite Wide Mocks
+
+```typescript
+// setuo.ts
+jest.mock('../nats-wrapper');
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Ensuring Mock Invocations
