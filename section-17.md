@@ -282,6 +282,13 @@ export { Order };
 **[⬆ back to top](#table-of-contents)**
 
 ### The Need for an Enum
+
+![](section-17/enum-1.jpg)
+![](section-17/enum-2.jpg)
+![](section-17/enum-3.jpg)
+![](section-17/enum-4.jpg)
+![](section-17/enum-5.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Creating an Order Status Enum
