@@ -301,6 +301,18 @@ jest.mock('../nats-wrapper');
 **[⬆ back to top](#table-of-contents)**
 
 ### Ensuring Mock Invocations
+
+```typescript
+export const natsWrapper = {
+  client: {
+    publish: jest.fn().mockImplementation(
+      (subject: string, data: string, callback: () => void) => {
+        callback();
+    })
+  },
+};
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### NATS Env Variables
