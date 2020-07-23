@@ -76,6 +76,21 @@ export class OrderCancelledPublisher extends Publisher<OrderCancelledEvent> {
 **[⬆ back to top](#table-of-contents)**
 
 ### Publishing the Order Creation
+
+```typescript
+  // Publish an event saying that an order was created
+  new OrderCreatedPublisher(natsWrapper.client).publish({
+    id: order.id,
+    status: order.status,
+    userId: order.userId,
+    expiresAt: order.expiresAt.toISOString(),
+    ticket: {
+      id: ticket.id,
+      price: ticket.price,
+    },
+  });
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Publishing Order Cancellation
