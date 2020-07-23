@@ -31,6 +31,18 @@
   - [Can We Cancel?](#can-we-cancel)
 
 ### The Orders Service
+
+| Services   | Summary                                                                                        |
+| ---------- | ---------------------------------------------------------------------------------------------- |
+| auth       | Everything related to user signup/signin/signout                                               |
+| tickets    | Ticket creation/editing.  Knows whether a ticket can be updated                                |
+| orders     | Order creation/editing                                                                         |
+| expiration | Watches for orders to be created, cancels them after 15 minutes                                |
+| payments   | Handles credit card payments.  Cancels orders if payments fails, completes if payment succeeds |
+
+![](section-17/app-2.jpg)
+![](section-17/order-service.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Scaffolding the Orders Service
