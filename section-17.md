@@ -186,6 +186,25 @@ export { router as indexOrderRouter };
 **[⬆ back to top](#table-of-contents)**
 
 ### Subtle Service Coupling
+
+```typescript
+router.post(
+  '/api/orders', 
+  requireAuth, 
+  [
+    body('ticketId')
+      .not()
+      .isEmpty()
+      .custom((input: string) => mongoose.Types.ObjectId.isValid(input))
+      .withMessage('TicketId must be provided')
+  ], 
+  validateRequest, 
+  async (req: Request, res: Response) => {
+    res.send({});
+  }
+);
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Associating Orders and Tickets
