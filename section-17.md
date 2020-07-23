@@ -208,6 +208,15 @@ router.post(
 **[⬆ back to top](#table-of-contents)**
 
 ### Associating Orders and Tickets
+
+![](section-17/ticket-order.jpg)
+![](section-17/option-1.jpg)
+![](section-17/option-1-1.jpg)
+![](section-17/option-1-2.jpg)
+![](section-17/option-2.jpg)
+
+Option #2 is selected
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Order Model Setup
