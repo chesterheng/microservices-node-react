@@ -32,7 +32,7 @@
 
 ## [**Section 16: Managing a NATS Client**](https://github.com/chesterheng/microservices-node-react/blob/master/section-16.md)
 
-## **Cross-Service Data Replication In Action**
+## [**Section 17: Cross-Service Data Replication In Action**](https://github.com/chesterheng/microservices-node-react/blob/master/section-17.md)
 
 ## **Understanding Event Flow**
 
