@@ -316,4 +316,24 @@ export const natsWrapper = {
 **[⬆ back to top](#table-of-contents)**
 
 ### NATS Env Variables
+
+```yml
+  - name: NATS_CLUSTER_ID
+    value: 'ticketing'
+  - name: NATS_CLIENT_ID
+    valueFrom:
+      fieldRef:
+        fieldPath: metadata.name
+  - name: NATS_URL
+    value: 'http://nats-srv:4222'
+```
+
+```typescript
+  await natsWrapper.connect(
+    process.env.NATS_CLUSTER_ID, 
+    process.env.NATS_CLIENT_ID, 
+    process.env.NATS_URL
+  );
+```
+
 **[⬆ back to top](#table-of-contents)**
