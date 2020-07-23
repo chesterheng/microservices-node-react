@@ -46,6 +46,16 @@
 **[⬆ back to top](#table-of-contents)**
 
 ### Scaffolding the Orders Service
+
+Orders Service Setup
+
+- Duplicate the 'tickets' service
+- Install dependencies
+- Build an image out of the orders service
+- Create a Kubernetes deployment file
+- Set up file sync options in the skaffold.yaml file
+- Set up routing rules in the ingress service
+
 **[⬆ back to top](#table-of-contents)**
 
 ### A Touch More Setup
