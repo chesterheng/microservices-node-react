@@ -15,7 +15,7 @@
   - [Creating an Order Status Enum](#creating-an-order-status-enum)
   - [More on Mongoose Refs](#more-on-mongoose-refs)
   - [Defining the Ticket Model](#defining-the-ticket-model)
-  - [Order Creation Logic](#order-creation-logic)
+  - [Order Creation](#order-creation)
   - [Finding Reserved Tickets](#finding-reserved-tickets)
   - [Convenience Document Methods](#convenience-document-methods)
   - [Order Expiration Times](#order-expiration-times)
@@ -399,7 +399,30 @@ export { Ticket };
 
 **[⬆ back to top](#table-of-contents)**
 
-### Order Creation Logic
+### Order Creation 
+
+```typescript
+async (req: Request, res: Response) => {
+  const { ticketId } = req.body;
+
+  // Find the ticket the user is trying to order in the database
+  const ticket = await Ticket.findById(ticketId);
+  if (!ticket) {
+    throw new NotFoundError();
+  }
+
+  // Make sure that this ticket is not already reserved
+
+  // Calculate an expiration date for this order
+
+  // Build the order and save it to the database
+
+  // Publish an event saying that an order was created
+
+  res.send({});
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Finding Reserved Tickets
