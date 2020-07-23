@@ -34,7 +34,7 @@
 
 ## [**Section 17: Cross-Service Data Replication In Action**](https://github.com/chesterheng/microservices-node-react/blob/master/section-17.md)
 
-## **Understanding Event Flow**
+## [**Section 18: Understanding Event Flow**](https://github.com/chesterheng/microservices-node-react/blob/master/section-18.md)
 
 ## **Listening for Events and Handling Concurrency Issues**
 
