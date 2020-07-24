@@ -98,9 +98,28 @@ export const queueGroupName = 'orders-service';
 **[⬆ back to top](#table-of-contents)**
 
 ### Simple onMessage Implementation
+
+![](section-19/ticket-created.jpg)
+
+```typescript
+  async onMessage(data: TicketCreatedEvent['data'], msg: Message) {
+    const { title, price } = data;
+
+    const ticket = Ticket.build({
+      title, price
+    });
+    await ticket.save();
+
+    msg.ack;
+  }
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### ID Adjustment
+
+
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Ticket Updated Listener Implementation
