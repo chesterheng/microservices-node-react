@@ -60,9 +60,29 @@
 **[⬆ back to top](#table-of-contents)**
 
 ### Reminder on Listeners
+
+- Extends from Listener class
+  - Define subject and queueGroupName variables 
+  - Define onMessage function
+- Implement Event interface
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Blueprint for Listeners
+
+```typescript
+import { Message } from 'node-nats-streaming';
+import { Subjects, Listener, TicketCreatedEvent } from '@chticketing/common';
+import { Ticket } from '../../models/ticket';
+
+export class TicketCreatedListener extends Listener<TicketCreatedEvent> {
+  subject: Subjects.TicketCreated = Subjects.TicketCreated;
+  queueGroupName = 'orders-service';
+
+  onMessage(data: TicketCreatedEvent['data'], msg: Message) {}
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### A Few More Reminders

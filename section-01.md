@@ -33,6 +33,12 @@ to implement one feature of our app
 
 ![](section-01/single-microservice.jpg)
 
+
+- Microservices are basiclly software broken into functional components, components that are independent, autonomous processes and are not dependents on others. You no longer have one huge app and a databases. You have decentralised data management. Each component should be replaceable and upgradable
+- Best resource to start with microservices is Martin Fowley :)
+- [Microservices](https://martinfowler.com/articles/microservices.html)
+- [Microservices Guide](https://martinfowler.com/microservices/)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Data in Microservices
@@ -79,6 +85,10 @@ These two serve different purpose.
 - direct HTTP calls create a dependancy between your services, and if so you have to ask yourself if in the end it's not the same service that you artificially split.
 - using event or queues you have to be aware that it may takes some time before the second service has the information available to use.
 - In the end the means of communication describe how close the two service are. In my experience, two services with databases may be used asynchronously because they have their data state. If you have no local database, then you need someone to provide them synchronously. (this is just an simple example, it always depends xD)
+
+- Event is from source to destination while requests is for destination to source.
+- Request : someone ask for information
+- Event : someone notify information to registered client
 
 Notes on Sync Communication
 

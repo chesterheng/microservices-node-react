@@ -43,6 +43,7 @@ NATS Streaming Server
 - NATS Streaming implements some extraordinarily important design decisions that will affect our app
 - We are going to run the official '[nats-streaming](https://hub.docker.com/_/nats-streaming)' docker image in kubernetes.  
   - Need to read the image's docs: Commandline Options
+- [Event-Driven Microservices With NATS Streaming](https://www.slideshare.net/shijucv/eventdriven-microservices-with-nats-streaming-95207688)
 
 **[⬆ back to top](#table-of-contents)**
 
