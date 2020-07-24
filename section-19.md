@@ -357,6 +357,27 @@ version: number;
 **[⬆ back to top](#table-of-contents)**
 
 ### Updating Tickets Event Definitions
+
+```typescript
+  await new TicketCreatedPublisher(natsWrapper.client).publish({
+    id: ticket.id,
+    title: ticket.title,
+    price: ticket.price,
+    userId: ticket.userId,
+    version: ticket.version
+  });
+```
+
+```typescript
+  await new TicketUpdatedPublisher(natsWrapper.client).publish({
+    id: ticket.id,
+    title: ticket.title,
+    price: ticket.price,
+    userId: ticket.userId,
+    version: ticket.version
+  });
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Applying a Version Query
