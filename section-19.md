@@ -254,6 +254,8 @@ kubectl exec -it orders-mongo-depl-59db4f4877-4k9bq mongo mongodb://localhost:27
 
 ### Optimistic Concurrency Control
 
+[Optimistic Concurrency Control](https://www.youtube.com/watch?v=_NThms8k5k4)
+
 ![](section-19/control-1.jpg)
 ![](section-19/control-2.jpg)
 ![](section-19/control-3.jpg)
@@ -261,6 +263,9 @@ kubectl exec -it orders-mongo-depl-59db4f4877-4k9bq mongo mongodb://localhost:27
 **[⬆ back to top](#table-of-contents)**
 
 ### Mongoose Update-If-Current
+
+- [mongoose-update-if-current](https://github.com/eoin-obrien/mongoose-update-if-current)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Implementing OCC with Mongoose
