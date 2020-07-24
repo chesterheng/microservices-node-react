@@ -381,6 +381,23 @@ version: number;
 **[⬆ back to top](#table-of-contents)**
 
 ### Applying a Version Query
+
+- [mongoose-update-if-current](https://github.com/eoin-obrien/mongoose-update-if-current)
+
+```typescript
+// tickets.ts
+  ticketSchema.set('versionKey', 'version');
+  ticketSchema.plugin(updateIfCurrentPlugin);
+```
+
+```typescript
+// ticket-uodated-listener.ts
+  const ticket = await Ticket.findOne({
+    _id: data.id,
+    version: data.version - 1
+  });
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Did it Work?
