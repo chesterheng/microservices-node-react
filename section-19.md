@@ -349,6 +349,11 @@ it('increments the version number on multiple saves', async () => {
 **[⬆ back to top](#table-of-contents)**
 
 ### Including Versions in Events
+
+```typescript
+version: number;
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Updating Tickets Event Definitions
