@@ -339,6 +339,13 @@ it('increments the version number on multiple saves', async () => {
 **[⬆ back to top](#table-of-contents)**
 
 ### Who Updates Versions?
+
+- When should we increment or include the 'version' number of a record with an event?
+
+> Increment the 'version' number whenever the primary service responsible for a record emits an event to describe a create/update/destroy to a record
+
+![](section-19/update-version.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Including Versions in Events
