@@ -86,6 +86,15 @@ export class TicketCreatedListener extends Listener<TicketCreatedEvent> {
 **[⬆ back to top](#table-of-contents)**
 
 ### A Few More Reminders
+
+![](section-19/queue-groups.jpg)
+
+- Publisher send a ticket:created Event is send to one of any members in orders-service Queue Group
+
+```typescript
+export const queueGroupName = 'orders-service';
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Simple onMessage Implementation
