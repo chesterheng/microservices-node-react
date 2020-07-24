@@ -191,6 +191,11 @@ export class TicketUpdatedListener extends Listener<TicketUpdatedEvent> {
 **[⬆ back to top](#table-of-contents)**
 
 ### A Quick Manual Test
+
+- Sign up
+- Create Ticket
+- Update Ticker
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Clear Concurrency Issues
