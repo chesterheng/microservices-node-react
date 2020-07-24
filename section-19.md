@@ -246,6 +246,10 @@ kubectl exec -it orders-mongo-depl-59db4f4877-4k9bq mongo mongodb://localhost:27
 **[⬆ back to top](#table-of-contents)**
 
 ### Reminder on Versioning Records
+
+![](section-19/version-1.jpg)
+![](section-19/version-2.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Optimistic Concurrency Control
