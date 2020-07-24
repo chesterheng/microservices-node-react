@@ -199,6 +199,50 @@ export class TicketUpdatedListener extends Listener<TicketUpdatedEvent> {
 **[⬆ back to top](#table-of-contents)**
 
 ### Clear Concurrency Issues
+
+![](section-19/concurrency-1.jpg)
+![](section-19/concurrency-2.jpg)
+![](section-19/concurrency-3.jpg)
+
+- Process ticket:updated price: 15 first
+- Then, process ticket:updated price: 10
+
+![](section-19/concurrency-4.jpg)
+
+- Create 4 orders service instances
+
+```yaml
+  replicas: 4
+```
+
+```console
+<!-- #1 method -->
+kubectl get pods
+kubectl port-forward tickets-mongo-depl-685f7f898-tp27w 27017:27017
+mongo mongodb://localhost:27017/tickets
+> db.tickets.find({})
+
+<!-- or -->
+
+kubectl port-forward orders-mongo-depl-5b54d94b4d-vwnqw 27017:27017
+mongo mongodb://localhost:27017/orders
+> db.tickets.find({})
+```
+
+```console
+<!-- #2 method -->
+kubectl get pods
+kubectl exec -it tickets-mongo-depl-664cc88d8f-ss9mv mongo mongodb://localhost:27017/tickets
+> db.tickets.find({})
+> db.tickets.find({ price: 10 }).length()
+> db.tickets.remove({})
+
+kubectl exec -it orders-mongo-depl-59db4f4877-4k9bq mongo mongodb://localhost:27017/orders
+> db.tickets.find({})
+> db.tickets.find({ price: 10 }).length()
+> db.tickets.remove({})
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Reminder on Versioning Records
