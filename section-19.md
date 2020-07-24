@@ -269,6 +269,12 @@ kubectl exec -it orders-mongo-depl-59db4f4877-4k9bq mongo mongodb://localhost:27
 **[⬆ back to top](#table-of-contents)**
 
 ### Implementing OCC with Mongoose
+
+```typescript
+ticketSchema.set('versionKey', 'version');
+ticketSchema.plugin(updateIfCurrentPlugin);
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Testing OCC
