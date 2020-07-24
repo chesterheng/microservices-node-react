@@ -118,7 +118,36 @@ export const queueGroupName = 'orders-service';
 
 ### ID Adjustment
 
+![](section-19/id-adjustment.jpg)
 
+- Need to adjust Id so both tickets data in Tickets and Orders Service have same Id
+
+![](section-19/id-adjustment-2.jpg)
+
+```typescript
+ticketSchema.statics.build = (attrs: TicketAttrs) => {
+  return new Ticket({
+    _id: attrs.id,
+    title: attrs.title,
+    price: attrs.price
+  });
+};
+```
+
+```typescript
+async onMessage(data: TicketCreatedEvent['data'], msg: Message) {
+  const { id, title, price } = data;
+
+  const ticket = Ticket.build({
+    id,
+    title,
+    price,
+  });
+  await ticket.save();
+
+  msg.ack();
+}
+```
 
 **[⬆ back to top](#table-of-contents)**
 
