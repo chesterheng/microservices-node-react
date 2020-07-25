@@ -423,6 +423,16 @@ kubectl exec -it orders-mongo-depl-59db4f4877-4k9bq mongo mongodb://localhost:27
 **[⬆ back to top](#table-of-contents)**
 
 ### Abstracted Query Method
+
+```typescript
+ticketSchema.statics.findByEvent = (event: { id: string; version: number }) => {
+  return Ticket.findOne({
+    _id: event.id,
+    version: event.version - 1,
+  });
+};
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### [Optional] Versioning Without Update-If-Current
