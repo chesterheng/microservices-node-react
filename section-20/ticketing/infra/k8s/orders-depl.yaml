@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: orders-depl
 spec:
-  replicas: 4
+  replicas: 1
   selector:
     matchLabels:
       app: orders

@@ -208,6 +208,11 @@ new OrderCreatedListener(natsWrapper.client).listen()
 **[⬆ back to top](#table-of-contents)**
 
 ### Testing Job Processing
+
+- Signup
+- Create Ticket
+- Create Order
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Delaying Job Processing
