@@ -806,6 +806,13 @@ it('acks the message', async () => {
 **[⬆ back to top](#table-of-contents)**
 
 ### Missing Update Event
+
+![](section-19/missing-update-event-1.jpg)
+![](section-19/missing-update-event-2.jpg)
+![](section-19/missing-update-event-3.jpg)
+![](section-19/missing-update-event-4.jpg)
+![](section-19/missing-update-event-5.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Private vs Protected Properties
