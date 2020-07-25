@@ -473,6 +473,25 @@ kubectl exec -it orders-mongo-depl-857959646-s576x mongo
 **[⬆ back to top](#table-of-contents)**
 
 ### Testing Listeners
+
+```typescript
+const setup = async () => {
+  // create an instance of the listener
+  // create a fake data event
+  // create a fake message object
+};
+
+it('creates and saves a ticket', async () => {
+  // call the onMessage function with the data object + message object
+  // write assertions to make sure a ticket was created!
+});
+
+it('acks the message', async () => {
+  // call the onMessage function with the data object + message object
+  // write assertions to make sure ack function is called
+});
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### A Complete Listener Test
