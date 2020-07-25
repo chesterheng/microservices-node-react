@@ -153,9 +153,17 @@ export class OrderCreatedListener extends Listener<OrderCreatedEvent> {
 **[⬆ back to top](#table-of-contents)**
 
 ### What's Bull All About?
+
+![](section-20/bull-1.jpg)
+![](section-20/bull-2.jpg)
+![](section-20/bull-3.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Creating a Queue
+
+![](section-20/bull-4.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Queueing a Job on Event Arrival
