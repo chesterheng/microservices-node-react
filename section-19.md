@@ -401,6 +401,25 @@ version: number;
 **[⬆ back to top](#table-of-contents)**
 
 ### Did it Work?
+
+```console
+cd section-19/ticketing
+skaffold dev
+cd ../t
+node index.js
+```
+
+```console
+kubectl get pods
+kubectl exec -it tickets-mongo-depl-664cc88d8f-ss9mv mongo mongodb://localhost:27017/tickets
+> db
+> db.tickets.find({ price: 15 }).length()
+
+kubectl exec -it orders-mongo-depl-59db4f4877-4k9bq mongo mongodb://localhost:27017/orders
+> db
+> db.tickets.find({ price: 15 }).length()
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Abstracted Query Method
