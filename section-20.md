@@ -315,6 +315,38 @@ export class ExpirationCompleteListener extends Listener<ExpirationCompleteEvent
 **[⬆ back to top](#table-of-contents)**
 
 ### Testing the Expiration Complete Listener
+
+```typescript
+const setup = async () => {
+  const listener = new ExpirationCompleteListener(natsWrapper.client);
+
+  const ticket = Ticket.build({
+    id: mongoose.Types.ObjectId().toHexString(),
+    title: 'concert',
+    price: 20,
+  });
+  await ticket.save();
+  const order = Order.build({
+    status: OrderStatus.Created,
+    userId: 'alskdfj',
+    expiresAt: new Date(),
+    ticket,
+  });
+  await order.save();
+
+  const data: ExpirationCompleteEvent['data'] = {
+    orderId: order.id,
+  };
+
+  // @ts-ignore
+  const msg: Message = {
+    ack: jest.fn(),
+  };
+
+  return { listener, order, ticket, data, msg };
+};
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### A Touch More Testing
