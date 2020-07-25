@@ -484,6 +484,13 @@ Endpoints
 **[⬆ back to top](#table-of-contents)**
 
 ### Manual Testing of Payments
+
+- Signup
+- Create ticket
+- Create Order
+- Create Payment
+- Check stripe dashboard - Payments
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Automated Payment Testing
