@@ -677,6 +677,10 @@ orderSchema.plugin(updateIfCurrentPlugin);
 **[⬆ back to top](#table-of-contents)**
 
 ### Listeners in the Tickets Service
+
+![](section-19/order-created.jpg)
+![](section-19/order-cancelled.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Building the Listener
