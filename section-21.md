@@ -404,6 +404,30 @@ it('returns a 401 when purchasing an order that doesnt belong to the user', asyn
 **[⬆ back to top](#table-of-contents)**
 
 ### Testing Same-User Validation
+
+```typescript
+it('returns a 400 when purchasing a cancelled order', async () => {
+  const userId = mongoose.Types.ObjectId().toHexString();
+  const order = Order.build({
+    id: mongoose.Types.ObjectId().toHexString(),
+    userId,
+    version: 0,
+    price: 20,
+    status: OrderStatus.Cancelled,
+  });
+  await order.save();
+
+  await request(app)
+    .post('/api/payments')
+    .set('Cookie', global.signin(userId))
+    .send({
+      orderId: order.id,
+      token: 'asdlkfj',
+    })
+    .expect(400);
+});
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Stripe Setup
