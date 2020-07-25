@@ -33,6 +33,11 @@
   - [Marking an Order as Complete](#marking-an-order-as-complete)
 
 ### The Payments Service
+
+![](section-21/order-created.jpg)
+![](section-21/order-cancelled.jpg)
+![](section-21/charge-created.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Initial Setup
