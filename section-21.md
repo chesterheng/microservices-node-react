@@ -41,6 +41,14 @@
 **[⬆ back to top](#table-of-contents)**
 
 ### Initial Setup
+
+![](section-21/payments.jpg)
+
+```console
+docker build -t chesterheng/payments .
+docker push chesterheng/payments
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Replicated Fields
