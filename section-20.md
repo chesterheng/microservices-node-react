@@ -125,6 +125,18 @@ spec:
 **[⬆ back to top](#table-of-contents)**
 
 ### File Sync Setup
+
+```yaml
+  - image: chesterheng/expiration
+    context: expiration
+    docker:
+      dockerfile: Dockerfile
+    sync:
+      manual:
+        - src: 'src/**/*.ts'
+          dest: .
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Listener Creation
