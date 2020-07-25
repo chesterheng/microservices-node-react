@@ -537,6 +537,19 @@ it('creates and saves a ticket', async () => {
 **[⬆ back to top](#table-of-contents)**
 
 ### Testing the Ack Call
+
+```typescript
+it('acks the message', async () => {
+  const { data, listener, msg } = await setup();
+
+  // call the onMessage function with the data object + message object
+  await listener.onMessage(data, msg);
+
+  // write assertions to make sure ack function is called
+  expect(msg.ack).toHaveBeenCalled();
+});
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Testing the Ticket Updated Listener
