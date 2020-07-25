@@ -272,6 +272,12 @@ it('acks the message', async () => {
 **[⬆ back to top](#table-of-contents)**
 
 ### Starting the Listeners
+
+```typescript
+  new OrderCreatedListener(natsWrapper.client).listen();
+  new OrderCancelledListener(natsWrapper.client).listen();
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Payments Flow with Stripe
