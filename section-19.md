@@ -866,6 +866,23 @@ export interface TicketUpdatedEvent {
 **[⬆ back to top](#table-of-contents)**
 
 ### Mock Function Arguments
+
+```typescript
+it('publishes a ticket updated event', async () => {
+  const { listener, ticket, data, msg } = await setup();
+
+  await listener.onMessage(data, msg);
+
+  expect(natsWrapper.client.publish).toHaveBeenCalled();
+
+  const ticketUpdatedData = JSON.parse(
+    (natsWrapper.client.publish as jest.Mock).mock.calls[0][1]
+  );
+
+  expect(data.id).toEqual(ticketUpdatedData.orderId);
+});
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Order Cancelled Listener
