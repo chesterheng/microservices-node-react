@@ -52,6 +52,10 @@ docker push chesterheng/payments
 **[⬆ back to top](#table-of-contents)**
 
 ### Replicated Fields
+
+![](section-21/payments-service.jpg)
+![](section-21/props.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Another Order Model!
