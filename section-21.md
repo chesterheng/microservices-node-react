@@ -437,6 +437,20 @@ it('returns a 400 when purchasing a cancelled order', async () => {
 **[⬆ back to top](#table-of-contents)**
 
 ### Creating a Stripe Secret
+
+```console
+kubectl create secret generic stripe-secret --from-literal STRIP_KEY=sk_test_...
+kubectl get secrets
+```
+
+```yaml
+  - name: STRIPE_KEY
+  valueFrom:
+    secretKeyRef:
+      name: stripe-secret
+      key: STRIPE_KEY
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Creating a Charge with Stripe
