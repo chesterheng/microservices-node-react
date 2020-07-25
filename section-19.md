@@ -701,6 +701,11 @@ export class OrderCreatedListener extends Listener<OrderCreatedEvent> {
 **[⬆ back to top](#table-of-contents)**
 
 ### Strategies for Locking a Ticket
+
+![](section-19/lock-tickets-1.jpg)
+![](section-19/lock-tickets-2.jpg)
+![](section-19/lock-tickets-3.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Reserving a Ticket
