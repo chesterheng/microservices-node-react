@@ -439,7 +439,7 @@ it('returns a 400 when purchasing a cancelled order', async () => {
 ### Creating a Stripe Secret
 
 ```console
-kubectl create secret generic stripe-secret --from-literal STRIP_KEY=sk_test_...
+kubectl create secret generic stripe-secret --from-literal STRIPE_KEY=sk_test_...
 kubectl get secrets
 ```
 
@@ -454,6 +454,33 @@ kubectl get secrets
 **[⬆ back to top](#table-of-contents)**
 
 ### Creating a Charge with Stripe
+
+```
+import Stripe from 'stripe';
+
+export const stripe = new Stripe(process.env.STRIPE_KEY!, {
+  apiVersion: '2020-03-02',
+});
+```
+
+[Charges](https://stripe.com/docs/api/charges)
+
+Endpoints
+
+- POST /v1/charges
+- GET /v1/charges/:id
+- POST /v1/charges/:id
+- POST /v1/charges/:id/capture
+- GET /v1/charges
+
+```typescript
+  await stripe.charges.create({
+    currency: 'usd',
+    amount: order.price * 100,
+    source: token,
+  });
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Manual Testing of Payments
