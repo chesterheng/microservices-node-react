@@ -257,6 +257,19 @@ export interface ExpirationCompleteEvent {
 **[⬆ back to top](#table-of-contents)**
 
 ### Publishing an Event on Job Processing
+
+```typescript
+import {
+  Subjects,
+  Publisher,
+  ExpirationCompleteEvent,
+} from '@chticketing/common';
+
+export class ExpirationCompletePublisher extends Publisher<ExpirationCompleteEvent> {
+  subject: Subjects.ExpirationComplete = Subjects.ExpirationComplete;
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Handling an Expiration Event
