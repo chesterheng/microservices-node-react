@@ -126,6 +126,12 @@ export { Order };
 **[⬆ back to top](#table-of-contents)**
 
 ### Update-If-Current
+
+```typescript
+orderSchema.set('versionKey', 'version');
+orderSchema.plugin(updateIfCurrentPlugin);
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Replicating Orders
