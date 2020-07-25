@@ -616,6 +616,21 @@ it('acks the message', async () => {
 **[⬆ back to top](#table-of-contents)**
 
 ### Out-Of-Order Events
+
+```typescript
+it('does not call ack if the event has a skipped version number', async () => {
+  const { msg, data, listener, ticket } = await setup();
+
+  data.version = 10;
+
+  try {
+    await listener.onMessage(data, msg);
+  } catch (err) {}
+
+  expect(msg.ack).not.toHaveBeenCalled();
+});
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### The Next Few Videos
