@@ -744,6 +744,42 @@ interface TicketDoc extends mongoose.Document {
 **[⬆ back to top](#table-of-contents)**
 
 ### Setup for Testing Reservation
+
+```typescript
+const setup = async () => {
+  // Create an instance of the listener
+  const listener = new OrderCreatedListener(natsWrapper.client);
+
+  // Create and save a ticket
+  const ticket = Ticket.build({
+    title: 'concert',
+    price: 99,
+    userId: 'asdf',
+  });
+  await ticket.save();
+
+  // Create the fake data event
+  const data: OrderCreatedEvent['data'] = {
+    id: mongoose.Types.ObjectId().toHexString(),
+    version: 0,
+    status: OrderStatus.Created,
+    userId: 'alskdfj',
+    expiresAt: 'alskdjf',
+    ticket: {
+      id: ticket.id,
+      price: ticket.price,
+    },
+  };
+
+  // @ts-ignore
+  const msg: Message = {
+    ack: jest.fn(),
+  };
+
+  return { listener, ticket, data, msg };
+};
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Test Implementation
