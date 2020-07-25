@@ -940,6 +940,12 @@ it('updates the ticket, publishes an event, and acks the message', async () => {
 **[⬆ back to top](#table-of-contents)**
 
 ### Don't Forget to Listen!
+
+```typescript
+  new OrderCreatedListener(natsWrapper.client).listen();
+  new OrderCancelledListener(natsWrapper.client).listen();
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Rejecting Edits of Reserved Tickets
