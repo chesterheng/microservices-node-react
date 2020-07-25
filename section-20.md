@@ -46,6 +46,9 @@
 **[⬆ back to top](#table-of-contents)**
 
 ### Initial Setup
+
+![](section-20/setup.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### A Touch of Kubernetes Setup
