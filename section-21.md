@@ -548,6 +548,24 @@ it('returns a 204 with valid inputs', async () => {
 **[⬆ back to top](#table-of-contents)**
 
 ### A More Realistic Test Setup
+
+![](section-21/test-setup.jpg)
+![](section-21/test-setup-2.jpg)
+
+- add process.env.STRIPE_KEY to setup.ts
+```typescript
+// setup.ts
+process.env.STRIPE_KEY = 'sk_test_...'
+```
+- remove jest.mock('../../stripe'); to run real stripe API
+- remove code to check mock chargeOptions 
+```typescript
+  const chargeOptions = (stripe.charges.create as jest.Mock).mock.calls[0][0];
+  expect(chargeOptions.source).toEqual('tok_visa');
+  expect(chargeOptions.amount).toEqual(20 * 100);
+  expect(chargeOptions.currency).toEqual('usd');
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Realistic Test Implementation
