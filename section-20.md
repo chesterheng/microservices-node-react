@@ -31,6 +31,18 @@
 **[⬆ back to top](#table-of-contents)**
 
 ### Expiration Options
+
+- Option 1: Use timer
+- Option 2: Rely on NATS redelivery mechanism 
+- Option 3: Scheduled Event (Not supported by NATS)
+- Option 4: Use Bull JS
+
+![](section-20/expiration-options.jpg)
+![](section-20/option-1.jpg)
+![](section-20/option-2.jpg)
+![](section-20/option-3.jpg)
+![](section-20/option-4.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Initial Setup
