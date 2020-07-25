@@ -238,6 +238,22 @@ new OrderCreatedListener(natsWrapper.client).listen()
 **[⬆ back to top](#table-of-contents)**
 
 ### Defining the Expiration Complete Event
+
+```typescript
+  ExpirationComplete = 'expiration:complete',
+```
+
+```typescript
+import { Subjects } from './subjects';
+
+export interface ExpirationCompleteEvent {
+  subject: Subjects.ExpirationComplete;
+  data: {
+    orderId: string;
+  };
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Publishing an Event on Job Processing
