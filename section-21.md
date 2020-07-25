@@ -494,6 +494,37 @@ Endpoints
 **[⬆ back to top](#table-of-contents)**
 
 ### Automated Payment Testing
+
+```typescript
+export const stripe = {
+  charges: {
+    create: jest.fn().mockResolvedValue({}),
+  },
+};
+```
+
+```typescript
+it('returns a 204 with valid inputs', async () => {
+  const userId = mongoose.Types.ObjectId().toHexString();
+  const order = Order.build({
+    id: mongoose.Types.ObjectId().toHexString(),
+    userId,
+    version: 0,
+    price: 20,
+    status: OrderStatus.Created,
+  });
+  await order.save();
+
+  await request(app)
+    .post('/api/payments')
+    .set('Cookie', global.signin(userId))
+    .send({
+      token: 'tok_visa',
+      orderId: order.id,
+    });
+});
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Mocked Stripe Client
