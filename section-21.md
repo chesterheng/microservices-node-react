@@ -248,6 +248,27 @@ export class OrderCancelledListener extends Listener<OrderCancelledEvent> {
 **[⬆ back to top](#table-of-contents)**
 
 ### Cancelled Testing
+
+```typescript
+it('updates the status of the order', async () => {
+  const { listener, data, msg, order } = await setup();
+
+  await listener.onMessage(data, msg);
+
+  const updatedOrder = await Order.findById(order.id);
+
+  expect(updatedOrder!.status).toEqual(OrderStatus.Cancelled);
+});
+
+it('acks the message', async () => {
+  const { listener, data, msg, order } = await setup();
+
+  await listener.onMessage(data, msg);
+
+  expect(msg.ack).toHaveBeenCalled();
+});
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Starting the Listeners
