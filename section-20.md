@@ -24,6 +24,10 @@
   - [Don't Cancel Completed Orders!](#dont-cancel-completed-orders)
 
 ### The Expiration Service
+
+![](section-20/expiration-service-1.jpg)
+![](section-20/expiration-service-2.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Expiration Options
