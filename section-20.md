@@ -190,6 +190,21 @@ export { expirationQueue };
 **[⬆ back to top](#table-of-contents)**
 
 ### Queueing a Job on Event Arrival
+
+```typescript
+  async onMessage(data: OrderCreatedEvent['data'], msg: Message) {
+    await expirationQueue.add({
+      orderId: data.id,
+    });
+
+    msg.ack();
+  }
+```
+
+```typescript
+new OrderCreatedListener(natsWrapper.client).listen()
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Testing Job Processing
