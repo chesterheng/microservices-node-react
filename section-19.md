@@ -816,6 +816,34 @@ it('acks the message', async () => {
 **[⬆ back to top](#table-of-contents)**
 
 ### Private vs Protected Properties
+
+![](section-19/private-protected-1.jpg)
+![](section-19/private-protected-2.jpg)
+
+```typescript
+// base-listener.ts
+export abstract class Listener<T extends Event> {
+  abstract subject: T['subject'];
+  abstract queueGroupName: string;
+  abstract onMessage(data: T['data'], msg: Message): void;
+  protected client: Stan;
+  protected ackWait = 5 * 1000;
+
+}
+```
+
+```typescript
+// order-created-listener.ts
+  await new TicketUpdatedPublisher(this.client).publish({
+    id: ticket.id,
+    price: ticket.price,
+    title: ticket.title,
+    userId: ticket.userId,
+    orderId: ticket.orderId,
+    version: ticket.version,
+  });
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Publishing While Listening
