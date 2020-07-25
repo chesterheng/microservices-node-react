@@ -394,4 +394,11 @@ new ExpirationCompleteListener(natsWrapper.client).listen();
 **[⬆ back to top](#table-of-contents)**
 
 ### Don't Cancel Completed Orders!
+
+```typescript
+  if (order.status === OrderStatus.Complete) {
+    return msg.ack();
+  }
+```
+
 **[⬆ back to top](#table-of-contents)**
