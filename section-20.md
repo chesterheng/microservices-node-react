@@ -164,6 +164,29 @@ export class OrderCreatedListener extends Listener<OrderCreatedEvent> {
 
 ![](section-20/bull-4.jpg)
 
+```typescript
+import Queue from 'bull';
+
+interface Payload {
+  orderId: string;
+}
+
+const expirationQueue = new Queue<Payload>('order:expiration', {
+  redis: {
+    host: process.env.REDIS_HOST,
+  },
+});
+
+expirationQueue.process(async (job) => {
+  console.log(
+    'I want to publish an expiration:complete event for orderId',
+    job.data.orderId
+  );
+});
+
+export { expirationQueue };
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Queueing a Job on Event Arrival
