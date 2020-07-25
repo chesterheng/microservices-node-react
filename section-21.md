@@ -281,6 +281,10 @@ it('acks the message', async () => {
 **[⬆ back to top](#table-of-contents)**
 
 ### Payments Flow with Stripe
+
+![](section-21/stripe-1.jpg)
+![](section-21/stripe-2.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Implementing the Create Charge Handler
