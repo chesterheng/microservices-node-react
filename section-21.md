@@ -288,6 +288,36 @@ it('acks the message', async () => {
 **[⬆ back to top](#table-of-contents)**
 
 ### Implementing the Create Charge Handler
+
+![](section-21/charge-handler-1.jpg)
+![](section-21/charge-handler-2.jpg)
+
+```typescript
+import express, { Request, Response } from 'express';
+import { body } from 'express-validator';
+import {
+  requireAuth,
+  validateRequest,
+  BadRequestError,
+  NotFoundError,
+} from '@chticketing/common';
+import { Order } from '../models/order';
+
+const router = express.Router();
+
+router.post(
+  '/api/payments',
+  requireAuth,
+  [body('token').not().isEmpty(), body('orderId').not().isEmpty()],
+  validateRequest,
+  async (req: Request, res: Response) => {
+    res.send({ success: true });
+  }
+);
+
+export { router as createChargeRouter };
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Validating Order Payment
