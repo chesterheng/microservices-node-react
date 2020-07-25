@@ -299,6 +299,19 @@ export class ExpirationCompleteListener extends Listener<ExpirationCompleteEvent
 **[⬆ back to top](#table-of-contents)**
 
 ### Emitting the Order Cancelled Event
+
+![](section-20/order-cancelled.jpg)
+
+```typescript
+  await new OrderCancelledPublisher(this.client).publish({
+    id: order.id,
+    version: order.version,
+    ticket: {
+      id: order.ticket.id,
+    },
+  });
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Testing the Expiration Complete Listener
