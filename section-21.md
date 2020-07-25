@@ -431,6 +431,9 @@ it('returns a 400 when purchasing a cancelled order', async () => {
 **[⬆ back to top](#table-of-contents)**
 
 ### Stripe Setup
+
+![](section-21/stripe-setup.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Creating a Stripe Secret
