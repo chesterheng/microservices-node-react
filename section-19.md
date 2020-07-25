@@ -820,6 +820,10 @@ it('acks the message', async () => {
 ![](section-19/private-protected-1.jpg)
 ![](section-19/private-protected-2.jpg)
 
+**[⬆ back to top](#table-of-contents)**
+
+### Publishing While Listening
+
 ```typescript
 // base-listener.ts
 export abstract class Listener<T extends Event> {
@@ -829,6 +833,21 @@ export abstract class Listener<T extends Event> {
   protected client: Stan;
   protected ackWait = 5 * 1000;
 
+}
+```
+
+```typescript
+// ticket-updated-event.ts
+export interface TicketUpdatedEvent {
+  subject: Subjects.TicketUpdated;
+  data: {
+    id: string;
+    version: number;
+    title: string;
+    price: number;
+    userId: string;
+    orderId?: string;
+  };
 }
 ```
 
@@ -844,9 +863,6 @@ export abstract class Listener<T extends Event> {
   });
 ```
 
-**[⬆ back to top](#table-of-contents)**
-
-### Publishing While Listening
 **[⬆ back to top](#table-of-contents)**
 
 ### Mock Function Arguments
