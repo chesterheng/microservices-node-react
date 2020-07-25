@@ -949,4 +949,40 @@ it('updates the ticket, publishes an event, and acks the message', async () => {
 **[⬆ back to top](#table-of-contents)**
 
 ### Rejecting Edits of Reserved Tickets
+
+```typescript
+// update.ts
+  if (ticket.orderId) {
+    throw new BadRequestError('Cannot edit a reserved ticket');
+  }
+```
+
+```typescript
+// update.test.ts
+it('rejects updates if the ticket is reserved', async () => {
+  const cookie = global.signin();
+
+  const response = await request(app)
+    .post('/api/tickets')
+    .set('Cookie', cookie)
+    .send({
+      title: 'asldkfj',
+      price: 20,
+    });
+
+  const ticket = await Ticket.findById(response.body.id);
+  ticket!.set({ orderId: mongoose.Types.ObjectId().toHexString() });
+  await ticket!.save();
+
+  await request(app)
+    .put(`/api/tickets/${response.body.id}`)
+    .set('Cookie', cookie)
+    .send({
+      title: 'new title',
+      price: 100,
+    })
+    .expect(400);
+});
+```
+
 **[⬆ back to top](#table-of-contents)**
