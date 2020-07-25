@@ -436,6 +436,40 @@ ticketSchema.statics.findByEvent = (event: { id: string; version: number }) => {
 **[⬆ back to top](#table-of-contents)**
 
 ### [Optional] Versioning Without Update-If-Current
+
+![](section-19/mystery-event-source.jpg)
+
+mongoose-update-if-current
+
+- Updates the version number on records before they are saved
+```typescript
+// ticket-updated-listener.ts
+  const { title, price, version } = data;
+  ticket.set({ title, price, version });
+  await ticket.save();
+```
+- Customizes the find-and-update operation (save) to look for the correct version
+```typescript
+// ticket.ts
+ticketSchema.pre('save', function(done) {
+  // @ts-ignore
+  this.$where = {
+    version: this.get('version') - 1
+  };
+
+  done();
+})
+```
+
+```
+kubectl get pods
+kubectl exec -it orders-mongo-depl-857959646-s576x mongo
+> show dbs
+> use orders
+> db.tickets
+> db.tickets.find({ price: 200.34 })
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Testing Listeners
