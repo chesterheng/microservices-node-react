@@ -386,6 +386,11 @@ it('ack the message', async () => {
 **[⬆ back to top](#table-of-contents)**
 
 ### Listening for Expiration
+
+```typescript
+new ExpirationCompleteListener(natsWrapper.client).listen();
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Don't Cancel Completed Orders!
