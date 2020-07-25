@@ -684,6 +684,20 @@ orderSchema.plugin(updateIfCurrentPlugin);
 **[⬆ back to top](#table-of-contents)**
 
 ### Building the Listener
+
+```typescript
+import { Message } from 'node-nats-streaming';
+import { Listener, OrderCreatedEvent, Subjects } from '@chticketing/common';
+import { queueGroupName } from './queue-group-name';
+
+export class OrderCreatedListener extends Listener<OrderCreatedEvent> {
+  subject: Subjects.OrderCreated = Subjects.OrderCreated;
+  queueGroupName = queueGroupName;
+
+  async onMessage(data: OrderCreatedEvent['data'], msg: Message) {}
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Strategies for Locking a Ticket
