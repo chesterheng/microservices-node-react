@@ -32,7 +32,7 @@
   - [Testing the Ticket Updated Listener](#testing-the-ticket-updated-listener)
   - [Success Case Testing](#success-case-testing)
   - [Out-Of-Order Events](#out-of-order-events)
-  - [The Next Few Videos](#the-next-few-videos)
+  - [The Next Few Video](#the-next-few-video)
   - [Fixing a Few Tests](#fixing-a-few-tests)
   - [Listeners in the Tickets Service](#listeners-in-the-tickets-service)
   - [Building the Listener](#building-the-listener)
@@ -633,7 +633,24 @@ it('does not call ack if the event has a skipped version number', async () => {
 
 **[⬆ back to top](#table-of-contents)**
 
-### The Next Few Videos
+### The Next Few Video
+
+- Add the 'mongoose-update-if-current' module into the Orders mo
+```typescript
+interface OrderDoc extends mongoose.Document {
+  userId: string;
+  status: OrderStatus;
+  expiresAt: Date;
+  ticket: TicketDoc;
+  version: number;
+}
+
+orderSchema.set('versionKey', 'version');
+orderSchema.plugin(updateIfCurrentPlugin);
+```
+- Fix up some tests - we are creating some Tickets in the Orders service without providing them an ID
+- Fix up some route handlers - we are publishing events around orders but not providing the version of the order
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Fixing a Few Tests
