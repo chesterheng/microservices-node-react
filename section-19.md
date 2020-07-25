@@ -654,6 +654,26 @@ orderSchema.plugin(updateIfCurrentPlugin);
 **[⬆ back to top](#table-of-contents)**
 
 ### Fixing a Few Tests
+
+- Fix up some tests - we are creating some Tickets in the Orders service without providing them an ID
+```typescript
+  const ticket = Ticket.build({
+    id: mongoose.Types.ObjectId().toHexString(),
+    title: 'concert',
+    price: 20,
+  });
+```
+- Fix up some route handlers - we are publishing events around orders but not providing the version of the order
+```typescript
+  new OrderCancelledPublisher(natsWrapper.client).publish({
+    id: order.id,
+    version: order.version,
+    ticket: {
+      id: order.ticket.id,
+    },
+  });
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Listeners in the Tickets Service
