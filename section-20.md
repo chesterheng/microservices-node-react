@@ -52,6 +52,76 @@
 **[⬆ back to top](#table-of-contents)**
 
 ### A Touch of Kubernetes Setup
+
+```console
+docker build -t chesterheng/expiration .
+docker push chesterheng/expiration
+```
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: expiration-redis-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: expiration-redis
+  template:
+    metadata:
+      labels:
+        app: expiration-redis
+    spec:
+      containers:
+        - name: expiration-redis
+          image: redis
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: expiration-redis-srv
+spec:
+  selector:
+    app: expiration-redis
+  ports:
+    - name: db
+      protocol: TCP
+      port: 6379
+      targetPort: 6379
+```
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: expiration-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: expiration
+  template:
+    metadata:
+      labels:
+        app: expiration
+    spec:
+      containers:
+        - name: expiration
+          image: chesterheng/expiration
+          env:
+            - name: NATS_CLIENT_ID
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: NATS_URL
+              value: 'http://nats-srv:4222'
+            - name: NATS_CLUSTER_ID
+              value: ticketing
+            - name: REDIS_HOST
+              value: expiration-redis-srv
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### File Sync Setup
