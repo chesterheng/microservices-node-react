@@ -273,6 +273,29 @@ export class ExpirationCompletePublisher extends Publisher<ExpirationCompleteEve
 **[⬆ back to top](#table-of-contents)**
 
 ### Handling an Expiration Event
+
+![](section-20/expiration-complete.jpg)
+
+```typescript
+export class ExpirationCompleteListener extends Listener<ExpirationCompleteEvent> {
+  queueGroupName = queueGroupName;
+  subject: Subjects.ExpirationComplete = Subjects.ExpirationComplete;
+
+  async onMessage(data: ExpirationCompleteEvent['data'], msg: Message) {
+    const order = await Order.findById(data.orderId);
+
+    if (!order) {
+      throw new Error('Order not found');
+    }
+
+    order.set({
+      status: OrderStatus.Cancelled,
+      ticket: null,
+    });
+  }
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Emitting the Order Cancelled Event
