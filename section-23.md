@@ -252,6 +252,10 @@ jobs:
 **[⬆ back to top](#table-of-contents)**
 
 ### Reminder on Kubernetes Context
+
+![](section-23/context.jpg)
+![](section-23/doctl.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Reminder on Swapping Contexts
