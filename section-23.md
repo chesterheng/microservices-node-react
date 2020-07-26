@@ -509,6 +509,12 @@ jobs:
 **[⬆ back to top](#table-of-contents)**
 
 ### Buying a Domain Name
+
+![](section-23/load-balancer-1.jpg)
+![](section-23/load-balancer-2.jpg)
+
+- [namecheap](https://www.namecheap.com/)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Configuring the Domain Name
