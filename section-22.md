@@ -41,8 +41,39 @@
 
 ### Two Quick Fixes
 
-- Fetch getCurrentUser in _app.js and index.js
 - Type 'thisisunsafe' in Chrome to bypass security warning
+- Fetch getCurrentUser in _app.js and index.js
+
+```javascript
+const AppComponent = ({ Component, pageProps, currentUser }) => {
+  // Fix #1: pass currentUser directly into Component
+  return (
+    <div>
+      <Header currentUser={currentUser} />
+      <Component currentUser={currentUser} {...pageProps}  />
+    </div>
+  );
+};
+
+AppComponent.getInitialProps = async appContext => {
+  const client = buildClient(appContext.ctx);
+  const { data } = await client.get('/api/users/currentuser');
+
+  let pageProps = {};
+  if(appContext.Component.getInitialProps) {
+    // Fix #2
+    pageProps = await appContext.Component.getInitialProps(appContext.ctx, client, data.currentUser);
+  }
+
+  return {
+    pageProps,
+    ...data
+  };
+};
+
+export default AppComponent;
+```
+
 
 **[⬆ back to top](#table-of-contents)**
 
