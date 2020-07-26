@@ -496,6 +496,16 @@ jobs:
 **[⬆ back to top](#table-of-contents)**
 
 ### A Successful Deploy!
+
+- make changes in auth folder
+- make changes in client folder
+- make changes in expiration folder
+- make changes in orders folder
+- make changes in payments folder
+- make a PR and merge
+
+![](section-23/successful-deploy.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Buying a Domain Name
