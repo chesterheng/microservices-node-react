@@ -49,6 +49,29 @@
 ![](section-23/mono-repo.jpg)
 ![](section-23/repo-per-service.jpg)
 
+- copy ticketing folder to Desktop
+- open ticketing folder with VS Code
+```console
+git init
+```
+- create .gitignore
+```git
+node_modules
+.DS_Store
+```
+```console
+git add .
+git commit -m "initial commit"
+```
+- goto github
+- create a new repo: ticketing
+- goto ticketing folder
+```console
+git remote add origin https://github.com/chesterheng/ticketing.git
+git push origin master
+```
+- Refer to https://github.com/chesterheng/ticketing
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Creating a GitHub Action
