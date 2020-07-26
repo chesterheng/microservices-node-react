@@ -334,6 +334,21 @@ export default OrderShow;
 **[⬆ back to top](#table-of-contents)**
 
 ### Configuring Stripe
+
+```javascript
+  return (
+    <div>
+      Time left to pay: {timeLeft} seconds
+      <StripeCheckout
+        token={(token) => console.log(token)}
+        stripeKey="pk_test_FlLFVapGHTly3FicMdTU06SC006tWtWbNH"
+        amount={order.ticket.price * 100}
+        email={currentUser.email}
+      />
+    </div>
+  );
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Test Credit Card Numbers
