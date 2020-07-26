@@ -320,16 +320,48 @@ jobs:
      - run: docker push chesterheng/auth
 ```
 
+**[⬆ back to top](#table-of-contents)**
+
+### Testing the Image Build
+
 - After merge to master
 - Build a new auth image
 - Push to docker hub
 
 **[⬆ back to top](#table-of-contents)**
 
-### Testing the Image Build
-**[⬆ back to top](#table-of-contents)**
-
 ### Restarting the Deployment
+
+![](section-23/restart-deployment.jpg)
+
+```yaml
+name: deploy-auth
+
+on:
+  push:
+    branches: 
+      - master
+    paths:
+      - 'auth/**'
+
+jobs:
+  build:
+   runs-on: ubuntu-latest
+   steps:
+     - uses: actions/checkout@v2
+     - run: cd auth && docker build -t chesterheng/auth .
+     - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+       env:
+         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+     - run: docker push chesterheng/auth
+     - uses: digitalocean/action-doctl@v2
+       with:
+         token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+     - run: doctl kubernetes cluster kubeconfig save ticketing
+     - run: kubectl rollout restart deployment auth-depl.yaml
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Applying Kubernetes Manifests
