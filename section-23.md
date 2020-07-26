@@ -204,6 +204,28 @@ jobs:
 **[⬆ back to top](#table-of-contents)**
 
 ### Selective Test Execution
+
+![](section-23/selective-test-execution.jpg)
+
+- paths parameter
+- run auth test if path change is auth folder
+
+```yaml
+name: tests-auth
+
+on: 
+  pull_request:
+    paths:
+      - 'auth/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: cd auth && npm install && npm run test:ci
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Deployment Options
