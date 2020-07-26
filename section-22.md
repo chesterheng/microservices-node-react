@@ -352,6 +352,9 @@ export default OrderShow;
 **[⬆ back to top](#table-of-contents)**
 
 ### Test Credit Card Numbers
+
+- [Testing](https://stripe.com/docs/testing)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Paying for an Order
