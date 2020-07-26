@@ -521,6 +521,20 @@ jobs:
 
 ![](section-23/domain-name.jpg)
 
+- add digitalocean DNS to domain name
+  - ns1.digitalocean.com 
+  - ns2.digitalocean.com 
+  - ns3.digitalocean.com 
+
+![](section-23/add-domain-name.jpg)
+![](section-23/configure-domain.jpg)
+
+- update live domain name at ingress-srv.yaml
+```yaml
+# k8s/ingress-srv.yaml
+- host: www.chesterheng.xyz
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### One Small Fix
