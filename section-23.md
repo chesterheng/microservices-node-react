@@ -391,6 +391,32 @@ jobs:
 **[⬆ back to top](#table-of-contents)**
 
 ### Prod vs Dev Manifest Files
+
+- create k8s-dev folder to store ingress-srv.yaml for development environmemt
+- create k8s-prod folder to store ingress-srv.yaml for production environmemt
+- 
+```yaml
+name: deploy-manifests
+
+on:
+  push:
+    branches: 
+      - master
+    paths:
+      - 'infra/**'
+
+jobs:
+  build:
+   runs-on: ubuntu-latest
+   steps:
+     - uses: actions/checkout@v2
+     - uses: digitalocean/action-doctl@v2
+       with:
+         token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+     - run: doctl kubernetes cluster kubeconfig save ticketing
+     - run: kubectl apply -f infra/k8s && kubectl apply -f infra/k8s-prod
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Manual Secret Creation
