@@ -75,6 +75,26 @@ git push origin master
 **[⬆ back to top](#table-of-contents)**
 
 ### Creating a GitHub Action
+
+![](section-23/github-action.jpg)
+
+- [GitHub Actions Documentation](https://docs.github.com/en/actions)
+- [Events that trigger workflows](https://docs.github.com/en/actions/reference/events-that-trigger-workflows)
+
+```yml
+name: tests
+
+on: 
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: cd auth && npm install && npm run test:ci
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Adding a CI Test Script
