@@ -421,10 +421,13 @@ jobs:
 
 ### Manual Secret Creation
 
+```console
 kubectl config view
 kubectl config use-context do-sgp1-ticketing
 kubectl create secret generic jwt-secret --from-literal=JWT_KEY=sadghgjgshdajh
 kubectl create secret generic stripe-secret --from-literal=STRIPE_KEY=sk_test_...
+kubectl get sesrets
+```
 
 **[⬆ back to top](#table-of-contents)**
 
