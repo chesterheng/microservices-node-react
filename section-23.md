@@ -98,6 +98,21 @@ jobs:
 **[⬆ back to top](#table-of-contents)**
 
 ### Adding a CI Test Script
+
+- to run test only one time
+
+```json
+  "test:ci": "jest"
+```
+
+```console
+git status
+git add .
+git commit -m "463. Adding a CI Test Script"
+git pull origin master
+git push origin master
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Running Tests on PR Creation
