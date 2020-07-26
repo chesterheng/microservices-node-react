@@ -346,20 +346,20 @@ on:
 
 jobs:
   build:
-   runs-on: ubuntu-latest
-   steps:
-     - uses: actions/checkout@v2
-     - run: cd auth && docker build -t chesterheng/auth .
-     - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-       env:
-         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-     - run: docker push chesterheng/auth
-     - uses: digitalocean/action-doctl@v2
-       with:
-         token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
-     - run: doctl kubernetes cluster kubeconfig save ticketing
-     - run: kubectl rollout restart deployment auth-depl
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: cd auth && docker build -t chesterheng/auth .
+      - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      - run: docker push chesterheng/auth
+      - uses: digitalocean/action-doctl@v2
+        with:
+          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+      - run: doctl kubernetes cluster kubeconfig save ticketing
+      - run: kubectl rollout restart deployment auth-depl
 ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -378,14 +378,14 @@ on:
 
 jobs:
   build:
-   runs-on: ubuntu-latest
-   steps:
-     - uses: actions/checkout@v2
-     - uses: digitalocean/action-doctl@v2
-       with:
-         token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
-     - run: doctl kubernetes cluster kubeconfig save ticketing
-     - run: kubectl apply -f infra/k8s
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: digitalocean/action-doctl@v2
+        with:
+          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+      - run: doctl kubernetes cluster kubeconfig save ticketing
+      - run: kubectl apply -f infra/k8s
 ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -407,14 +407,14 @@ on:
 
 jobs:
   build:
-   runs-on: ubuntu-latest
-   steps:
-     - uses: actions/checkout@v2
-     - uses: digitalocean/action-doctl@v2
-       with:
-         token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
-     - run: doctl kubernetes cluster kubeconfig save ticketing
-     - run: kubectl apply -f infra/k8s && kubectl apply -f infra/k8s-prod
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: digitalocean/action-doctl@v2
+        with:
+          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+      - run: doctl kubernetes cluster kubeconfig save ticketing
+      - run: kubectl apply -f infra/k8s && kubectl apply -f infra/k8s-prod
 ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -452,6 +452,47 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/cont
 **[⬆ back to top](#table-of-contents)**
 
 ### Additional Deploy Files
+
+```console
+kubectl get pods
+kubectl logs auth-depl-db79bbf7f-dsjnr
+```
+Add in the following similar deploy files
+
+- deploy-client.yaml
+- deploy-expiration.yaml
+- deploy-orders.yaml
+- deploy-payments.yaml
+- deploy-tickets.yaml
+
+```yaml
+name: deploy-client
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'client/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: cd client && docker build -t chesterheng/client .
+      - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      - run: docker push chesterheng/client
+      - uses: digitalocean/action-doctl@v2
+        with:
+          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+      - run: doctl kubernetes cluster kubeconfig save ticketing
+      - run: kubectl rollout restart deployment client-depl
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### A Successful Deploy!
