@@ -359,7 +359,7 @@ jobs:
        with:
          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
      - run: doctl kubernetes cluster kubeconfig save ticketing
-     - run: kubectl rollout restart deployment auth-depl.yaml
+     - run: kubectl rollout restart deployment auth-depl
 ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -444,6 +444,11 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/cont
 **[⬆ back to top](#table-of-contents)**
 
 ### Testing Automated Deployment
+
+- make a change in auth folder
+- commit the change and do a PR
+- merge to master and deploy-auth action will execute
+ 
 **[⬆ back to top](#table-of-contents)**
 
 ### Additional Deploy Files
