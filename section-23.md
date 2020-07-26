@@ -151,6 +151,49 @@ Github
 **[⬆ back to top](#table-of-contents)**
 
 ### Running Tests in Parallel
+
+```yaml
+name: tests-orders
+
+on: 
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: cd orders && npm install && npm run test:ci
+```
+
+```yaml
+name: tests-payments
+
+on: 
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: cd payments && npm install && npm run test:ci
+```
+
+```yaml
+name: tests-tickets
+
+on: 
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: cd tickets && npm install && npm run test:ci
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Verifying a Test Run
