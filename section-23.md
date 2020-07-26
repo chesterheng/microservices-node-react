@@ -654,6 +654,14 @@ Goto chrome. Key in www.chesterheng.xyz to test
 
 ### Next Steps
 
+Destroy 
+
+- load balancer - $10/month
+- kubernetes cluster - $30/month
+
+![](section-23/destroy-load-balancer.jpg)
+![](section-23/destroy-kubernetes-cluster.jpg)
+
 | Feature                                   | Details                                                                                                                                                                                                                                              |
 | ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Add in HTTPS                              | See cert-manager.io                                                                                                                                                                                                                                  |
