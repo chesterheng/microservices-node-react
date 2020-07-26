@@ -38,10 +38,10 @@
 
 ## [**Section 19: Listening for Events and Handling Concurrency Issues**](https://github.com/chesterheng/microservices-node-react/blob/master/section-19.md)
 
-## [**Section 20: Worker Services**](https://github.com/chesterheng/microservices-node-react/blob/master/section-19.md)
+## [**Section 20: Worker Services**](https://github.com/chesterheng/microservices-node-react/blob/master/section-20.md)
 
-## [**Section 21: Handling Payments**](https://github.com/chesterheng/microservices-node-react/blob/master/section-19.md)
+## [**Section 21: Handling Payments**](https://github.com/chesterheng/microservices-node-react/blob/master/section-21.md)
 
-## **Back to the Client**
+## [**Section 22: Back to the Client**](https://github.com/chesterheng/microservices-node-react/blob/master/section-22.md)
 
 ## **CI/CD**
