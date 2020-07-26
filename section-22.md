@@ -272,6 +272,12 @@ export default TicketShow;
 **[⬆ back to top](#table-of-contents)**
 
 ### Programmatic Navigation to Wildcard Routes
+
+- Route to show new order after reserved ticket 
+```javascript
+onSuccess: (order) => Router.push('/orders/[orderId]', `/orders/${order.id}`),
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### The Expiration Timer
