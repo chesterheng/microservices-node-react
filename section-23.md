@@ -246,6 +246,9 @@ jobs:
 **[⬆ back to top](#table-of-contents)**
 
 ### Creating a Hosted Cluster
+
+![](section-23/choose-cluster-capacity.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Reminder on Kubernetes Context
