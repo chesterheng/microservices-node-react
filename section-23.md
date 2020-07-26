@@ -256,6 +256,12 @@ jobs:
 ![](section-23/context.jpg)
 ![](section-23/doctl.jpg)
 
+- [Install and Set Up kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+- [doctl](https://github.com/digitalocean/doctl#installing-doctl)
+- doctl auth init
+
+![](section-23/token.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Reminder on Swapping Contexts
