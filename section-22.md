@@ -223,6 +223,13 @@ export default LandingPage;
 **[⬆ back to top](#table-of-contents)**
 
 ### Linking to Wildcard Routes
+
+```javascript
+  <Link href="/tickets/[ticketId]" as={`/tickets/${ticket.id}`}>
+    <a>View</a>
+  </Link>
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Creating an Order
