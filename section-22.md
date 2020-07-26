@@ -33,6 +33,10 @@
 **[⬆ back to top](#table-of-contents)**
 
 ### Reminder on Data Fetching with Next
+
+![](section-22/next-1.jpg)
+![](section-22/next-2.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Two Quick Fixes
