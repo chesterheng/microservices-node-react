@@ -715,6 +715,15 @@ export class PaymentCreatedPublisher extends Publisher<PaymentCreatedEvent> {
 **[⬆ back to top](#table-of-contents)**
 
 ### More on Publishing
+
+```typescript
+  new PaymentCreatedPublisher(natsWrapper.client).publish({
+    id: payment.id,
+    orderId: payment.orderId,
+    stripeId: payment.stripeId,
+  });
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Marking an Order as Complete
