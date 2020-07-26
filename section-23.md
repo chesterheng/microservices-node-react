@@ -265,6 +265,26 @@ jobs:
 **[⬆ back to top](#table-of-contents)**
 
 ### Reminder on Swapping Contexts
+
+| Action                                  | Command                                                 |
+| --------------------------------------- | ------------------------------------------------------- |
+| Authenticating with Doctl               | doctl auth init                                         |
+| Get connection info for our new cluster | doctl kubernetes cluster kubeconfig save <cluster_name> |
+| List all contexts                       | kubectl config view                                     |
+| Use a different context                 | kubectl config use-context <context_name>               |
+
+```console
+doctl kubernetes cluster kubeconfig save ticketing
+kubectl get pods
+kubectl get nodes
+kubectl config view
+kubectl config use-context docker-desktop
+kubectl get nodes
+kubectl get pods
+```
+
+![](section-23/context-2.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### The Deployment Plan
