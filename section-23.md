@@ -288,6 +288,9 @@ kubectl get pods
 **[⬆ back to top](#table-of-contents)**
 
 ### The Deployment Plan
+
+![](section-23/deployment-plan.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Building an Image in an Action
