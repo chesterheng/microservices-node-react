@@ -365,6 +365,29 @@ jobs:
 **[⬆ back to top](#table-of-contents)**
 
 ### Applying Kubernetes Manifests
+
+```yaml
+name: deploy-manifests
+
+on:
+  push:
+    branches: 
+      - master
+    paths:
+      - 'infra/**'
+
+jobs:
+  build:
+   runs-on: ubuntu-latest
+   steps:
+     - uses: actions/checkout@v2
+     - uses: digitalocean/action-doctl@v2
+       with:
+         token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+     - run: doctl kubernetes cluster kubeconfig save ticketing
+     - run: kubectl apply -f infra/k8s
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Prod vs Dev Manifest Files
