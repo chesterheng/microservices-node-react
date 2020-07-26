@@ -518,6 +518,9 @@ jobs:
 **[⬆ back to top](#table-of-contents)**
 
 ### Configuring the Domain Name
+
+![](section-23/domain-name.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### One Small Fix
