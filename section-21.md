@@ -663,6 +663,28 @@ export { Payment };
 **[⬆ back to top](#table-of-contents)**
 
 ### Testing Payment Creation
+
+```typescript
+  const charge = await stripe.charges.create({
+    currency: 'usd',
+    amount: order.price * 100,
+    source: token,
+  });
+  const payment = Payment.build({
+    orderId,
+    stripeId: charge.id,
+  });
+  await payment.save();
+```
+
+```typescript
+  const payment = await Payment.findOne({
+    orderId: order.id,
+    stripeId: stripeCharge!.id,
+  });
+  expect(payment).not.toBeNull();
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Publishing a Payment Created Event
