@@ -24,6 +24,12 @@
   - [Rendering a List of Orders](#rendering-a-list-of-orders)
 
 ### A Few More Pages
+
+![](section-22/page-1.jpg)
+![](section-22/page-2.jpg)
+![](section-22/page-3.jpg)
+![](section-22/routes.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Reminder on Data Fetching with Next
