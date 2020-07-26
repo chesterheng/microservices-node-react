@@ -42,6 +42,13 @@
 **[⬆ back to top](#table-of-contents)**
 
 ### Git Repository Approaches
+
+- Mono Repo Approach (selected)
+- Repo-Per-Service Approach (not selected, many overheads)
+
+![](section-23/mono-repo.jpg)
+![](section-23/repo-per-service.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Creating a GitHub Action
