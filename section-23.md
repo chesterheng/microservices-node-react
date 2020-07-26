@@ -420,6 +420,12 @@ jobs:
 **[⬆ back to top](#table-of-contents)**
 
 ### Manual Secret Creation
+
+kubectl config view
+kubectl config use-context do-sgp1-ticketing
+kubectl create secret generic jwt-secret --from-literal=JWT_KEY=sadghgjgshdajh
+kubectl create secret generic stripe-secret --from-literal=STRIPE_KEY=sk_test_...
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Don't Forget Ingress-Nginx!
