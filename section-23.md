@@ -117,6 +117,8 @@ git push origin master
 
 ### Running Tests on PR Creation
 
+Local Machine
+
 - Make change to code for tickets service
 - Commit code to a git branch (any besides master!)
 ```console
@@ -132,6 +134,20 @@ git push --set-upstream origin 464-running-tests-on-pr-creation
 **[⬆ back to top](#table-of-contents)**
 
 ### Output of Failing Tests
+
+- Change expect result to make test fails
+```console
+git add .
+git commit -m "465. Output of Failing Tests"
+git push
+```
+
+Github
+
+- Github receives updated branch
+- You manually create a pull request to merge branch into master
+- Github automatically runs tests for project
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Running Tests in Parallel
