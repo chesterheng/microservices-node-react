@@ -35,6 +35,10 @@
   - [Next Steps](#next-steps)
 
 ### Development Workflow
+
+![](section-23/teams.jpg)
+![](section-23/branch.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Git Repository Approaches
