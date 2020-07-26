@@ -156,6 +156,25 @@ export default NewTicket;
 **[⬆ back to top](#table-of-contents)**
 
 ### Ticket Creation
+
+```javascript
+  const { doRequest, errors } = useRequest({
+    url: '/api/tickets',
+    method: 'post',
+    body: {
+      title,
+      price,
+    },
+    onSuccess: (ticket) => console.log(ticket),
+  });
+
+  const onSubmit = (event) => {
+    event.preventDefault();
+
+    doRequest();
+  };
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Listing All Tickets
