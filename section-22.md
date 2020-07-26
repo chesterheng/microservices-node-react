@@ -328,6 +328,9 @@ export default OrderShow;
 **[⬆ back to top](#table-of-contents)**
 
 ### Showing a Stripe Payment Form
+
+- [react-stripe-checkout](https://github.com/azmenak/react-stripe-checkout)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Configuring Stripe
