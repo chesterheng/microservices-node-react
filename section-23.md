@@ -229,6 +229,20 @@ jobs:
 **[⬆ back to top](#table-of-contents)**
 
 ### Deployment Options
+
+- A credit card will be required to move forward
+- $1 for a domain name, $0.72 a day to run the cluster
+- You can probably find a coupon code to pay $0 for the cluster
+
+3 nodes, each with 2gb ram + 1 cpu PLUS EXTRAS
+
+| Digital Ocean      | AWS        | Google Cloud | Azure     |
+| ------------------ | ---------- | ------------ | --------- |
+| $40/month          | $126/month | $113/month   | $72/month |
+| Really easy to use | Hardest    | Easy         | Easy      |
+
+- Digital Ocean is selected
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Creating a Hosted Cluster
