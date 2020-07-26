@@ -633,6 +633,17 @@ export default ({ req }) => {
 **[⬆ back to top](#table-of-contents)**
 
 ### One More Small Fix
+
+You may recall that we configured all of our services to only use cookies when the user is on an HTTPS connection.  This will cause auth to fail while we do this initial deploy of our app, since we don't have HTTPS setup right now.
+
+To disable the HTTPS checking, go to the app.ts file in the auth, orders, tickets, and payments services.  At the cookie-session middleware, change the following:
+
+> secure: process.env.NODE_ENV !== 'test',
+
+to:
+
+> secure: false,
+
 **[⬆ back to top](#table-of-contents)**
 
 ### I Really Hope This Works
