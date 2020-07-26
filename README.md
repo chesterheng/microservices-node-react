@@ -44,4 +44,4 @@
 
 ## [**Section 22: Back to the Client**](https://github.com/chesterheng/microservices-node-react/blob/master/section-22.md)
 
-## **CI/CD**
+## [**Section 23: CI/CD**](https://github.com/chesterheng/microservices-node-react/blob/master/section-23.md)
