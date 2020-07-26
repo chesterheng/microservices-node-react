@@ -40,6 +40,10 @@
 **[⬆ back to top](#table-of-contents)**
 
 ### Two Quick Fixes
+
+- Fetch getCurrentUser in _app.js and index.js
+- Type 'thisisunsafe' in Chrome to bypass security warning
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Scaffolding a Form
