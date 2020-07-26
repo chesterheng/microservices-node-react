@@ -373,6 +373,13 @@ export default OrderShow;
 **[⬆ back to top](#table-of-contents)**
 
 ### Filtering Reserved Tickets
+
+```typescript
+  const tickets = await Ticket.find({
+    orderId: undefined,
+  });
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Header Links
