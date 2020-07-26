@@ -432,6 +432,15 @@ kubectl get sesrets
 **[⬆ back to top](#table-of-contents)**
 
 ### Don't Forget Ingress-Nginx!
+
+[NGINX Ingress Controller - Digital Ocean](https://kubernetes.github.io/ingress-nginx/deploy/#digital-ocean)
+
+```console
+kubectl config view
+kubectl config use-context do-sgp1-ticketing
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.34.1/deploy/static/provider/do/deploy.yaml
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Testing Automated Deployment
