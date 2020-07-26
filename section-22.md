@@ -358,6 +358,18 @@ export default OrderShow;
 **[⬆ back to top](#table-of-contents)**
 
 ### Paying for an Order
+
+```javascript
+  const { doRequest, errors } = useRequest({
+    url: '/api/payments',
+    method: 'post',
+    body: {
+      orderId: order.id,
+    },
+    onSuccess: (payment) => console.log(payment),
+  });
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Filtering Reserved Tickets
