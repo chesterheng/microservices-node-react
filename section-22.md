@@ -318,6 +318,13 @@ export default OrderShow;
 **[⬆ back to top](#table-of-contents)**
 
 ### Displaying the Expiration
+
+```javascript
+  if (timeLeft < 0) {
+    return <div>Order Expired</div>;
+  }
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Showing a Stripe Payment Form
