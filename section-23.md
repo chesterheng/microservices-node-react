@@ -294,6 +294,32 @@ kubectl get pods
 **[⬆ back to top](#table-of-contents)**
 
 ### Building an Image in an Action
+
+![](section-23/secrets.jpg)
+
+```yaml
+name: deploy-auth
+
+on:
+  push:
+    branches: 
+      - master
+    paths:
+      - 'auth/**'
+
+jobs:
+  build:
+   runs-on: ubuntu-latest
+   steps:
+     - uses: actions/checkout@v2
+     - run: cd auth && docker build -t chesterheng/auth .
+     - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+       env:
+         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+     - run: docker push chesterheng/auth
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Testing the Image Build
