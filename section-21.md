@@ -688,6 +688,30 @@ export { Payment };
 **[⬆ back to top](#table-of-contents)**
 
 ### Publishing a Payment Created Event
+
+![](section-21/publish-payment.jpg)
+
+```typescript
+import { Subjects } from './subjects';
+
+export interface PaymentCreatedEvent {
+  subject: Subjects.PaymentCreated;
+  data: {
+    id: string;
+    orderId: string;
+    stripeId: string;
+  };
+}
+```
+
+```typescript
+import { Subjects, Publisher, PaymentCreatedEvent } from '@chticketing/common';
+
+export class PaymentCreatedPublisher extends Publisher<PaymentCreatedEvent> {
+  subject: Subjects.PaymentCreated = Subjects.PaymentCreated;
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### More on Publishing
