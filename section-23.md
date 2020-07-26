@@ -320,6 +320,10 @@ jobs:
      - run: docker push chesterheng/auth
 ```
 
+- After merge to master
+- Build a new auth image
+- Push to docker hub
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Testing the Image Build
