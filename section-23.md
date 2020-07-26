@@ -197,6 +197,10 @@ jobs:
 **[⬆ back to top](#table-of-contents)**
 
 ### Verifying a Test Run
+
+- make a change and commit
+- push a PR and see 4 tests run in parallel
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Selective Test Execution
