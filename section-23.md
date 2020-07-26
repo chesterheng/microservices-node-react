@@ -116,6 +116,19 @@ git push origin master
 **[⬆ back to top](#table-of-contents)**
 
 ### Running Tests on PR Creation
+
+- Make change to code for tickets service
+- Commit code to a git branch (any besides master!)
+```console
+git branch -m 464-running-tests-on-pr-creation
+git add .
+git commit -m "464. Running Tests on PR Creation"
+git push --set-upstream origin 464-running-tests-on-pr-creation
+```
+- Push branch to github
+![](section-23/run-action-1.jpg)
+![](section-23/run-action-2.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Output of Failing Tests
