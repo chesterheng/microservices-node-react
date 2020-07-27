@@ -90,6 +90,11 @@ These two serve different purpose.
 - Request : someone ask for information
 - Event : someone notify information to registered client
 
+Depends on the use case
+
+- Prefer event based when there are more subscribers to be notified of an event
+- Prefer direct requests for something like service aggregation
+
 Notes on Sync Communication
 
 | Pro                              | Con                                                           |
